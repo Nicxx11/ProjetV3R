@@ -1,0 +1,9 @@
+html, body {
+    height: 100%;
+  }
+
+.loginBG{
+  height: 100%;
+    background-image: url('../img/villeTR.png');
+    background-size: cover;
+}
