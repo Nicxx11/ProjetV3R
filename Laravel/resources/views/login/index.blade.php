@@ -9,13 +9,47 @@
 
 </head>
 <body>
-    <div class="container loginBG">
-        <div class="row">
+    <div class="container-fluid loginBG">
+        <div class="row h-100">
             <div class="col-md-3">
                 <!-- EMPTY ZONE -->
             </div>
-            <div class="col-md-6">
-                <h1>Connexion</h1>
+            <div class="col-md-6 text-center align-self-center">
+                <div class="card">
+
+                    <h1>Connexion</h1>
+                    <!----------------- ajout -------------------->
+                    <form action="/connexion" method="post" class="section">
+                    {{ csrf_field() }}
+
+        <div class="field">
+            <label class="label">Adresse e-mail</label>
+            <div class="control">
+                <input class="input" type="email" name="email" value="{{ old('email') }}">
+            </div>
+            @if($errors->has('email'))
+                <p class="help is-danger">{{ $errors->first('email') }}</p>
+            @endif
+        </div>
+
+        <div class="field">
+            <label class="label">Mot de passe</label>
+            <div class="control">
+                <input class="input" type="password" name="password">
+            </div>
+            @if($errors->has('password'))
+                <p class="help is-danger">{{ $errors->first('password') }}</p>
+            @endif
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-link" type="submit">Se connecter</button>
+            </div>
+        </div>
+    </form>
+                    <!----------------- ajout -------------------->
+                </div>
             </div>
             <div class="col-md-3">
                 <!-- EMPTY ZONE -->
