@@ -29,9 +29,9 @@ return new class extends Migration
             $table->primary(['NEQ', 'Courriel']);
 
             
-            // DB::statement("ALTER TABLE fournisseurs ADD CONSTRAINT check_devise_fournisseurs CHECK (Devise IN ('CAD', 'USD'))");
-            // DB::statement("ALTER TABLE fournisseurs ADD CONSTRAINT check_mode_communication_fournisseurs CHECK (Mode_Communication IN ('Courriel', 'Courrier régulier'))");
-            // DB::statement("ALTER TABLE fournisseurs ADD CONSTRAINT check_etat_demande_fournisseurs CHECK (Etat_Demande IN ('En attente', 'Acceptées', 'Refusées', 'À Réviser'))");
+            // Devise VARCHAR(3) CHECK ( Devise IN ('CAD', 'USD') ),
+            // Mode_Communication VARCHAR(64) CHECK ( Mode_Communication IN ('Courriel', 'Courrier régulier') ),
+            // Etat_Demande VARCHAR(64) CHECK ( Etat_Demande IN ('En attente', 'Acceptées', 'Refusées', 'À Réviser' ) ),
         });
     }
 

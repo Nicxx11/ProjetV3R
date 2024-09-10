@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('Nature', 12);
+            $table->integer('Code_Categorie')->length(5);
+            $table->string('Categorie', 255);
+            $table->integer('UNSPSC')->length(8);
+            $table->string('Description', 255);
         });
     }
 
