@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Fournisseur;
 
 class UsersController extends Controller
 {
@@ -11,7 +12,9 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return View('login.index');
+        $fournisseurs = Fournisseur::all();
+
+        return View('login.index', compact('fournisseurs'));
     }
 
     /**
