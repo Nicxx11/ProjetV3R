@@ -19,7 +19,16 @@
 
                     <h1>Connexion</h1>
                     <!----------------- ajout -------------------->
-                    <form action="/connexion" method="post" class="section">
+                    <h2>Liste des fournisseurs (test)</h2>
+                    @if (count($fournisseurs))
+                        @foreach($fournisseurs as $fournisseur)
+                            <li>{{ $fournisseur->NEQ }}</li>
+                            <li>{{ $fournisseur->Courriel }}</li>
+                        @endforeach
+                    @else
+                        <p>Il n'y a pas de fournisseurs</p>
+                    @endif
+                    <!-- <form action="/connexion" method="post" class="section">
                     {{ csrf_field() }}
 
         <div class="field">
@@ -47,7 +56,7 @@
                 <button class="button is-link" type="submit">Se connecter</button>
             </div>
         </div>
-    </form>
+    </form> -->
                     <!----------------- ajout -------------------->
                 </div>
             </div>
