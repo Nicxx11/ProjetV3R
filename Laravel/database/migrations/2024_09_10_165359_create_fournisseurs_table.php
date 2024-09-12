@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('NEQ', 10)->nullable()->unique(); #10 chiffres
             $table->string('Courriel', 64);
             $table->string('Entreprise', 64);
-            $table->string('MotDePasse', 12); #majuscule, minuscule, chiffres & car spéciaux. doit être encrypté
+            $table->string('MotDePasse'); #majuscule, minuscule, chiffres & car spéciaux. doit être encrypté. 12 char max
             $table->string('Details', 500)->nullable();
             $table->string('No_TPS', 64)->nullable();
             $table->string('No_TVQ', 64)->nullable();
@@ -23,9 +23,6 @@ return new class extends Migration
             $table->string('Devise', 3)->nullable(); # CAD ou USD
             $table->string('Mode_Communication', 64)->nullable(); #liste prédéterminée
             $table->string('Etat_Demande', 64)->nullable(); # En attente, Accepté, Refusé, À réviser
-            $table->dateTime('Date_Changement_Etat')->nullable(); #date & heure
-            $table->dateTime('Date_Creation')->nullable(); #date & heure
-            $table->datetime('Date_Derniere_Modification')->nullable(); # date & heure
             $table->primary(['NEQ', 'Courriel']);
 
             

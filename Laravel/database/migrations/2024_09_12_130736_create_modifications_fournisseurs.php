@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_fournisseur', function (Blueprint $table) {
+        Schema::create('modifications_fournisseurs', function (Blueprint $table) {
             $table->id();
             $table->string('No_Fournisseur_NEQ', 10)->nullable();
             $table->string('No_Fournisseur_Courriel', 64);
-            $table->string('Prenom', 32); #lettres et , -
-            $table->string('Nom', 32); #lettres et , -
-            $table->string('Fonction', 32); #lettres et car spéciaux
-            $table->string('Courriel', 64);
-            $table->string('TypeTelephone'); #Bureau, Télécopieur, Cellulaire
-            $table->string('Numero', 10); #numerique seulement
-            $table->string('Poste', 6); #numerique seulement
+            $table->dateTime('Date_Changement_Etat')->nullable(); #date & heure
+            $table->dateTime('Date_Creation')->nullable(); #date & heure
+            $table->datetime('Date_Derniere_Modification')->nullable(); # date & heure
             $table->foreign(['No_Fournisseur_NEQ', 'No_Fournisseur_Courriel'])->references(['NEQ', 'Courriel'])->on('fournisseurs');
         });
     }
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact_fournisseur');
+        Schema::dropIfExists('modifications_fournisseurs');
     }
 };
