@@ -14,7 +14,8 @@ class FournisseursSeeder extends Seeder
     {
          DB::table('fournisseurs')->insert([
              [
-                'NEQ' => '1234567890',
+                'NEQ' => '',
+                'Entreprise' => 'DeLaVie',
                 'Courriel' => 'test@test.com',
                 'MotDePasse' => Hash::make('password1234')
              ]

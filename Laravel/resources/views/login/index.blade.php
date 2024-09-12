@@ -23,6 +23,7 @@
                     @if (count($fournisseurs))
                         @foreach($fournisseurs as $fournisseur)
                             <li>{{ $fournisseur->NEQ }}</li>
+                            <li>{{ $fournisseur->Entreprise }}</li>
                             <li>{{ $fournisseur->Courriel }}</li>
                         @endforeach
                     @else

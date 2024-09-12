@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FournisseursController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
-Route::get('login',
-[UsersController::class,'index'])->name('login.index');
+ Route::get('/',
+ [FournisseursController::class,'index'])->name('login.index');
