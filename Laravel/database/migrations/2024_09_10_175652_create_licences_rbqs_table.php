@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('licences_rbqs', function (Blueprint $table) {
             $table->id();
-            $table->string('No_Fournisseur_NEQ', 10)->nullable();
-            $table->string('No_Fournisseur_Courriel', 64);
+            $table->string('NEQ', 10)->nullable();
+            $table->string('Courriel_F', 64);
             $table->string('No_Licence_RBQ', 10); #numérique seulement
             $table->string('Statut', 23); # Valide, Valide avec restriction, Non valide
             $table->string('TypeLicence', 26); # Entrepreneur, Contructeur-Propriétaire
             $table->string('Categorie', 10); # Général, Spécialisé
             $table->string('Code_Sous_Categorie', 64); # liste prédéterminée (AnnexeListeSousCategories.pdf)
             $table->string('Travaux_Permis', 64); # liste prédéterminée (AnnexeListeSousCategories.pdf)
-            $table->foreign(['No_Fournisseur_NEQ', 'No_Fournisseur_Courriel'])->references(['NEQ','Courriel'])->on('fournisseurs');
+            $table->foreign(['NEQ', 'Courriel_F'])->references(['NEQ','Courriel'])->on('fournisseurs');
 
 
             // Statut VARCHAR(23) CHECK ( Statut IN ('Valide', 'Valide avec restriction', 'Non valide') ),

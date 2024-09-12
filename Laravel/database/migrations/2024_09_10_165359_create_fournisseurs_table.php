@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
-            $table->string('NEQ', 10)->nullable()->unique(); #10 chiffres
+            $table->string('NEQ', 10)->unique(); #10 chiffres
             $table->string('Courriel', 64);
             $table->string('Entreprise', 64);
             $table->string('MotDePasse'); #majuscule, minuscule, chiffres & car spéciaux. doit être encrypté. 12 char max
