@@ -12,20 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
-            $table->integer('NEQ')->lenght(10)->nullable()->unique();
+            $table->string('NEQ', 10)->nullable()->unique(); #10 chiffres
             $table->string('Courriel', 64);
             $table->string('Entreprise', 64);
-            $table->string('MotDePasse', 12);
+            $table->string('MotDePasse', 12); #majuscule, minuscule, chiffres & car spéciaux. doit être encrypté
             $table->string('Details', 500)->nullable();
             $table->string('No_TPS', 64)->nullable();
             $table->string('No_TVQ', 64)->nullable();
-            $table->string('Conditions_Paiement', 4)->nullable();
-            $table->string('Devise', 3)->nullable();
-            $table->string('Mode_Communication', 64)->nullable();
-            $table->string('Etat_Demande', 64)->nullable();
-            $table->date('Date_Changement_Etat')->nullable();
-            $table->date('Date_Creation')->nullable();
-            $table->date('Date_Derniere_Modification')->nullable();
+            $table->string('Conditions_Paiement', 4)->nullable(); #liste prédéterminée
+            $table->string('Devise', 3)->nullable(); # CAD ou USD
+            $table->string('Mode_Communication', 64)->nullable(); #liste prédéterminée
+            $table->string('Etat_Demande', 64)->nullable(); # En attente, Accepté, Refusé, À réviser
+            $table->dateTime('Date_Changement_Etat')->nullable(); #date & heure
+            $table->dateTime('Date_Creation')->nullable(); #date & heure
+            $table->datetime('Date_Derniere_Modification')->nullable(); # date & heure
             $table->primary(['NEQ', 'Courriel']);
 
             

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('services_fournisseurs', function (Blueprint $table) {
             $table->id();
             $table->integer('No_Service');
-            $table->integer('No_Fournisseur_NEQ')->length(10);
+            $table->string('No_Fournisseur_NEQ', 10);
             $table->string('No_Fournisseur_Courriel', 64);
             $table->foreign('No_Service')->references('id')->on('services');
             $table->foreign(['No_Fournisseur_NEQ', 'No_Fournisseur_Courriel'])->references(['NEQ', 'Courriel'])->on('fournisseurs');
