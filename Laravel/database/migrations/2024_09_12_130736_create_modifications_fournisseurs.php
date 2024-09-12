@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('modifications_fournisseurs', function (Blueprint $table) {
             $table->id();
-            $table->string('No_Fournisseur_NEQ', 10)->nullable();
-            $table->string('No_Fournisseur_Courriel', 64);
+            $table->string('NEQ', 10)->nullable();
+            $table->string('Courriel_F', 64);
             $table->dateTime('Date_Changement_Etat')->nullable(); #date & heure
             $table->dateTime('Date_Creation')->nullable(); #date & heure
             $table->datetime('Date_Derniere_Modification')->nullable(); # date & heure
-            $table->foreign(['No_Fournisseur_NEQ', 'No_Fournisseur_Courriel'])->references(['NEQ', 'Courriel'])->on('fournisseurs');
+            $table->foreign(['NEQ', 'Courriel_F'])->references(['NEQ', 'Courriel'])->on('fournisseurs');
         });
     }
 
