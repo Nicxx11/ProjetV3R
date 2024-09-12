@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
-            $table->string('NEQ', 10)->unique(); #10 chiffres
+            $table->integer('id', 1)->autoIncrement();
+            $table->string('NEQ', 10)->nullable()->unique(); #10 chiffres
             $table->string('Courriel', 64);
             $table->string('Entreprise', 64);
             $table->string('MotDePasse'); #majuscule, minuscule, chiffres & car spéciaux. doit être encrypté. 12 char max
@@ -23,7 +24,6 @@ return new class extends Migration
             $table->string('Devise', 3)->nullable(); # CAD ou USD
             $table->string('Mode_Communication', 64)->nullable(); #liste prédéterminée
             $table->string('Etat_Demande', 64)->nullable(); # En attente, Accepté, Refusé, À réviser
-            $table->primary(['NEQ', 'Courriel']);
 
             
             // Devise VARCHAR(3) CHECK ( Devise IN ('CAD', 'USD') ),

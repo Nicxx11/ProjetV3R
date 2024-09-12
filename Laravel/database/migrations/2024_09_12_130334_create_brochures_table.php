@@ -13,13 +13,12 @@ return new class extends Migration
     {
         Schema::create('brochures', function (Blueprint $table) {
             $table->id();
-            $table->string('NEQ', 10)->nullable();
-            $table->string('Courriel_F', 64);
             $table->string('Nom', 32); #alphanumérique
             $table->string('TypeFichier'); # tout les documents imprimables possibles
             $table->integer('Taille'); #en octets, somme ne doit pas depasser le maximum autorisé dans la table parametres
             $table->date('DateCreation'); # date
-            $table->foreign(['NEQ', 'Courriel_F'])->references(['NEQ', 'Courriel'])->on('fournisseurs');
+            $table->integer('No_Fournisseur');
+            $table->foreign('No_Fournisseur')->references('id')->on('fournisseurs');
         });
     }
 

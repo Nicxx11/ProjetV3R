@@ -13,8 +13,6 @@ return new class extends Migration
     {
         Schema::create('coordonnees', function (Blueprint $table) {
             $table->id();
-            $table->string('NEQ', 10)->nullable();
-            $table->string('Courriel_F', 64);
             $table->string('NoCivique', 8); #alphanumérique
             $table->string('Rue', 64); #peut contenir des car spéciaux
             $table->string('Bureau', 8)->nullable(); #alphanumérique
@@ -27,7 +25,8 @@ return new class extends Migration
             $table->string('TypeTelephone'); #Bureau, Télécopieur ou Cellulaire
             $table->string('Numero', 10); #exactement 10, numérique seulement
             $table->string('Poste', 6)->nullable(); #numérique seulement
-            $table->foreign(['NEQ', 'Courriel_F'])->references(['NEQ', 'Courriel'])->on('fournisseurs');
+            $table->integer('No_Fournisseur');
+            $table->foreign('No_Fournisseur')->references('id')->on('fournisseurs');
         });
     }
 
