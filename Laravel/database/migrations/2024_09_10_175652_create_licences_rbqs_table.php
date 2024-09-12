@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('licences_rbqs', function (Blueprint $table) {
             $table->id();
-            $table->string('No_Fournisseur_NEQ', 10);
+            $table->string('No_Fournisseur_NEQ', 10)->nullable();
             $table->string('No_Fournisseur_Courriel', 64);
             $table->string('No_Licence_RBQ', 10); #numérique seulement
             $table->string('Statut', 23); # Valide, Valide avec restriction, Non valide
