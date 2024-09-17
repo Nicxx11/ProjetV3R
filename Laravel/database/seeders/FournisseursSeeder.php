@@ -68,7 +68,7 @@ class FournisseursSeeder extends Seeder
                   'Etat_Demande' => 'Acceptée',
                ],
                [
-                   'NEQ' => '1180063977',
+                   'NEQ' => '1178135605',
                    'Courriel' => 'administration@edward-ia.ca',
                    'Entreprise' => 'Edward IA Canada Inc.',
                    'MotDePasse' => Hash::make('MotDePasse1$'),
