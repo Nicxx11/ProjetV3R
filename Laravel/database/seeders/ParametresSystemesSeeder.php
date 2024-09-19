@@ -13,22 +13,13 @@ class ParametresSystemesSeeder extends Seeder
      */
     public function run(): void
     {
-        // DB::table('parametres_systemes')->insert([
-        //     [
-                
-        //     ],
-        //     [
-
-        //     ],
-        //     [
-
-        //     ],
-        //     [
-
-        //     ],
-        //     [
-
-        //     ]
-        //  ]);
+        DB::table('parametres_systemes')->insert([
+            [
+                'Approvisionnement' => 'approvisionnement@v3r.net',
+                'DelaiRevision' => '24',
+                'TailleMaxBrochures' => '75',
+                'Finances' => 'finances@v3r.net'
+            ]
+         ]);
     }
 }

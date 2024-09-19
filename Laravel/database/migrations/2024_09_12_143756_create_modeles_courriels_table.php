@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('id', 1)->autoIncrement();
             $table->string('NomModele', 64);
             $table->string('ObjetModele', 64);
-            $table->string('MessageModele');
+            $table->string('MessageModele', 5000);
         });
     }
 

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('Nom', 32); #lettres et , -
             $table->string('Courriel', 64);
             $table->string('Role'); #Administrateur, Responsable, Commis. Minimum 2 admins & 1 responsable at all times.
-            $table->string('MotDePasse', 12); #Maj, Min, Symbole. Doit être encrypté.
+            $table->string('MotDePasse'); #Maj, Min, Symbole. Doit être encrypté.
         });
     }
 
