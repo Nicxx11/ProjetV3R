@@ -24,6 +24,9 @@ return new class extends Migration
             $table->string('Devise', 3)->nullable(); # CAD ou USD
             $table->string('Mode_Communication', 64)->nullable(); #liste prédéterminée
             $table->string('Etat_Demande', 64)->nullable(); # En attente, Accepté, Refusé, À réviser
+            $table->dateTime('Date_Changement_Etat')->nullable(); #date & heure
+            $table->dateTime('Date_Creation')->nullable(); #date & heure
+            $table->datetime('Date_Derniere_Modification')->nullable();
 
             
             // Devise VARCHAR(3) CHECK ( Devise IN ('CAD', 'USD') ),

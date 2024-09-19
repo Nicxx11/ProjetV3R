@@ -19,35 +19,35 @@ class UtilisateursSeeder extends Seeder
                 'Nom' => 'St-Amand',
                 'Courriel' => 'thomasstamand1@gmail.com',
                 'Role' => 'Administrateur',
-                'MotDePasse' => 'MotDePasse1$'
+                'MotDePasse' => hash('sha1','MotDePasse1$')
             ],
             [
                 'Prenom' => 'Nicolas',
                 'Nom' => 'Veilleux',
                 'Courriel' => 'nicolasveilleux@gmail.com',
                 'Role' => 'Administrateur',
-                'MotDePasse' => 'MotDePasse1$'
+                'MotDePasse' => hash('sha1','MotDePasse1$')
             ],
             [
                 'Prenom' => 'Joseph',
                 'Nom' => 'Laforce',
                 'Courriel' => 'josephlaforce@gmail.com',
                 'Role' => 'Responsable',
-                'MotDePasse' => 'MotDePasse1$'
+                'MotDePasse' => hash('sha1','MotDePasse1$')
             ],
             [
                 'Prenom' => 'Louis',
                 'Nom' => 'Dupuis',
                 'Courriel' => 'louisdupuis@gmail.com',
                 'Role' => 'Commis',
-                'MotDePasse' => 'MotDePasse1$'
+                'MotDePasse' => hash('sha1','MotDePasse1$')
             ],
             [
                 'Prenom' => 'Carl',
                 'Nom' => 'Lapointe',
                 'Courriel' => 'carllapointe1997@gmail.com',
                 'Role' => 'Commis',
-                'MotDePasse' => 'MotDePasse1$'
+                'MotDePasse' => hash('sha1','MotDePasse1$')
             ]
          ]);
     }
