@@ -8,4 +8,10 @@ use App\Http\Controllers\FournisseursController;
 // });
 
  Route::get('/',
- [FournisseursController::class,'index'])->name('login.index');
+ [FournisseursController::class,'index'])->name('index.index');
+
+ Route::get('/inscription',
+ [FournisseursController::class,'create'])->name('inscription.create');
+
+ Route::post('/inscription',
+ [FournisseursController::class,'store'])->name('inscription.store');
