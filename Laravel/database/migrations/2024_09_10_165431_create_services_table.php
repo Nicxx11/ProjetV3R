@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->integer('id', 1)->autoIncrement();
-            $table->string('Nature', 12); #Énumération (association_categorie_codes_final.pdf)
-            $table->string('Code_Categorie', 5); # liste prédéterminée (association_categorie_codes_final.pdf)
-            $table->string('Categorie', 255); #Général, Spécialisé (association_categorie_codes_final.pdf)
-            $table->string('UNSPSC', 8); #liste prédéterminée, 8 car numériques. (association_categorie_codes_final.pdf)
-            $table->string('Description', 255); # liste prédéterminée (association_categorie_codes_final.pdf)
+            $table->string('Nature', 64); # UNSPSC.json - Nature du contrat
+            $table->string('Code_Categorie', 5); # UNSPSC.json - Code de catégorie
+            $table->string('Categorie', 255); # UNSPSC.json - Description du code UNSPSC
+            $table->string('UNSPSC', 8); # UNSPSC.json - Code UNSPSC
+            $table->string('Description', 255); # UNSPSC.json - Description détaillée du code UNSPSC
+            $table->integer('No_Fournisseur');
+            $table->foreign('No_Fournisseur')->references('id')->on('fournisseurs');
         });
     }
 
