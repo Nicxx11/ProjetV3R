@@ -14,33 +14,39 @@
         @csrf
 
         <label for="NEQ">NEQ:</label>
-        <input type="text" id="NEQ" name="NEQ" maxlength="10" pattern="\d{10}" value="{{ old('NEQ') }}">
+        <input type="text" id="NEQ" name="NEQ" value="{{ old('NEQ') }}">
         @error('NEQ')
-            <p>{{ $message }}</p>
+            <p class="erreur">{{ $message }}</p>
         @enderror
 
         <label for="Courriel">Courriel:</label>
-        <input type="email" id="Courriel" name="Courriel" value="{{ old('Courriel') }}">
+        <input type="text" id="Courriel" name="Courriel" value="{{ old('Courriel') }}">
         @error('Courriel')
-            <p>{{ $message }}</p>
+            <p class="erreur">{{ $message }}</p>
         @enderror
 
         <label for="Entreprise">Entreprise:</label>
-        <input type="text" id="Entreprise" name="Entreprise" maxlength="64" value="{{ old('Entreprise') }}">
+        <input type="text" id="Entreprise" name="Entreprise" value="{{ old('Entreprise') }}">
         @error('Entreprise')
-            <p>{{ $message }}</p>
+            <p class="erreur">{{ $message }}</p>
         @enderror
 
         <label for="MotDePasse">Mot de Passe:</label>
-        <input type="password" id="MotDePasse" name="MotDePasse" maxlength="12">
+        <input type="password" id="MotDePasse" name="MotDePasse">
         @error('MotDePasse')
-            <p>{{ $message }}</p>
+            <p class="erreur">{{ $message }}</p>
+        @enderror
+
+        <label for="MotDePasse">Confirmation Mot de Passe:</label>
+        <input type="password" id="MotDePasse_confirmation" name="MotDePasse_confirmation">
+        @error('MotDePasse')
+            <p class="erreur">{{ $message }}</p>
         @enderror
 
         <label for="Details">Détails:</label>
-        <textarea id="Details" name="Details" maxlength="500">{{ old('Details') }}</textarea>
+        <textarea id="Details" name="Details">{{ old('Details') }}</textarea>
         @error('Details')
-            <p>{{ $message }}</p>
+            <p class="erreur">{{ $message }}</p>
         @enderror
 
         <button type="submit">S'inscrire</button>

@@ -34,8 +34,19 @@ class FournisseursController extends Controller
             'NEQ' => 'nullable|digits:10',
             'Courriel' => 'required|email|unique:fournisseurs',
             'Entreprise' => 'required|string|max:64',
-            'MotDePasse' => 'required|string|min:8|max:12',
+            'MotDePasse' => 'required|string|min:8|max:12|confirmed',
             'Details' => 'nullable|string|max:500'
+        ], [
+            'NEQ.required' => 'Le NEQ est obligatoire',
+            'NEQ.digits' => 'Le NEQ doit contenir 10 chiffres',
+            'Courriel.required' => 'Le courriel est obligatoire',
+            'Courriel.email' => 'Le courriel doit être valide',
+            'Entreprise.required' => 'Le nom de l\'entreprise est obligatoire',
+            'MotDePasse.required' => 'Le mot de passe est obligatoire',
+            'MotDePasse.min' => 'Le mot de passe doit contenir un minimum de 8 caractères',
+            'MotDePasse.max' => 'Le mot de passe ne doit pas dépasser 12 caractères',
+            'MotDePasse.confirmed' => 'Les mots de passe doivent correspondre',
+            'Details.max' => 'Maximum de 500 caractères',
         ]);
 
         // Hash du mot de passe avant d'enregistrer
@@ -44,7 +55,7 @@ class FournisseursController extends Controller
         // Enregistrement dans la base de données
         Fournisseur::create($validatedData);
 
-        return redirect()->route('login.inscription')->with('success', 'Inscription réussie!');
+        return redirect()->route('index.index')->with('success', 'Inscription réussie!');
     }
 
     /**

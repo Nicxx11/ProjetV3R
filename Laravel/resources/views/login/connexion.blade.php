@@ -23,6 +23,8 @@
                     @else
                         <p>Il n'y a pas de fournisseurs</p>
                     @endif
+
+                    <a href="{{ route('inscription.create') }}"><button>Inscription</button></a>
                     <!-- <form action="/connexion" method="post" class="section">
                     {{ csrf_field() }}
 
