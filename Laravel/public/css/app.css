@@ -1,3 +1,24 @@
+html,body{
+    height: 100%;
+    background-image: url(../img/centreville2022.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5); /* White overlay with 50% opacity */
+    z-index: 1; /* Ensure it is above the image */
+}
 .erreur{
     color:red;
+}
+.cardColors{
+    background-color: #0B2341;
+    color:white;
+    font-family:'Times New Roman', Times, serif
 }
