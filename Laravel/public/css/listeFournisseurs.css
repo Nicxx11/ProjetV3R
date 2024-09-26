@@ -1,0 +1,33 @@
+.colonne_filtres{
+    background-color: #0B2341;
+    color:white;
+    display: block;
+    padding: 0;
+}
+
+.titreFiltre{
+    font-weight: 500;
+}
+
+h3, h4{
+    font-weight: 400;
+}
+
+.filter_input{
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    padding: 0;
+    border: 2px solid black;
+    appearance: none;
+    background-color: transparent;
+    outline: none !important;
+    transition: outline 0.1s;
+}
+
+.filter_input:focus{
+    outline:none !important;
+    box-shadow: none;
+    border-color: black;
+}
