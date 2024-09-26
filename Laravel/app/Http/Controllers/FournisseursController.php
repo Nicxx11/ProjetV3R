@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fournisseur;
+use Illuminate\Support\Facades\Route;
 
 class FournisseursController extends Controller
 {
@@ -13,6 +14,10 @@ class FournisseursController extends Controller
     public function index()
     {
         $fournisseurs = Fournisseur::all();
+
+        if(Route::currentRouteName() == "fournisseurs.list"){
+            return view('employe.listeFournisseur', compact('fournisseurs'));
+        }
 
         return View('login.connexion', compact('fournisseurs'));
     }

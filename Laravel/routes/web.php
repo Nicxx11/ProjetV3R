@@ -15,3 +15,6 @@ use App\Http\Controllers\FournisseursController;
 
  Route::post('/inscription',
  [FournisseursController::class,'store'])->name('inscription.store');
+
+ Route::get('/Fournisseurs/Liste', 
+ [FournisseursController::class, 'index'])->name('fournisseurs.list');
