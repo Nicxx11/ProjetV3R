@@ -22,3 +22,52 @@ html,body{
     color:white;
     font-family:'Times New Roman', Times, serif
 }
+button:hover {
+    background-color: #0076D5; /* Background color on hover */
+}
+.popup {
+    display: none; /* Initialement caché */
+    position: absolute;
+    top: 50%; /* Centré verticalement par rapport à l'input */
+    left: calc(100% + 10px); /* À droite de l'input avec un espacement */
+    transform: translateY(-50%); /* Ajuste le centering vertical */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    animation: fadeIn 0.3s; /* Effet de fondu */
+    color:black;
+}
+
+.pointer {
+    position: absolute;
+    left: -10px; /* Ajuste la position de l'indicateur */
+    top: 50%; /* Centré verticalement par rapport au pop-up */
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f9f9f9; /* Couleur du pop-up */
+}
+
+.popup ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.popup li {
+    margin: 5px 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
