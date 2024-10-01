@@ -12,7 +12,12 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-        <div class="card cardColors text-center">
+        <div class="card cardColors">
+            <div class="row">
+            <div class="col-md-4">
+                <!-- empty column -->
+            </div>
+            <div class="col-md-8">
             <form action="{{ route('inscription.store') }}" method="POST">
                 @csrf
                 <div class="form-header pb-4 pt-4">
@@ -27,7 +32,7 @@
                 </div>
                 <div class="form-group mt-4">
                     <label for="Courriel">Courriel:</label></br>
-                    <input placeholder="Adresse courriel de la compagnie" type="text" id="Courriel" name="Courriel"
+                    <input placeholder="Courriel de la compagnie" type="text" id="Courriel" name="Courriel"
                         value="{{ old('Courriel') }}">
                     @error('Courriel')
                         <p class="erreur">{{ $message }}</p>
@@ -62,21 +67,24 @@
                 </div>
                 <div class="form-group mt-4">
                     <label for="MotDePasse">Confirmation Mot de Passe:</label></br>
-                    <input placeholder="Confirmer votre Mot de passe" type="password" id="MotDePasse_confirmation" name="MotDePasse_confirmation">
+                    <input placeholder="Confirmer votre mot de passe" type="password" id="MotDePasse_confirmation" name="MotDePasse_confirmation">
                     @error('MotDePasse')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="form-group mt-4">
                     <label for="Details">Détails:</label></br>
-                    <textarea id="Details" name="Details">{{ old('Details') }}</textarea>
+                    <textarea class="textDetail" rows="3" style="resize:none;" id="Details" name="Details">{{ old('Details') }}</textarea>
                     @error('Details')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
-                <button class="mb-4" type="submit">S'inscrire</button>
-                <a href="{{ route('index.index') }}"><button type="button">Retour</button></a>
+                <a href="{{ route('index.index') }}"><button class="marginRT px-2 py-1" type="button">Retour</button></a>
+                <button class="mb-4 px-2 py-1" type="submit">S'inscrire</button>
             </form>
+
+            </div>
+            </div>
         </div>
     </div>
     <div class="col-md-4">
