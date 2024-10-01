@@ -1,16 +1,37 @@
-.colonne_filtres{
+/* Généralités */
+h3, h4{
+    font-weight: 400;
+}
+
+/* Filtres et Recherche */
+.filter_box{
     background-color: #0B2341;
     color:white;
     display: block;
     padding: 0;
+    height: 100vh;
 }
 
-.titreFiltre{
+.filter_title{
     font-weight: 500;
 }
 
-h3, h4{
-    font-weight: 400;
+.filter_card{
+    max-height: 50vh;
+}
+
+.filter_search{
+    width: 90%;
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px lightgray;
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+.filter_search:focus{
+    outline: none;
 }
 
 .filter_input{
@@ -18,16 +39,21 @@ h3, h4{
     width: 20px;
     height: 20px;
     margin: 6px;
-    padding: 0;
-    border: 2px solid black;
-    appearance: none;
-    background-color: transparent;
-    outline: none !important;
-    transition: outline 0.1s;
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px #78C6E0;
 }
 
 .filter_input:focus{
-    outline:none !important;
-    box-shadow: none;
-    border-color: black;
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px #78C6E0;
+}
+
+.filter_input:checked{
+    background-color: #78C6E0;
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px #78C6E0;
+}
+
+.active{
+    display: none !important;
 }
