@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('categories_rbqs', function (Blueprint $table) {
             $table->id();
-            $table->string('categorie');
+            $table->string('Categorie', 10);
+            $table->string('Code_Sous_Categorie', 255);
         });
     }
 

@@ -24,5 +24,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UtilisateursSeeder::class);
         $this->call(ParametresSystemesSeeder::class);
         $this->call(ModelesCourrielsSeeder::class);
+        $this->call(CategoriesRbqsSeeder::class);
     }
 }
