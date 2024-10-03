@@ -12,16 +12,26 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-        <div class="card cardColors">
+    <div class="popup" id="exigences-motdepasse">
+                        <div class="pointer"></div>   
+                        <ol>                     
+                            <li>Au moins 8 caractères</li>
+                            <li>Au moins 1 lettre majuscule</li>
+                            <li>Au moins 1 lettre minuscule</li>
+                            <li>Au moins 1 chiffre</li>
+                            <li>Au moins 1 caractère spécial</li>      
+                        </ol>                 
+                    </div>
+        <div class="card cardColors" style="position:relative;">
             <div class="row">
             <div class="col-md-4">
                 <!-- empty column -->
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7 colInsc">
             <form action="{{ route('inscription.store') }}" method="POST">
                 @csrf
                 <div class="form-header pb-4 pt-4">
-                    <h1>Inscription</h1>
+                    <h1 class="colInsc">Inscription</h1>
                 </div>
                 <div class="form-group">
                     <label for="NEQ">NEQ:</label></br>
@@ -50,17 +60,6 @@
                     <label for="MotDePasse">Mot de Passe:</label><br>
                     <input placeholder="Mot de passe sécuritaire" type="password" id="MotDePasse" name="MotDePasse"
                         aria-describedby="exigences-motdepasse">
-                    <div class="popup" id="exigences-motdepasse">
-                        <div class="pointer"></div>
-                        <ul>
-                            <li>Au moins 8 caractères</li>
-                            <li>Au moins 1 lettre majuscule</li>
-                            <li>Au moins 1 lettre minuscule</li>
-                            <li>Au moins 1 chiffre</li>
-                            <li>Au moins 1 caractère spécial</li>
-                        </ul>
-                    </div>
-
                     @error('MotDePasse')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
@@ -80,7 +79,7 @@
                     @enderror
                 </div>
                 <a href="{{ route('index.index') }}"><button class="marginRT px-2 py-1" type="button">Retour</button></a>
-                <button class="mb-4 px-2 py-1" type="submit">S'inscrire</button>
+                <button class="mb-4 px-2 py-1" type="submit">Suivant</button>
             </form>
 
             </div>

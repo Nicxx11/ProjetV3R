@@ -5,6 +5,7 @@ html,body{
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .overlay {
     position: absolute;
     top: 0;
@@ -37,26 +38,42 @@ button:hover {
     top: 50%; /* Centré verticalement par rapport à l'input */
     left: calc(100% + 10px); /* À droite de l'input avec un espacement */
     transform: translateY(-50%); /* Ajuste le centering vertical */
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #fff; /* Fond blanc */
+    border: 1px solid #ddd; /* Bordure grise claire */
+    padding: 15px; /* Plus d'espace à l'intérieur */
+    border-radius: 8px; /* Coins plus arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre légère */
     z-index: 10;
-    animation: fadeIn 0.3s; /* Effet de fondu */
-    color:black;
+    color: #333; /* Texte en gris foncé */
+}
+
+.popup {
+    display: none; /* Initialement caché */
+    position: absolute;
+    top: 50%; /* Centré verticalement par rapport à l'input */
+    left: calc(100% + 10px); /* À droite de l'input avec un espacement */
+    transform: translateY(-50%); /* Ajuste le centering vertical */
+    background-color: #fff; /* Fond blanc */
+    border: 1px solid #ddd; /* Bordure grise claire */
+    padding: 15px; /* Plus d'espace à l'intérieur */
+    border-radius: 8px; /* Coins plus arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Ombre légère */
+    z-index: 10;
+    color: #333; /* Texte en gris foncé */
 }
 
 .pointer {
     position: absolute;
-    left: -10px; /* Ajuste la position de l'indicateur */
-    top: 50%; /* Centré verticalement par rapport au pop-up */
+    left: -10px; /* Ajuste cette valeur selon la taille de ta textbox */
+    top: 50%; /* Centré verticalement par rapport à la popup */
     transform: translateY(-50%);
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #f9f9f9; /* Couleur du pop-up */
+    border-top: 10px solid #fff; /* Couleur blanche pour le contraste */
+    border-bottom:-10px;
+    z-index: 9;
 }
 
 .popup ul {
@@ -69,18 +86,40 @@ button:hover {
     margin: 5px 0;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
 .textDetail{
     width:200px;
 }
 .marginRT{
-    margin-right: 60px;
-    margin-top: 20px;
+    margin-right: 15%;
+    margin-top: 2%;
+}
+#exigences-motdepasse{
+    display: none; /* Masquer par défaut */
+    position: absolute; /* Positionner de manière absolue */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    width: 210px;
+    padding: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Pour s'assurer qu'il est au-dessus des autres éléments */
+    font-size: small;
+}
+
+ol {
+    list-style-type: none; /* Remove default numbering */
+    padding-left: 0;       /* Remove left padding */
+    margin:0;
+}
+
+ol li{
+    margin:0!important;
+}
+
+ol li::before {
+    content: "•";          /* Add a dot before each item */
+    margin-right: 8px;     /* Space between dot and text */
+}
+
+.colInsc{
+    margin-left:3%;
 }

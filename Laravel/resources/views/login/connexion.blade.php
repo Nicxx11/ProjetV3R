@@ -1,68 +1,38 @@
 @extends('layouts.app')
 
 @section('titre','Connexion')
+@section('newCss', 'css/connexion.css')
 
 @section('contenu')
-    <div class="container-fluid loginBG">
-        <div class="row h-100">
+<div class="container-fluid vh-100 d-flex align-items-center justify-content-center overlay">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <div class="card cardColors" style="position:relative;">
+            <div class="row">
             <div class="col-md-3">
-                <!-- EMPTY ZONE -->
+                <!-- empty column -->
             </div>
-            <div class="col-md-6 text-center align-self-center">
-                <div class="card">
-
-                    <h1>Connexion</h1>
-                    <!----------------- ajout -------------------->
-                    <h2>Liste des fournisseurs (test)</h2>
-                    @if (count($fournisseurs))
-                        @foreach($fournisseurs as $fournisseur)
-                            <li>{{ $fournisseur->NEQ }}</li>
-                            <li>{{ $fournisseur->Entreprise }}</li>
-                            <li>{{ $fournisseur->Courriel }}</li>
-                        @endforeach
-                    @else
-                        <p>Il n'y a pas de fournisseurs</p>
-                    @endif
-
-                    <a href="{{ route('inscription.create') }}"><button>Inscription</button></a>
-                    <!-- <form action="/connexion" method="post" class="section">
-                    {{ csrf_field() }}
-
-        <div class="field">
-            <label class="label">Adresse e-mail</label>
-            <div class="control">
-                <input class="input" type="email" name="email" value="{{ old('email') }}">
-            </div>
-            @if($errors->has('email'))
-                <p class="help is-danger">{{ $errors->first('email') }}</p>
-            @endif
-        </div>
-
-        <div class="field">
-            <label class="label">Mot de passe</label>
-            <div class="control">
-                <input class="input" type="password" name="password">
-            </div>
-            @if($errors->has('password'))
-                <p class="help is-danger">{{ $errors->first('password') }}</p>
-            @endif
-        </div>
-
-        <div class="field">
-            <div class="control">
-                <button class="button is-link" type="submit">Se connecter</button>
-            </div>
-        </div>
-    </form> -->
-                    <!----------------- ajout -------------------->
+            <div class="col-md-7">
+            <form action="{{ route('fournisseurs.list') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label class="margCardT" for="id">Identifiant</label></br>
+                    <input placeholder="  NEQ/Courriel" type="text" id="id" name="id" value="{{ old('id') }}">
                 </div>
+                <div class="form-group mt-5">
+                    <label for="MotDePasse">Mot de Passe:</label><br>
+                    <input placeholder="  Mot de passe" type="password" id="MotDePasse" name="MotDePasse">
+                </div>
+                <a href="{{ route('inscription.create') }}"><span style="color:#1294ff;">Soumettre une demande</span></a>
+                <button class="mt-2 margCo margCardB px-2 py-1" type="submit">Connexion</button>
+            </form>
+
             </div>
-            <div class="col-md-3">
-                <!-- EMPTY ZONE -->
             </div>
-        </div>
-        <div class="row">
-            <!-- Créer Connexion NEQ / Email / MDP oublié (superficiellement)(card?) -->
         </div>
     </div>
+    <div class="col-md-4">
+    </div>
+</div>
 @endsection

@@ -18,3 +18,6 @@ use App\Http\Controllers\FournisseursController;
 
  Route::get('/Fournisseurs/Liste', 
  [FournisseursController::class, 'index'])->name('fournisseurs.list');
+
+ Route::post('/Fournisseurs/Liste', 
+ [FournisseursController::class, 'login'])->name('fournisseurs.list');

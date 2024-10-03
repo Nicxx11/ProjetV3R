@@ -68,6 +68,11 @@ class FournisseursController extends Controller
         return redirect()->route('index.index')->with('success', 'Inscription réussie!');
     }
 
+    public function login()
+    {
+        return redirect()->route('fournisseurs.list')->with('success','Connexion réussi');
+    }
+
     /**
      * Display the specified resource.
      */
