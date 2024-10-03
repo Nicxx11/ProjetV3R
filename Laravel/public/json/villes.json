@@ -1,0 +1,5134 @@
+[
+    {
+        "ville": "Abercorn",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Acton Vale",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Adstock",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Aguanish",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Akulivik",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Akulivik",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Akwesasne",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Albanel",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Albertville",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Alleyn-et-Cawood",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Wendake",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Alma",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Amherst",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Amos",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Amqui",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Baie-Atibenne",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Ange-Gardien",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Armagh",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Arundel",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Ascot Corner",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Aupaluk",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Aston-Jonction",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Auclair",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Audet",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Aumond",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Aupaluk",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Austin",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Authier",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Authier-Nord",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Ayer's Cliff",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Baie-D'Urfé",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Baie-Comeau",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Baie-de-la-Bouteille",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Baie-des-Chaloupes",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Baie-des-Sables",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Baie-d'Hudson",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Baie-du-Febvre",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Baie-Johan-Beetz",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Baie-Obaoca",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Baie-Sainte-Catherine",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Baie-Saint-Paul",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Baie-Trinité",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Barkmere",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Barnston-Ouest",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Barraute",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Batiscan",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Beaconsfield",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Béarn",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Beauceville",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Beauharnois",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Beaulac-Garthby",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Drummondville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Beaumont",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Beaupré",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Bécancour",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Bedford",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Bedford",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Bégin",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Caniapiscau",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Belcourt",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Belle-Rivière",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Belleterre",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Beloeil",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Berry",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Berthier-sur-Mer",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Berthierville",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Eastmain",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Béthanie",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Biencourt",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Blainville",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Blanc-Sablon",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Blue Sea",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Boileau",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Boisbriand",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Boischatel",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Bois-des-Filion",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Bois-Franc",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Bolton-Est",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Bolton-Ouest",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Bonaventure",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Bonne-Espérance",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Kangirsuk",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Bonsecours",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Boucherville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Bouchette",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Bowman",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Waswanipi",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Kangirsuk",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Brébeuf",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Brigham",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Bristol",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Brome",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Bromont",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Brossard",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Brownsburg-Chatham",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Bryson",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Bury",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Cacouna",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Kataskomiq",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Cacouna",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Calixa-Lavallée",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Campbell's Bay",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Candiac",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Cantley",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Cap-Chat",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Caplan",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Cap-Saint-Ignace",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Cap-Santé",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Carignan",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Carleton-sur-Mer",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Cascades-Malignes",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Cascapédia--Saint-Jules",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Causapscal",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Cayamant",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Chambly",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Chambord",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Champlain",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Champneuf",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Chandler",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Chapais",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Charette",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Charlemagne",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Chartierville",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Châteauguay",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Château-Richer",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Chazel",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Chelsea",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Chénéville",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Cloridorme",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Chertsey",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Fassett",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Chesterville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Chibougamau",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Chichester",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Chisasibi",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Chisasibi",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Chute-aux-Outardes",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Chute-Saint-Philippe",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Clarenceville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Clarendon",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Clermont",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Clermont",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Clerval",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Cleveland",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Coaticook",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Collines-du-Basque",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Colombier",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Compton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Contrecoeur",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Cookshire-Eaton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Coteau-du-Lac",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Côte-Nord-du-Golfe-du-Saint-Laurent",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Côte-Saint-Luc",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Coucoucache",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Coulée-des-Adolphe",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Courcelles--Saint-Évariste",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Cowansville",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Crabtree",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Danville",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Daveluyville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Dégelis",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Déléage",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Delson",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Denholm",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Dépôt-Échouani",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Desbiens",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Deschaillons-sur-Saint-Laurent",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Deschambault-Grondines",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Deux-Montagnes",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Disraeli",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Disraeli",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Dixville",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Lac-au-Brochet",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Dolbeau-Mistassini",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Dollard-des-Ormeaux",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Doncaster",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Donnacona",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Dorval",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Dosquet",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Dudswell",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Duhamel",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Duhamel-Ouest",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Dundee",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Fugèreville",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Dunham",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Duparquet",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Dupuy",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Durham-Sud",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Gallichan",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "East Angus",
+        "region": "Estrie"
+    },
+    {
+        "ville": "East Broughton",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "East Farnham",
+        "region": "Estrie"
+    },
+    {
+        "ville": "East Hereford",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Eastmain",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Eastman",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Eeyou Istchee Baie-James",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Egan-Sud",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Elgin",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Entrelacs",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Escuminac",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Esprit-Saint",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Essipit",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Estérel",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Farnham",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Ferland-et-Boilleau",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Ferme-Neuve",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Fermont",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Forestville",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Fort-Coulonge",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Fortierville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Fossambault-sur-le-Lac",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Frampton",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Lac-John",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Lac-Juillet",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Franklin",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Franquelin",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Frelighsburg",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Frontenac",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Kawawachikamach",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Gaspé",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Gatineau",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Gesgapegiag",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Girardville",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Godbout",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Harrington",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Godmanchester",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Gore",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Lapeyrère",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Gracefield",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Granby",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Kawawachikamach",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Grande-Rivière",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Grandes-Piles",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Grande-Vallée",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Grand-Métis",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-Masketsi",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Grand-Remous",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Grand-Saint-Esprit",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Grenville",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Grenville-sur-la-Rouge",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Jérôme",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Gros-Mécatina",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Grosse-Île",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Grosses-Roches",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Guérin",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Hatley",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Ham-Nord",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Hampden",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Hampstead",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Ham-Sud",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Nemaska",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Hatley",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Havelock",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Havre-Saint-Pierre",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Hébertville",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Hérouxville",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Hébertville-Station",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Hemmingford",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Hemmingford",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Henryville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Kangiqsujuaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Hinchinbrooke",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Honfleur",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Hope",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Hope Town",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Howick",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Huberdeau",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Hudson",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Huntingdon",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Inukjuak",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Inukjuak",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Lévis",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Inverness",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Irlande",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Ivry-sur-le-Lac",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Ivujivik",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Ivujivik",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Joliette",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Kahnawake",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Kamouraska",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Kangiqsualujjuaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Kangiqsualujjuaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Kangiqsujuaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Kazabazua",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Kebaowek",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lac-Legendre",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Kiamika",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Kingsbury",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Kingsey Falls",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Kinnear's Mills",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Kipawa",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Kirkland",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Kitigan Zibi",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Kuujjuaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Kuujjuaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Kuujjuarapik",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Kuujjuarapik",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "La Bostonnais",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "La Conception",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "La Corne",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "La Doré",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lac-Lenôtre",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "La Durantaye",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "La Guadeloupe",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "La Macaza",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "La Malbaie",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "La Martre",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "La Minerve",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "La Morandière-Rochebaucourt",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "La Motte",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "La Patrie",
+        "region": "Estrie"
+    },
+    {
+        "ville": "La Pêche",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "La Pocatière",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "La Prairie",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Lac-Marguerite",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "La Présentation",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "La Rédemption",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "La Reine",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "La Romaine",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "La Sarre",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "La Trinité-des-Monts",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "La Tuque",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "La Visitation-de-l'Île-Dupas",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "La Visitation-de-Yamaska",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Labelle",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Labrecque",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lac-Achouakan",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lac-Akonapwehikan",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-à-la-Croix",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-Alfred",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-Ashuapmushuan",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lac-Matapédia",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-au-Saumon",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-aux-Sables",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Lac-Bazinet",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Beauport",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-Blanc",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-Boisbouscache",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-Bouchette",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lac-Boulé",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Lac-Brome",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Lac-Cabasta",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Lac-Casault",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-Chicobi",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lac-Croche",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-De La Bidière",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Delage",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-de-la-Maison-de-Pierre",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-de-la-Pomme",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-des-Aigles",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-des-Dix-Milles",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Lac-des-Eaux-Mortes",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lac-Matawin",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Lac-des-Écorces",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Despinassy",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lac-des-Plages",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lac-des-Seize-Îles",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Devenyns",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Lac-Douaire",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Drolet",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Lac-du-Cerf",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Duparquet",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lac-du-Taureau",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Lac-Édouard",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Lac-Ernest",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Etchemin",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Lac-Frontière",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Lac-Granet",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lac-Huron",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lachute",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Jacques-Cartier",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-Mégantic",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Lac-Metei",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lac-Minaki",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Lac-Ministuk",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lac-Moncouche",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lac-Moselle",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lac-Nilgaut",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lac-Normand",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Lacolle",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Lac-Oscar",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Pikauba",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-Poulin",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Lac-Pythonga",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lac-Rapide",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lac-Saguay",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Sainte-Marie",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lac-Saint-Joseph",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-Saint-Paul",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Santé",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Lac-Sergent",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Lac-Simon",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lac-Simon",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lac-Supérieur",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Tremblant-Nord",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Vacher",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Lac-Wagwabika",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lac-Walker",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Laforce",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lalemant",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lamarche",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lambton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "L'Ancienne-Lorette",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Landrienne",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "L'Ange-Gardien",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "L'Ange-Gardien",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Laniel",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lanoraie",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "L'Anse-Saint-Jean",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Lantier",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Larouche",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "L'Ascension",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "L'Ascension-de-Notre-Seigneur",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "L'Ascension-de-Patapédia",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "L'Assomption",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Latulipe-et-Gaboury",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Launay",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Laurier-Station",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Laurierville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Laval",
+        "region": "Laval"
+    },
+    {
+        "ville": "Lavaltrie",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "L'Avenir",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Laverlochère-Angliers",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lawrenceville",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Lebel-sur-Quévillon",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Leclercville",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Lefebvre",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Lejeune",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Lemieux",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "L'Épiphanie",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Léry",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Les Bergeronnes",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Les Cèdres",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Les Coteaux",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Les Éboulements",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Low",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Les Escoumins",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Les Hauteurs",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Les Îles-de-la-Madeleine",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Les Lacs-du-Témiscamingue",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Les Méchins",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "L'Île-Cadieux",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "L'Île-d'Anticosti",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "L'Île-Dorval",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Obedjiwan",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "L'Île-du-Grand-Calumet",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "L'Île-Perrot",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Lingwick",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Linton",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "L'Isle-aux-Allumettes",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "L'Isle-aux-Coudres",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "L'Islet",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "L'Isle-Verte",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Listuguj",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Litchfield",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lochaber",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Lochaber-Partie-Ouest",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Longue-Pointe-de-Mingan",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Longue-Rive",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Odanak",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Longueuil",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Wentworth",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lorraine",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Lorrainville",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Lotbinière",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Louiseville",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Lyster",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Macamic",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Maddington Falls",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Magog",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Massueville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Malartic",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Maliotenam",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Manawan",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Mandeville",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Maniwaki",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Manseau",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Mansfield-et-Pontefract",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Maria",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Maricourt",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Marieville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Mirabel",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Marsoui",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Marston",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Martinville",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Mascouche",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Mashteuiatsh",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Maskinongé",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Matagami",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Matane",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Matapédia",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Matchi-Manitou",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Matimekosh",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Mayo",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "McMasterville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Melbourne",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Mercier",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Messines",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Métabetchouan--Lac-à-la-Croix",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Métis-sur-Mer",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Milan",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Mille-Isles",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Mingan",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Mistissini",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Mistissini",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Moffet",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Mont-Albert",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Mont-Alexandre",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Mont-Apica",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Mont-Blanc",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Montcalm",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Mont-Carmel",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Montcerf-Lytton",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Montebello",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Mont-Élie",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Mont-Joli",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Mont-Laurier",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Ogden",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Montmagny",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Montpellier",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Montréal",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Montréal-Est",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Montréal-Ouest",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Mont-Royal",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Mont-Saint-Grégoire",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Mont-Saint-Hilaire",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Mont-Saint-Michel",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Mont-Saint-Pierre",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Racine",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Mont-Tremblant",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Mont-Valin",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Morin-Heights",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Mulgrave-et-Derry",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Murdochville",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Namur",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Nantes",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Napierville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Natashquan",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Natashquan",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Notre-Dame-Auxiliatrice-de-Buckland",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Notre-Dame-de-Bonsecours",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Notre-Dame-du-Sacré-Coeur-d'Issoudun",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Pontiac",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Nédélec",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Nemaska",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Neuville",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "New Carlisle",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "New Richmond",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Newport",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Nicolet",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Nominingue",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Normandin",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Normétal",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "North Hatley",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Notre-Dame-de-Ham",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Notre-Dame-de-la-Merci",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Quaqtaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Notre-Dame-de-la-Paix",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Saint-Séverin",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Notre-Dame-de-la-Salette",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Notre-Dame-de-l'Île-Perrot",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Notre-Dame-de-Lorette",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Notre-Dame-de-Lourdes",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Notre-Dame-de-Lourdes",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Notre-Dame-de-Montauban",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Notre-Dame-de-Pontmain",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Notre-Dame-des-Anges",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Notre-Dame-des-Bois",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Notre-Dame-des-Monts",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Notre-Dame-des-Neiges",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Notre-Dame-des-Pins",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Notre-Dame-des-Prairies",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Quaqtaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Notre-Dame-des-Sept-Douleurs",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Notre-Dame-de-Stanbridge",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Notre-Dame-du-Bon-Conseil",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Notre-Dame-du-Bon-Conseil",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Notre-Dame-du-Laus",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Notre-Dame-du-Mont-Carmel",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Notre-Dame-du-Nord",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Notre-Dame-du-Portage",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Notre-Dame-du-Rosaire",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Nouvelle",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Noyan",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Oka",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Orford",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Québec",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Ormstown",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Otter Lake",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Otterburn Park",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Oujé-Bougoumou",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Packington",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Padoue",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Palmarolle",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Papineauville",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Parisville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Repentigny",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Paspébiac",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Passes-Dangereuses",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Percé",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Péribonka",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Pessamit",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Réservoir-Dozois",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Petite-Rivière-Saint-François",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Petite-Vallée",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Petit-Lac-Sainte-Anne",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Petit-Mécatina",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Petit-Saguenay",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Picard",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Piedmont",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Pierreville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Pike River",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Pikogan",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Pincourt",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Piopolis",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Plaisance",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Port-Cartier",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Plessisville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Rivière-Ojima",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Pohénégamook",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Pointe-à-la-Croix",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Pointe-aux-Outardes",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Pointe-Calumet",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Félicien",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Pointe-Claire",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Pointe-des-Cascades",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Pointe-Fortune",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Pointe-Lebel",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Saint-Hyacinthe",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Pont-Rouge",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Portage-du-Fort",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Port-Daniel--Gascons",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Portneuf",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Patrice-de-Beaurivage",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Portneuf-sur-Mer",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Potton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Poularies",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Preissac",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Wickham",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Prévost",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Price",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Princeville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Puvirnituq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Ragueneau",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Rapide-Danseur",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Rapides-des-Joachims",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Rawdon",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Rémigny",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Richmond",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Rigaud",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Rimouski",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Ripon",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Ristigouche-Sud-Est",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Rivière-à-Claude",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Rivière-à-Pierre",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Rivière-au-Tonnerre",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Rivière-aux-Outardes",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Rivière-Beaudette",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Rivière-Bleue",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Rivière-Bonaventure",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Rivière-Bonjour",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Rivière-de-la-Savane",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Rivière-du-Loup",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Rivière-Éternité",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Rivière-Héva",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Rivière-Koksoak",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Rivière-Mistassini",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Rivière-Mouchalagane",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Rivière-Nipissis",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Rivière-Nouvelle",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Rivière-Ouelle",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Rivière-Patapédia-Est",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Rivière-Rouge",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Rivière-Saint-Jean",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Rivière-Saint-Jean",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Rivière-Vaseuse",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Roberval",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Roquemaure",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Rosemère",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Rougemont",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Routhierville",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Rouyn-Noranda",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Roxton",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Roxton Falls",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Roxton Pond",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Ruisseau-des-Mineurs",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Ruisseau-Ferguson",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Sacré-Coeur",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Sacré-Coeur-de-Jésus",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sagard",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saguenay",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Adalbert",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Adelme",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Adelphe",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Adolphe-d'Howard",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Adrien",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Adrien-d'Irlande",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Stanstead",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Agapit",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Aimé",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Aimé-des-Lacs",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Aimé-du-Lac-des-Îles",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Alban",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Albert",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Alexandre",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Alexandre-de-Kamouraska",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Alexandre-des-Lacs",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Alexis",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Alexis-de-Matapédia",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-Alexis-des-Monts",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Alfred",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Anicet",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Alphonse",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-Alphonse-de-Granby",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Alphonse-Rodriguez",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Amable",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Ambroise",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Ambroise-de-Kildare",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Anaclet-de-Lessard",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-André-Avellin",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Saint-André-d'Argenteuil",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-André-de-Kamouraska",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-André-de-Restigouche",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-André-du-Lac-Saint-Jean",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Anselme",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Antoine-de-Tilly",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Antoine-de-l'Isle-aux-Grues",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Antoine-sur-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Antonin",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Apollinaire",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Armand",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Arsène",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Athanase",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Aubert",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Augustin",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Saint-Augustin",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Augustin-de-Desmaures",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Augustin-de-Woburn",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Barnabé",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Barnabé-Sud",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Barthélemy",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Basile",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Basile-le-Grand",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Benjamin",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Benoît-du-Lac",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Benoît-Labre",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Bernard",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Bernard-de-Lacolle",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Bernard-de-Michaudville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Blaise-sur-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Bonaventure",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Boniface",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Bruno",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Bruno-de-Guigues",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Bruno-de-Kamouraska",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Bruno-de-Montarville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Calixte",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Camille",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Camille-de-Lellis",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Casimir",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Célestin",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Célestin",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Césaire",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Charles-Borromée",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Charles-de-Bellechasse",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Charles-de-Bourget",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Charles-Garnier",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Charles-sur-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Christophe-d'Arthabaska",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Chrysostome",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Claude",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Clément",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Cléophas",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Cléophas-de-Brandon",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Clet",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Colomban",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Côme",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Côme--Linière",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Constant",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Cuthbert",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Cyprien",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Cyprien",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Cyprien-de-Napierville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Cyrille-de-Lessard",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Cyrille-de-Wendover",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Damase",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Damase",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Damase-de-L'Islet",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Damien",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Damien-de-Buckland",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-David",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-David-de-Falardeau",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Denis-De La Bouteillerie",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Denis-de-Brompton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Denis-sur-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Didace",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Dominique",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Dominique-du-Rosaire",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Donat",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Donat",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Adèle",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Agathe-de-Lotbinière",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Agathe-des-Monts",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Angèle-de-Mérici",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Angèle-de-Monnoir",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Angèle-de-Prémont",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Sainte-Anne-de-Beaupré",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Sainte-Anne-de-Bellevue",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Sainte-Anne-de-la-Pérade",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Sainte-Anne-de-la-Pocatière",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Anne-de-la-Rochelle",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sainte-Anne-de-Sabrevois",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Anne-des-Lacs",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Anne-des-Monts",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Sainte-Anne-de-Sorel",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Anne-des-Plaines",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Anne-du-Lac",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Apolline-de-Patton",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Aurélie",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Barbe",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Béatrix",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Brigide-d'Iberville",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Brigitte-de-Laval",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Sainte-Brigitte-des-Saults",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Catherine",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Catherine-de-Hatley",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sainte-Cécile-de-Lévrard",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Cécile-de-Milton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sainte-Cécile-de-Whitton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sainte-Christine",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Christine-d'Auvergne",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Sainte-Claire",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Clotilde",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Clotilde-de-Beauce",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Clotilde-de-Horton",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Croix",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Edmond-de-Grantham",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Edmond-les-Plaines",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Édouard",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Édouard-de-Fabre",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Édouard-de-Lotbinière",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Édouard-de-Maskinongé",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Sainte-Edwidge-de-Clifton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sainte-Élisabeth",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Élizabeth-de-Warwick",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Émélie-de-l'Énergie",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Eulalie",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Euphémie-sur-Rivière-du-Sud",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Famille-de-l'Île-d'Orléans",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Sainte-Félicité",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Félicité",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Flavie",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Florence",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Françoise",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Françoise",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Geneviève-de-Batiscan",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Sainte-Geneviève-de-Berthier",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Germaine-Boulé",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Sainte-Gertrude-Manneville",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Sainte-Hedwidge",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Sainte-Hélène-de-Bagot",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Hélène-de-Chester",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Hélène-de-Kamouraska",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Hélène-de-Mancebourg",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Sainte-Hénédine",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Irène",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Jeanne-d'Arc",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Jeanne-d'Arc",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Sainte-Julie",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Julienne",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Justine",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Justine-de-Newton",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Élie-de-Caxton",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Éloi",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Louise",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Elphège",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Luce",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Lucie-de-Beauregard",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Lucie-des-Laurentides",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Elzéar",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-Elzéar",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Elzéar-de-Témiscouata",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Madeleine",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Madeleine-de-la-Rivière-Madeleine",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Sainte-Marcelline-de-Kildare",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Marguerite",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Marguerite-du-Lac-Masson",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Marguerite-Marie",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Marie",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Marie-de-Blandford",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Marie-Madeleine",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Marie-Salomé",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Marthe",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Marthe-sur-le-Lac",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Martine",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Sainte-Mélanie",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Émile-de-Suffolk",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Sainte-Monique",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Sainte-Monique",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Paule",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Perpétue",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Perpétue",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Pétronille",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Éphrem-de-Beauce",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Épiphane",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Praxède",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Rita",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Rose-de-Watford",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Rose-du-Nord",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Sainte-Sabine",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sainte-Sabine",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sainte-Séraphine",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Sophie",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Sophie-de-Lévrard",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Sainte-Sophie-d'Halifax",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Esprit",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Sainte-Thècle",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Sainte-Thérèse",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Thérèse-de-Gaspé",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Sainte-Thérèse-de-la-Gatineau",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Saint-Étienne-de-Beauharnois",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Étienne-de-Bolton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Étienne-des-Grès",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Eugène",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Eugène-d'Argentenay",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Eugène-de-Guigues",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Eugène-de-Ladrière",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Sainte-Ursule",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Eusèbe",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Eustache",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Sainte-Victoire-de-Sorel",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Fabien",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Fabien-de-Panet",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Félix-de-Dalquier",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Félix-de-Kingsey",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Félix-de-Valois",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Félix-d'Otis",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Ferdinand",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Ferréol-les-Neiges",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Gilbert",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Flavien",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Fortunat",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-François-d'Assise",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-François-de-la-Rivière-du-Sud",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-François-de-l'Île-d'Orléans",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-François-de-Sales",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-François-du-Lac",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-François-Xavier-de-Brompton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-François-Xavier-de-Viger",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Frédéric",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Fulgence",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Gabriel",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Gabriel-de-Brandon",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Gabriel-de-Rimouski",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Gabriel-de-Valcartier",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Gabriel-Lalemant",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Gédéon",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Gédéon-de-Beauce",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Georges",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Georges-de-Windsor",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Gérard-Majella",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Germain-de-Grantham",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Germain-de-Kamouraska",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Gervais",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Gilles",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Godefroi",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-Guillaume",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Guillaume-Nord",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Henri",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Henri-de-Taillon",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Herménégilde",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Hilaire-de-Dorset",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Hilarion",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Hippolyte",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Honoré",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Honoré-de-Shenley",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Jude",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Honoré-de-Témiscouata",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Hubert-de-Rivière-du-Loup",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Hugues",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Ignace-de-Loyola",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Ignace-de-Stanbridge",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Irénée",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Isidore",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Isidore",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Isidore-de-Clifton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Jacques",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Jacques-de-Leeds",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Jacques-le-Mineur",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Jacques-le-Majeur-de-Wolfestown",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Janvier-de-Joly",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Jean-Baptiste",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Jean-de-Brébeuf",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Jean-de-Cherbourg",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Jean-de-Dieu",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Jean-de-la-Lande",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Jean-de-l'Île-d'Orléans",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Jean-de-Matha",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Jean-Port-Joli",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Jules",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Jean-sur-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Jérôme",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Joachim",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Joachim-de-Shefford",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Joseph-de-Beauce",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Joseph-de-Coleraine",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Joseph-de-Kamouraska",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Joseph-de-Lepage",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Joseph-des-Érables",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Joseph-de-Sorel",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Joseph-du-Lac",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Julien",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Just-de-Bretenières",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Juste-du-Lac",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Justin",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Lambert",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Lambert",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Lambert-de-Lauzon",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Laurent-de-l'Île-d'Orléans",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Lazare",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Lazare-de-Bellechasse",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Léandre",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Léonard-d'Aston",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Léonard-de-Portneuf",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Léon-de-Standon",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Léon-le-Grand",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Léon-le-Grand",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Liboire",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Liguori",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Lin--Laurentides",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Louis",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Louis-de-Gonzague-du-Cap-Tourmente",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Louis-de-Blandford",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Louis-de-Gonzague",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Louis-de-Gonzague",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Louis-du-Ha! Ha!",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Luc-de-Bellechasse",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Luc-de-Vincennes",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Lucien",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Ludger",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Ludger-de-Milot",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Magloire",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Majorique-de-Grantham",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Malachie",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Malo",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Marc-de-Figuery",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Marc-des-Carrières",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Marc-du-Lac-Long",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Marcel",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Marcel-de-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Marcellin",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Marc-sur-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Martin",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Mathias-sur-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Mathieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Mathieu-de-Beloeil",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Mathieu-de-Rioux",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Mathieu-d'Harricana",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Saint-Mathieu-du-Parc",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Maurice",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Maxime-du-Mont-Louis",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-Médard",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Michel",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Michel-de-Bellechasse",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Michel-des-Saints",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Michel-du-Squatec",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Modeste",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Moïse",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Narcisse",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Narcisse-de-Beaurivage",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Narcisse-de-Rimouski",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Nazaire",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Nazaire-d'Acton",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Nazaire-de-Dorchester",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Nérée-de-Bellechasse",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Noël",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Norbert",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Norbert-d'Arthabaska",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Thuribe",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Octave-de-Métis",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Odilon-de-Cranbourne",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Omer",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Onésime-d'Ixworth",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Salluit",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Saint-Ours",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Pacôme",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Pamphile",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Pascal",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Patrice-de-Sherrington",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Paul",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Paul-d'Abbotsford",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Paul-de-la-Croix",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Paul-de-l'Île-aux-Noix",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Paul-de-Montminy",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Paulin",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Philémon",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Sheenboro",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Saint-Philibert",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Philippe",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Philippe-de-Néri",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Pie",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Pie-de-Guire",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Pierre",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Pierre-Baptiste",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Pierre-de-Broughton",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Pierre-de-Lamy",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Pierre-de-l'Île-d'Orléans",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Pierre-les-Becquets",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Pierre-de-la-Rivière-du-Sud",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Placide",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Polycarpe",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Prime",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Prosper",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Prosper-de-Champlain",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Raphaël",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Raymond",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Rémi",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Rémi-de-Tingwick",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-René",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-René-de-Matane",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Robert",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Robert-Bellarmin",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Roch-de-l'Achigan",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Roch-de-Mékinac",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Roch-de-Richelieu",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Roch-des-Aulnaies",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Roch-Ouest",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Romain",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Rosaire",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Samuel",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saints-Anges",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Waskaganish",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Saint-Sauveur",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Saint-Sébastien",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Sébastien",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Sévère",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Toponyme à venir",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Saint-Séverin",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Siméon",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Siméon",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Saint-Simon",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Toponyme à venir",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Saint-Simon-de-Rimouski",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Simon-les-Mines",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Sixte",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Saints-Martyrs-Canadiens",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Toponyme à venir",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Saint-Stanislas",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Stanislas",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Stanislas-de-Kostka",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Sulpice",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Sylvère",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Sylvestre",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Télesphore",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Tharcisius",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Théodore-d'Acton",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Théophile",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Thomas",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Thomas-Didyme",
+        "region": "Saguenay-Lac-Saint-Jean"
+    },
+    {
+        "ville": "Saint-Tite",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Saint-Tite-des-Caps",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Ubalde",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Ulric",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Urbain",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Saint-Urbain-Premier",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Valentin",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Valère",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Valérien",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Valérien-de-Milton",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Saint-Vallier",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Venant-de-Paquette",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Saint-Vianney",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Victor",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Wenceslas",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Zacharie",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Saint-Zénon",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Saint-Zénon-du-Lac-Humqui",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Saint-Zéphirin-de-Courval",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Saint-Zotique",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Salaberry-de-Valleyfield",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Salluit",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Sault-au-Cochon",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Sayabec",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Schefferville",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Scotstown",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Scott",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Senneterre",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Senneterre",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Senneville",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Sept-Îles",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Shannon",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Shawinigan",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Shawville",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Shefford",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sherbrooke",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Shigawake",
+        "region": "Gaspésie-Îles-de-la-Madeleine"
+    },
+    {
+        "ville": "Sorel-Tracy",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Stanbridge East",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Stanbridge Station",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Stanstead",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Stanstead-Est",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Sainte-Catherine-de-la-Jacques-Cartier",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Stoke",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Stoneham-et-Tewkesbury",
+        "region": "Capitale-Nationale"
+    },
+    {
+        "ville": "Stornoway",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Stratford",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Stukely-Sud",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Umiujaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Sutton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Tadoussac",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Taschereau",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Tasiujaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Tasiujaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Témiscaming",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Témiscouata-sur-le-Lac",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Terrasse-Vaudreuil",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Terrebonne",
+        "region": "Lanaudière"
+    },
+    {
+        "ville": "Thetford Mines",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Thorne",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Thurso",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Timiskaming",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Tingwick",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Toponyme à venir",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Toponyme à venir",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Toponyme à venir",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Toponyme à venir",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Tourville",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Trécesson",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Très-Saint-Rédempteur",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Très-Saint-Sacrement",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Upton",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Tring-Jonction",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Trois-Pistoles",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Trois-Rives",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Trois-Rivières",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Uashat",
+        "region": "Côte-Nord"
+    },
+    {
+        "ville": "Ulverton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Umiujaq",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Val-Alain",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Val-Brillant",
+        "region": "Bas-Saint-Laurent"
+    },
+    {
+        "ville": "Valcourt",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Valcourt",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Wemindji",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Val-David",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Val-des-Bois",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Val-des-Lacs",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Val-des-Monts",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Val-des-Sources",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Val-d'Or",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Val-Joli",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Vallée-Jonction",
+        "region": "Chaudière-Appalaches"
+    },
+    {
+        "ville": "Val-Morin",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Val-Racine",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Waswanipi",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Val-Saint-Gilles",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Varennes",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Vaudreuil-Dorion",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Vaudreuil-sur-le-Lac",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Venise-en-Québec",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Verchères",
+        "region": "Montérégie"
+    },
+    {
+        "ville": "Victoriaville",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Ville-Marie",
+        "region": "Abitibi-Témiscamingue"
+    },
+    {
+        "ville": "Villeroy",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Waltham",
+        "region": "Outaouais"
+    },
+    {
+        "ville": "Warden",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Wemindji",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Warwick",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Waskaganish",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Waterloo",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Waterville",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Weedon",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Wemotaci",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Wentworth-Nord",
+        "region": "Laurentides"
+    },
+    {
+        "ville": "Westbury",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Westmount",
+        "region": "Montréal"
+    },
+    {
+        "ville": "Whapmagoostui",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Whapmagoostui",
+        "region": "Nord-du-Québec"
+    },
+    {
+        "ville": "Windsor",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Wôlinak",
+        "region": "Centre-du-Québec"
+    },
+    {
+        "ville": "Wotton",
+        "region": "Estrie"
+    },
+    {
+        "ville": "Yamachiche",
+        "region": "Mauricie"
+    },
+    {
+        "ville": "Yamaska",
+        "region": "Montérégie"
+    }
+]

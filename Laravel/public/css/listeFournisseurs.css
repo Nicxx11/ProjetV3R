@@ -1,15 +1,23 @@
 /* Généralités */
+body{
+    background-color: lightgray;
+}
+
 h3, h4{
     font-weight: 400;
 }
 
 /* Filtres et Recherche */
+
 .filter_box{
     background-color: #0B2341;
     color:white;
-    display: block;
+    display: flexbox;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
+
+    transition: height 0.3s ease;
+    overflow: hidden;
 }
 
 .filter_title{
@@ -17,7 +25,7 @@ h3, h4{
 }
 
 .filter_card{
-    max-height: 50vh;
+    max-height: 30vh;
 }
 
 .filter_search{
@@ -56,4 +64,37 @@ h3, h4{
 
 .active{
     display: none !important;
+}
+
+.categorie{
+    font-size: larger;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.scrollable{
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.scrollable-filters{
+    overflow-y: 100vh;
+    
+}
+
+.sous_categorie{
+    font-size: small;
+}
+
+.recherche_fournisseur{
+    border-radius: 5px;
+    width: max-content;
+    flex:1;
+}
+
+/*Barre de navigation*/
+.navbar{
+    background-color: white;
+    border-radius: 25px;
+    padding: 50px;
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Fournisseur;
+use App\Models\Categorie_Rbq;
 use Illuminate\Support\Facades\Route;
 
 class FournisseursController extends Controller
@@ -14,11 +15,15 @@ class FournisseursController extends Controller
     public function index()
     {
         $fournisseurs = Fournisseur::all();
+        $categories_rbq = new Categorie_Rbq();
+        $rbqs_general = $categories_rbq->getCategoriesByType('Général');
+        $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
+
 
         if(Route::currentRouteName() == "fournisseurs.list"){
-            return view('employe.listeFournisseur', compact('fournisseurs'));
+            return view('employe.listeFournisseur', compact('fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
-
+        
         return View('login.connexion', compact('fournisseurs'));
     }
 
