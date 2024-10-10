@@ -1,0 +1,100 @@
+/* Généralités */
+body{
+    background-color: lightgray;
+}
+
+h3, h4{
+    font-weight: 400;
+}
+
+/* Filtres et Recherche */
+
+.filter_box{
+    background-color: #0B2341;
+    color:white;
+    display: flexbox;
+    padding: 0;
+    min-height: 100vh;
+
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+.filter_title{
+    font-weight: 500;
+}
+
+.filter_card{
+    max-height: 30vh;
+}
+
+.filter_search{
+    width: 90%;
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px lightgray;
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 3px;
+    padding-left: 10px;
+}
+
+.filter_search:focus{
+    outline: none;
+}
+
+.filter_input{
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px #78C6E0;
+}
+
+.filter_input:focus{
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px #78C6E0;
+}
+
+.filter_input:checked{
+    background-color: #78C6E0;
+    border: 0px solid #78C6E0;
+    box-shadow: 0 0 0 1.5px #78C6E0;
+}
+
+.active{
+    display: none !important;
+}
+
+.categorie{
+    font-size: larger;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.scrollable{
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.scrollable-filters{
+    overflow-y: 100vh;
+    
+}
+
+.sous_categorie{
+    font-size: small;
+}
+
+.recherche_fournisseur{
+    border-radius: 5px;
+    width: max-content;
+    flex:1;
+}
+
+/*Barre de navigation*/
+.navbar{
+    background-color: white;
+    border-radius: 25px;
+    padding: 50px;
+}

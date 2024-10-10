@@ -3,10 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FournisseursController;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
  Route::get('/',
  [FournisseursController::class,'index'])->name('index.index');
 
@@ -20,4 +16,7 @@ use App\Http\Controllers\FournisseursController;
  [FournisseursController::class, 'index'])->name('fournisseurs.list');
 
  Route::post('/Fournisseurs/Liste', 
- [FournisseursController::class, 'login'])->name('fournisseurs.list');
+ [FournisseursController::class, 'login'])->name('fournisseurs.login');
+
+ Route::get('/Fournisseurs/Profile', 
+ [FournisseursController::class, 'index'])->name('fournisseurs.profile');

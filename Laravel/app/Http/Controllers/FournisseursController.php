@@ -23,6 +23,9 @@ class FournisseursController extends Controller
         if(Route::currentRouteName() == "fournisseurs.list"){
             return view('employe.listeFournisseur', compact('fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
+        if(Route::currentRouteName() == "fournisseurs.profile"){
+            return view('fournisseur.profile', compact('fournisseurs', 'rbqs_general', 'rbqs_specialise'));
+        }
         
         return View('login.connexion', compact('fournisseurs'));
     }
@@ -68,9 +71,35 @@ class FournisseursController extends Controller
         return redirect()->route('index.index')->with('success', 'Inscription réussie!');
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        return redirect()->route('fournisseurs.list')->with('success','Connexion réussi');
+        $request->validate([
+            'id' => 'required',
+            'MotDePasse' => 'required|string',
+        ]);
+
+        $inputNeq = $request->input('id');
+
+        $fournisseur = Fournisseur::where('NEQ',$inputNeq)->first();
+
+        if (!$fournisseur || hash('sha1', $request->input('MotDePasse')) != $fournisseur->MotDePasse) {
+            // Ajouter un message d'erreur personnalisé pour le champ 'id'
+            return redirect()->back()->withErrors(['loginError' => 'ID ou mot de passe incorrect']);
+        }
+
+        if($fournisseur)
+        {
+            if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
+            {
+                return view('fournisseur.profile',compact('fournisseur'))->with('success','Connexion réussi');
+            }
+            else{
+                return redirect()->route('index.index')->with('error','identifiant non valide');
+            }
+        }
+        else{
+            return redirect()->route('index.index')->with('error','identifiant non valide');
+        }
     }
 
     /**

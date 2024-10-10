@@ -14,7 +14,7 @@
                 <!-- empty column -->
             </div>
             <div class="col-md-7">
-            <form action="{{ route('fournisseurs.list') }}" method="POST">
+            <form action="{{ route('fournisseurs.login') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label class="margCardT" for="id">Identifiant</label></br>
@@ -23,9 +23,15 @@
                 <div class="form-group mt-5">
                     <label for="MotDePasse">Mot de Passe:</label><br>
                     <input placeholder="  Mot de passe" type="password" id="MotDePasse" name="MotDePasse">
+                    @error('loginError')
+                        <p class="erreur">{{ $message }}</p>
+                    @enderror
+                    
                 </div>
                 <a href="{{ route('inscription.create') }}"><span style="color:#1294ff;">Soumettre une demande</span></a>
-                <button class="mt-2 margCo margCardB px-2 py-1" type="submit">Connexion</button>
+                <button class="mt-2 margCo px-2 py-1" type="submit">Connexion</button>
+                <!--mauvaise route v -->
+                <a href="{{ route('inscription.create') }}"><p class="margCardB" style="color:#1294ff;">Mot de passe oublié?</p></a>
             </form>
 
             </div>
