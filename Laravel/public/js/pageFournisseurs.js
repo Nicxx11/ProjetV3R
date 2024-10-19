@@ -16,25 +16,25 @@ document.querySelector('.etat').addEventListener('click', function() {
     }
 });
 
-//Produits & Services
-document.querySelector('.produits_services').addEventListener('click', function() {
-    const targetElements = document.querySelectorAll('.produits_service_item');
-    const icon = document.querySelector('.produits_services i');
-    const searchBar = document.getElementsByClassName('service_recherche');
-    searchBar.value = '';
+// //Produits & Services
+// document.querySelector('.produits_services').addEventListener('click', function() {
+//     const targetElements = document.querySelectorAll('.produits_service_item');
+//     const icon = document.querySelector('.produits_services i');
+//     const searchBar = document.getElementsByClassName('service_recherche');
+//     searchBar.value = '';
 
-    targetElements.forEach(element => {
-        element.classList.toggle('active');
-    });
+//     targetElements.forEach(element => {
+//         element.classList.toggle('active');
+//     });
 
-    if(icon.classList.contains('fa-chevron-down')){
-        icon.classList.remove('fa-chevron-down');
-        icon.classList.add('fa-chevron-right');
-    } else {
-        icon.classList.remove('fa-chevron-right');
-        icon.classList.add('fa-chevron-down');
-    }
-});
+//     if(icon.classList.contains('fa-chevron-down')){
+//         icon.classList.remove('fa-chevron-down');
+//         icon.classList.add('fa-chevron-right');
+//     } else {
+//         icon.classList.remove('fa-chevron-right');
+//         icon.classList.add('fa-chevron-down');
+//     }
+// });
 
 
 //Catégories RBQs
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     async function fetchData() {
         try {
-            const response = await fetch('/json/UNSPSC.json'); // Update with the correct path to your JSON file
+            const response = await fetch('/json/UNSPSC.json');
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function(){
         itemsContainer.innerHTML = '';
         items.forEach(item => {
             const itemDiv = document.createElement('div');
-            itemDiv.className = 'd-flex align-items-center mx-4 produits_service_item active';
+            itemDiv.className = 'd-flex align-items-center mx-4 produits_service_item';
             itemDiv.innerHTML = `
                 <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="${item['Code UNSPSC']}" name="${item['Code UNSPSC']}" value="${item['Code UNSPSC']}">
                 <label class="form-check-label" for="${item['Code UNSPSC']}">${item['Code UNSPSC']} - ${item['Description du code UNSPSC']}</label>

@@ -54,9 +54,9 @@
                 <!--Filtre de Produit/Service-->
                 <div class="card m-4 pb-2 filter_card">
                     
-                    <h4 class="my-2 mx-4 pt-1 filter_title produits_services"><i class="fa-solid fa-chevron-right"></i> Produits et Services</h4>
+                    <h4 class="my-2 mx-4 pt-1 filter_title produits_services"><i class="fa-solid fa-chevron-down"></i> Produits et Services</h4>
 
-                    <div class="d-flex align-items-center my-2 mb-4 mx-4 produits_service_item active">
+                    <div class="d-flex align-items-center my-2 mb-4 mx-4 produits_service_item">
                         <input class="filter_search text-input" type="text" id="service_recherche" name="service_recherche" value="{{ old('service_recherche') }}">
                     </div>
                     <div class="scrollable">
@@ -182,7 +182,7 @@
                         </div>
                     </div>
                 </div>
-                <!--Filtre de Produit/Service-->
+                <!--Filtre de Ville-->
                 <div class="card m-4 pb-2 filter_card villes">
                     
                     <h4 class="my-2 mx-4 pt-1 filter_title villes"><i class="fa-solid fa-chevron-right"></i> Villes</h4>
