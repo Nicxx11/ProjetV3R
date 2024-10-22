@@ -7,6 +7,7 @@ use App\Models\Fournisseur;
 use App\Models\Categorie_Rbq;
 use App\Models\Coordonnee;
 use App\Models\Service;
+use App\Models\ContactFournisseur;
 use Illuminate\Support\Facades\Route;
 
 class FournisseursController extends Controller
@@ -86,6 +87,8 @@ class FournisseursController extends Controller
 
         $fournisseur = Fournisseur::where('NEQ',$inputNeq)->first();
 
+        $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id);
+
         if (!$fournisseur || hash('sha1', $request->input('MotDePasse')) != $fournisseur->MotDePasse) {
             // Ajouter un message d'erreur personnalisé pour le champ 'id'
             return redirect()->back()->withErrors(['loginError' => 'ID ou mot de passe incorrect']);
@@ -95,7 +98,7 @@ class FournisseursController extends Controller
         {
             if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
             {
-                return view('fournisseur.profile',compact('fournisseur'))->with('success','Connexion réussi');
+                return view('fournisseur.profile',compact('fournisseur','contactFourni'))->with('success','Connexion réussi');
             }
             else{
                 return redirect()->route('index.index')->with('error','identifiant non valide');
@@ -104,6 +107,8 @@ class FournisseursController extends Controller
         else{
             return redirect()->route('index.index')->with('error','identifiant non valide');
         }
+
+
     }
 
     /**

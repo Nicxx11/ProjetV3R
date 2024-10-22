@@ -25,6 +25,16 @@ class ContactsFournisseursSeeder extends Seeder
                 'No_Fournisseur' => 1
             ],
             [
+                'Prenom' => 'Bob',
+                'Nom' => 'Graton',
+                'Fonction' => 'Directeur de machandising',
+                'Courriel' => 'administration@walmart.ca',
+                'TypeTelephone' => 'Bureau',
+                'Numero' => '8192224560',
+                'Poste' => '',
+                'No_Fournisseur' => 1
+            ],
+            [
                 'Prenom' => 'Lawrence',
                 'Nom' => 'Rossy',
                 'Fonction' => 'Président',
