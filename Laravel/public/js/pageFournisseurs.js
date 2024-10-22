@@ -168,6 +168,8 @@ document.addEventListener('DOMContentLoaded', function(){
             const jsonData = await response.json();
             renderItems(jsonData);
             setupSearch(jsonData);
+            renderFournisseurs();
+            renderServicesFournisseurs();
         } catch (error) {
             console.error('Failed to fetch data:', error);
         }
@@ -189,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function setupSearch(jsonData){
         searchInput.addEventListener('input', function(){
             const query = searchInput.value.toLowerCase();
-            console.log('Search query: ', query);
+            /*console.log('Search query: ', query);*/
 
             if (!query){
                 renderItems(jsonData);
@@ -203,7 +205,66 @@ document.addEventListener('DOMContentLoaded', function(){
                 return  (description.toLowerCase().includes(query) || code.toLowerCase().includes(query));
             });
 
-            renderItems(filteredItems)
+            renderItems(filteredItems);
+            renderServicesFournisseurs();
+        });
+    }
+
+    function renderFournisseurs(){
+        const fournisseurs = window.Laravel.fournisseurs;
+        const coordonnees = window.Laravel.coordonnees;
+        const services = window.Laravel.services;
+
+        const tableBody = document.querySelector('#fournisseurs-table tbody');
+        tableBody.innerHTML = ``;
+
+        // get all the checkboxes
+        const checkboxes = document.querySelectorAll('.produits_service_item input');
+        const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+        const totalChecked = checkedCheckboxes.length;
+
+        fournisseurs.forEach(obj => {
+            const match = coordonnees.find(coord => coord.No_Fournisseur === obj.id);
+            const filteredServices = services.filter(service => service.No_Fournisseur === obj.id);
+
+            //get the list of all unspscs
+            const serviceUNSPSCs = new Set(filteredServices.map(service => service.UNSPSC));
+
+            //how many of the services the fournisseur has
+            const matchedCount = checkedCheckboxes.filter(checkbox => {
+                const checkboxUNSPSC = checkbox.value; // Assuming the checkbox value holds the UNSPSC
+                return serviceUNSPSCs.has(checkboxUNSPSC);
+            }).length;
+
+            if (matchedCount > 0 || totalChecked == 0){
+                const row = `
+                    <tr>
+                        <td class="pt-2">${obj.Etat_Demande}</td>
+                        <td class="pt-2">${obj.Entreprise}</td>
+                        <td class="pt-2">${match ? match.Ville : 'Introuvable'}</td>
+                        <td class="pt-2">${matchedCount}/${totalChecked}</td>
+                    </tr>
+                `
+                tableBody.innerHTML += row;
+            }
+        });
+
+    }
+
+    function renderServicesFournisseurs(){
+        const checkboxes = document.querySelectorAll('.produits_service_item input');
+    
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function(event) {
+                console.log('HAHHAHAFDAFA');
+                if (event.target.checked) {
+                    console.log(`Checkbox ${event.target.value} checked`);
+                    renderFournisseurs();
+                } else {
+                    console.log(`Checkbox ${event.target.value} unchecked`);
+                    renderFournisseurs();
+                }
+            });
         });
     }
 

@@ -56,7 +56,7 @@
                     
                     <h4 class="my-2 mx-4 pt-1 filter_title produits_services"><i class="fa-solid fa-chevron-down"></i> Produits et Services</h4>
 
-                    <div class="d-flex align-items-center my-2 mb-4 mx-4 produits_service_item">
+                    <div class="d-flex align-items-center my-2 mb-4 mx-4" style="font-size:smaller">
                         <input class="filter_search text-input" type="text" id="service_recherche" name="service_recherche" value="{{ old('service_recherche') }}">
                     </div>
                     <div class="scrollable">
@@ -201,38 +201,20 @@
 
 
             <div class="row">
-                <table class="col-md-10 ms-5 mt-4">
-                    <tr>
-                        <th class="etat_column">État</th>
-                        <th class="fournisseur_column">Fournisseur</th>
-                        <th class="ville_column">Ville</th>
-                        <th class="produits_services_column">Produits & Services</th>
-                        <th class="categorie_column">Catégories de Travaux</th>
-                        <th class="ouvrir_column">Ouvrir</th>
-                    </tr>
-                    @if ($fournisseurs->isNotEmpty())
-                            @foreach($fournisseurs as $obj)
-                                @php
-                                    $match = $coordonnees->firstWhere('No_Fournisseur', $obj->id);
-                                @endphp
-                                <tr>
-                                    <td class="pt-2">{{ $obj->Etat_Demande }}</td>
-                                    <td class="pt-2">{{ $obj->Entreprise }}</td>
-                                    <td class="pt-2">        
-                                        {{ $match ? $match->Ville : 'Introuvable' }}
-                                    </td>
-                                    <td class="pt-2">
-                                        @php
-                                        $filteredServices = $services->where('No_Fournisseur', $obj->id);
-                                        $checkedCount = request()->input('produits_services_item') ? count(request()->input('produits_service_item')) : 0;
-                                        
-                                        $serviceCount = $filteredServices->count();
-                                        @endphp
-                                        {{ $checkedCount }}/
-                                    </td>
-                                </tr>
-                            @endforeach
-                    @endif
+                <table class="col-md-10 ms-5 mt-4" id="fournisseurs-table">
+                    <thead>
+                        <tr>
+                            <th class="etat_column">État</th>
+                            <th class="fournisseur_column">Fournisseur</th>
+                            <th class="ville_column">Ville</th>
+                            <th class="produits_services_column">Produits & Services</th>
+                            <th class="categorie_column">Catégories de Travaux</th>
+                            <th class="ouvrir_column">Ouvrir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
                 </table>
             </div>
             
@@ -243,6 +225,13 @@
 @endsection
 
 @section('scripts')
+<script>
+    window.Laravel = {
+        fournisseurs: @json($fournisseurs),
+        coordonnees: @json($coordonnees),
+        services: @json($services)
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js"></script>
-<script src="../js/pageFournisseurs.js" crossorigin="anonymous"></script>
+<script src="../js/pageFournisseurs.js" crossorigin="anonymous" defer></script>
 @endsection
