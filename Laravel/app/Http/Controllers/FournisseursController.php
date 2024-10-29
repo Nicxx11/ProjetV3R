@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Licence_Rbq;
 use Illuminate\Http\Request;
 use App\Models\Fournisseur;
 use App\Models\Categorie_Rbq;
@@ -87,7 +88,11 @@ class FournisseursController extends Controller
 
         $fournisseur = Fournisseur::where('NEQ',$inputNeq)->first();
 
-        $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id);
+        $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id)->get();
+
+        $service = Service::where('No_Fournisseur',$fournisseur->id)->get();
+
+        $licRbq = Licence_Rbq::where('No_Fournisseur',$fournisseur->id)->get();
 
         if (!$fournisseur || hash('sha1', $request->input('MotDePasse')) != $fournisseur->MotDePasse) {
             // Ajouter un message d'erreur personnalisé pour le champ 'id'
@@ -98,7 +103,7 @@ class FournisseursController extends Controller
         {
             if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
             {
-                return view('fournisseur.profile',compact('fournisseur','contactFourni'))->with('success','Connexion réussi');
+                return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq'))->with('success','Connexion réussi');
             }
             else{
                 return redirect()->route('index.index')->with('error','identifiant non valide');

@@ -57,7 +57,7 @@
                     @enderror
                 </div>
                 <div class="form-group mt-4">
-                    <label for="MotDePasse">Mot de Passe:</label><br>
+                    <label for="MotDePasse">Mot de passe:</label><br>
                     <input placeholder="Mot de passe sécuritaire" type="password" id="MotDePasse" name="MotDePasse"
                         aria-describedby="exigences-motdepasse">
                     @error('MotDePasse')
@@ -65,7 +65,7 @@
                     @enderror
                 </div>
                 <div class="form-group mt-4">
-                    <label for="MotDePasse">Confirmation Mot de Passe:</label></br>
+                    <label for="MotDePasse">Confirmation mot de passe:</label></br>
                     <input placeholder="Confirmer votre mot de passe" type="password" id="MotDePasse_confirmation" name="MotDePasse_confirmation">
                     @error('MotDePasse')
                         <p class="erreur">{{ $message }}</p>

@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ContactFournisseur extends Model
 {
     use HasFactory;
+    
+    public function fournisseur(){
+        return $this->belongsTo(Fournisseur::class);
+    }
 
     public $timestamps = false;
 

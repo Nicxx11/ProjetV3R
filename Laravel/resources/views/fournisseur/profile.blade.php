@@ -57,13 +57,18 @@
                             Contacts
                         </div>
                         <div class="card-body">
+                        
                         @foreach($contactFourni as $contact)
-                            <div class="card">   
+                            <div class="card mb-2">   
                                 <div class="card-body">
-                                    {{$contact->No_Fournisseur}} - {{ $contact->Prenom}}
+                                    <p>{{ $contact->Prenom }} {{ $contact->Nom }}</p>
+                                    <p>{{ $contact->Fonction }}</p>
+                                    <p>{{ $contact->Courriel }}</p>
+                                    <p>{{ $contact->Telephone }}</p>
                                 </div>                 
                             </div>
-                            @endforeach
+                        @endforeach
+                        
                         </div>                 
                     </div>
                     <div class="card">
@@ -77,8 +82,7 @@
                         </div>
                         <div class="card-body">
                             <h3>Approvisionnements</h3>
-                            <p>Place Holder</p>
-                            <div class="card">   
+                            <div class="card mt-3">   
                                 <div class="card-header">
                                     Details et spécifications
                                 </div>
@@ -93,13 +97,25 @@
                             License RBQ
                         </div>
                         <div class="card-body">
-                            <p>Place Holder</p>
+                            <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}</p>
                             <div class="card">   
                                 <div class="card-header">
                                     Catégories et sous-catégories autorisées
                                 </div>
                                 <div class="card-body">
-                                    <p>Place Holder</p>
+                                    <h3>CATÉGORIE ENTREPRENEUR GÉNÉRAL</h3>
+                                    @foreach ($licRbq as $lic)
+                                        @if ($lic->Categorie == "Général")
+                                            <p>{{ $lic->Code_Sous_Categorie }} {{ $lic->Travaux_Permis }}</p>
+                                        @endif
+                                        @endforeach
+                                            <h3>CATÉGORIE ENTREPRENEUR SPÉCIALISÉ</h3>
+                                        @foreach ($licRbq as $lic)
+                                        @if ($lic->Categorie == "Spécialisé")
+                                            {{ $lic->Code_Sous_Categorie }} {{ $lic->Travaux_Permis }}</br>
+                                        @endif
+                                        @endforeach
+
                                 </div>                 
                             </div>
                         </div>                 

@@ -21,7 +21,7 @@
                     <input placeholder="  NEQ/Courriel" type="text" id="id" name="id" value="{{ old('id') }}">
                 </div>
                 <div class="form-group mt-5">
-                    <label for="MotDePasse">Mot de Passe:</label><br>
+                    <label for="MotDePasse">Mot de passe:</label><br>
                     <input placeholder="  Mot de passe" type="password" id="MotDePasse" name="MotDePasse">
                     @error('loginError')
                         <p class="erreur">{{ $message }}</p>

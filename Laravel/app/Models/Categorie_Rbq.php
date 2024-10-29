@@ -12,6 +12,8 @@ class Categorie_Rbq extends Model
 
     protected $table = "categories_rbqs";
 
+    
+
     public function getCategoriesByType($type = 'Général')
     {
         return self::where('Categorie', $type)->get();
