@@ -60,18 +60,7 @@
                         <input class="filter_search text-input" type="text" id="service_recherche" name="service_recherche" value="{{ old('service_recherche') }}">
                     </div>
                     <div class="scrollable">
-                        <!-- @php
-                            $jsonPath = storage_path('../public/json/UNSPSC.json');
-                            $jsonData = file_get_contents($jsonPath);
-                            $data = json_decode($jsonData, true);
-                        @endphp
-
-                        @foreach($data as $row)
-                            <div class="d-flex align-items-center mx-4 produits_service_item active">
-                                <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="{{ $row['Code UNSPSC'] }}" name="{{ $row['Code UNSPSC'] }}" value="{{ $row['Code UNSPSC'] }}">
-                                <label class="form-check-label" for="{{ $row['Code UNSPSC'] }}">{{ $row['Code UNSPSC'] }} - {{ $row['Description du code UNSPSC'] }}</label>
-                            </div>
-                        @endforeach -->
+                        <!-- C'est  içi que les UNSPSC apparaissent -->
                     </div>
                 </div>
 
@@ -165,7 +154,7 @@
                             <label class="form-check-label" for="Laval">Laval</label>
                         </div>
                         <div class="d-flex align-items-center mx-4 region_administratives_item active">
-                            <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="Lanaudière" name="Lanaudière" value=Lanaudière">
+                            <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="Lanaudière" name="Lanaudière" value="Lanaudière">
                             <label class="form-check-label" for="Lanaudière">Lanaudière</label>
                         </div>
                         <div class="d-flex align-items-center mx-4 region_administratives_item active">
@@ -185,7 +174,7 @@
                 <!--Filtre de Ville-->
                 <div class="card m-4 pb-2 filter_card villes">
                     
-                    <h4 class="my-2 mx-4 pt-1 filter_title villes"><i class="fa-solid fa-chevron-right"></i> Villes</h4>
+                    <h4 class="my-2 mx-4 pt-1 filter_title villes_toggler"><i class="fa-solid fa-chevron-right"></i> Villes</h4>
 
                     <!-- Va contenir toutes les villes filtrées (filtre pas fait encore) -->
                     <div id="villes_container" class="scrollable villes_item active"></div>
