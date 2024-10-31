@@ -57,7 +57,7 @@ class LicencesRBQsSeeder extends Seeder
                 'Categorie' => 'Spécialisé',
                 'Code_Sous_Categorie' => '4.2',
                 'Travaux_Permis' => 'Travaux de finition',
-                'No_Fournisseur' => 2
+                'No_Fournisseur' => 3
             ]
          ]);
     }

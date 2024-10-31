@@ -24,10 +24,11 @@ class FournisseursController extends Controller
         $rbqs_general = $categories_rbq->getCategoriesByType('Général');
         $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
         $services = Service::all();
+        $licences_rbqs = Licence_Rbq::all();
 
 
         if(Route::currentRouteName() == "fournisseurs.list"){
-            return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise'));
+            return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
         }
         if(Route::currentRouteName() == "fournisseurs.profile"){
             return view('fournisseur.profile', compact('fournisseurs', 'rbqs_general', 'rbqs_specialise'));

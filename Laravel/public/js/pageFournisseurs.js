@@ -67,14 +67,12 @@ document.querySelector('.villes_toggler').addEventListener('click', function() {
     }
 });
 
-
-
 // FILTRES DE SERVICES & PRODUITS
 document.addEventListener('DOMContentLoaded', function(){
     const searchInput = document.getElementById('service_recherche');
     const itemsContainer = document.querySelector('.scrollable');
     let checkedStates = {};
-    //let regionsFilter = ["Capitale-Nationale", "Laval", "Outaouais", "Côte-Nord", "Gaspésie-Îles-de-la-Madeleine", "Montréal", "Lanaudière", "Nord-du-Québec", "Mauricie", "Abitibi-Témiscamingue", "Montérégie", "Saguenay-Lac-Saint-Jean", "Chaudière-Appalaches", "Centre-du-Québec", "Bas-Saint-Laurent", "Laurentides", "Estrie"];
+    //toutes les régions: ["Capitale-Nationale", "Laval", "Outaouais", "Côte-Nord", "Gaspésie-Îles-de-la-Madeleine", "Montréal", "Lanaudière", "Nord-du-Québec", "Mauricie", "Abitibi-Témiscamingue", "Montérégie", "Saguenay-Lac-Saint-Jean", "Chaudière-Appalaches", "Centre-du-Québec", "Bas-Saint-Laurent", "Laurentides", "Estrie"];
     let regionsFilter = [];
 
     async function fetchData() {
@@ -139,46 +137,82 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     }
 
-    function renderFournisseurs(){
+    function renderFournisseurs(searchedText=''){
+        //search bar
+        document.querySelector('.recherche_fournisseur').addEventListener('input', function(){
+            renderFournisseurs(''+this.value);
+        });
+
         const fournisseurs = window.Laravel.fournisseurs;
         const coordonnees = window.Laravel.coordonnees;
         const services = window.Laravel.services;
+        const licences_rbq = window.Laravel.licences_rbq;
 
         const tableBody = document.querySelector('#fournisseurs-table tbody');
         tableBody.innerHTML = ``;
 
-        // get all the checkboxes
+        // services filtering
         const produitsCheckboxes = document.querySelectorAll('.produits_service_item input');
         const checkedProduits = Array.from(produitsCheckboxes).filter(checkbox => checkbox.checked);
         const totalCheckedUNSPSC = checkedProduits.length;
 
+        // Villes filtering
         const villesCheckboxes = document.querySelectorAll('.villes_item input');
-        const checkedVilles = Array.from(villesCheckboxes).filter(checkbox => checkbox.checked);
+        const checkedVilles = Array.from(villesCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.name);
         const totalCheckedVilles = checkedVilles.length;
 
+        // Etat Filtering
+        const etatCheckboxes = document.querySelectorAll('.etat_item input');
+        const checkedEtats = Array.from(etatCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value);
+        const totalCheckedEtats = checkedEtats.length;
+
+        // rbq filtering
+        const rbqCheckboxes = document.querySelectorAll('.categories_rbqs_item input');
+        const checkedRBQs = Array.from(rbqCheckboxes)
+            .filter(checkbox => checkbox.checked)
+            .map(checkbox => checkbox.value)
+            .map(checkbox => checkbox.match(/^\s*[\d.]+/)[0]);
+        const totalCheckedRBQs = checkedRBQs.length;
 
         fournisseurs.forEach(obj => {
-            //for every unspsc
+            //find the fournisseur information
             const matchUNSPSC = coordonnees.find(coord => coord.No_Fournisseur === obj.id);
             const filteredServices = services.filter(service => service.No_Fournisseur === obj.id);
             const serviceUNSPSCs = new Set(filteredServices.map(service => service.UNSPSC));
 
+            //find the rbq licences of the fournisseur
+            const rbqs_fournisseur = new Set(licences_rbq.filter(licence => licence.No_Fournisseur === obj.id).map(licence => licence.Code_Sous_Categorie));
+
+            //how many of the rbqs the fournisseur has
+            const matchedCountRBQs = checkedRBQs.filter(checkbox => {
+                return rbqs_fournisseur.has(checkbox);
+            }).length;
+            
+
             //how many of the services the fournisseur has
             const matchedCountUNSPSC = checkedProduits.filter(checkbox => {
-                const checkboxUNSPSC = checkbox.value; // Assuming the checkbox value holds the UNSPSC
+                const checkboxUNSPSC = checkbox.value;
                 return serviceUNSPSCs.has(checkboxUNSPSC);
             }).length;
 
-            //for every ville
-            const matchedCountVilles = checkedVilles.includes(obj.Ville) ? 1 : 0;
+            //does he have the correct ville
+            const matchedCountVilles = checkedVilles.includes(matchUNSPSC.Ville) ? 1 : 0;
 
-            if ((matchedCountUNSPSC > 0 || totalCheckedUNSPSC == 0) && (matchedCountVilles > 0 || totalCheckedVilles == 0)){
+            //does he have a correct etat
+            const matchedCountEtat = checkedEtats.includes(obj.Etat_Demande) ? 1 : 0;
+
+            if ((matchedCountUNSPSC > 0 || totalCheckedUNSPSC == 0) && (matchedCountVilles > 0 || totalCheckedVilles == 0) && (matchedCountEtat > 0 || totalCheckedEtats == 0) && (matchedCountRBQs > 0 || totalCheckedRBQs == 0) && (obj.Entreprise.toLowerCase().includes(searchedText.toLowerCase()) || searchedText == '')){
                 const row = `
                     <tr>
                         <td class="pt-2">${obj.Etat_Demande}</td>
                         <td class="pt-2">${obj.Entreprise}</td>
                         <td class="pt-2">${matchUNSPSC ? matchUNSPSC.Ville : 'Introuvable'}</td>
                         <td class="pt-2">${matchedCountUNSPSC}/${totalCheckedUNSPSC}</td>
+                        <td class="pt-2">${matchedCountRBQs}/${totalCheckedRBQs}</td>
                     </tr>
                 `
                 tableBody.innerHTML += row;
@@ -278,8 +312,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 // Append the itemDiv to the container
                 container.appendChild(itemDiv);
 
-                //add the event to the checkbox TODO FOSJEFOJEFIEJFIORJGIRDJGIORDJGIORDJGRIODGJRIODGJRIODJGRIOJGRIODJGDGIJRDGRDIOGJRIODGJRIODGJRIDOJGRIODJGIORDJGRIODGJRIODJGRIODJGRIODGJRIODGJRIDOJGRIODJGIO
-                //checkboxInput.addEventListener('change', renderFournisseurs());
+                //add event to render the new list
+                checkboxInput.addEventListener('change', function(){
+                    renderFournisseurs();
+                });
             });
         })
         .catch(error => {
@@ -288,19 +324,36 @@ document.addEventListener('DOMContentLoaded', function(){
 
     }
 
+    function etat_filtering(){
+        etats = document.querySelectorAll('.etat_item input');
+        etats.forEach(etat => {
+            etat.addEventListener('change', function(){
+                renderFournisseurs();
+            });
+        });
+    }
+
+    function rbq_filtering(){
+        rbqs = document.querySelectorAll('.categories_rbqs_item input');
+        rbqs.forEach(rbq => {
+            rbq.addEventListener('change', function(){
+                renderFournisseurs();
+            });
+        })
+    }
+
     fetchData();
     renderRegions();
+    etat_filtering();
+    rbq_filtering();
 });
-
-
-
-
 
 //effacer les filtres
 document.querySelector('.effacer-filtres').addEventListener('click', function() {
     // Uncheck all checkboxes
     const checkboxes = document.querySelectorAll('.checkbox-input');
-    checkboxes.forEach(checkbox => {
+    const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+    checkedCheckboxes.forEach(checkbox => {
         checkbox.checked = false;
     });
 
@@ -309,4 +362,6 @@ document.querySelector('.effacer-filtres').addEventListener('click', function() 
     textInputs.forEach(input => {
         input.value = '';
     });
+
+    renderFournisseurs();
 });

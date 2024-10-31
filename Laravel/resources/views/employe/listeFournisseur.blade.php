@@ -30,23 +30,23 @@
                     <h4 class="my-2 mx-4 py-1 filter_title etat"><i class="fa-solid fa-chevron-right fa-sm"></i>  État</h4>
 
                     <div class="d-flex align-items-center my-2 mx-4 etat_item active">
-                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="En_attente" name="En_attente" value="En_attente">
-                        <label class="form-check-label" for="En_attente">En attente</label>
+                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="En_attente" name="En_attente" value="En attente">
+                        <label class="form-check-label" for="En attente">En attente</label>
                     </div>
 
                     <div class="d-flex align-items-center my-2 mx-4 etat_item active">
-                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="Acceptees" name="Acceptees" value="Acceptees">
-                        <label class="form-check-label" for="Acceptees">Acceptées</label>
+                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="Acceptees" name="Acceptees" value="Acceptée">
+                        <label class="form-check-label" for="Acceptées">Acceptées</label>
                     </div>
 
                     <div class="d-flex align-items-center my-2 mx-4 etat_item active">
-                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="Refusees" name="Refusees" value="Refusees">
-                        <label class="form-check-label" for="Refusees">Refusées</label>
+                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="Refusees" name="Refusees" value="Refusée">
+                        <label class="form-check-label" for="Refusées">Refusées</label>
                     </div>
 
                     <div class="d-flex align-items-center my-2 mx-4 etat_item active">
-                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="A_reviser" name="A_reviser" value="A_reviser">
-                        <label class="form-check-label" for="A_reviser">À réviser</label>
+                        <input class="form-check-input me-2 filter_input checkbox-input" type="checkbox" id="A_reviser" name="A_reviser" value="À réviser">
+                        <label class="form-check-label" for="À réviser">À réviser</label>
                     </div>
                     
                 </div>
@@ -218,7 +218,10 @@
     window.Laravel = {
         fournisseurs: @json($fournisseurs),
         coordonnees: @json($coordonnees),
-        services: @json($services)
+        services: @json($services),
+        rbqs_general: @json($rbqs_general),
+        rbqs_specialise: @json($rbqs_specialise),
+        licences_rbq: @json($licences_rbqs)
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js"></script>
