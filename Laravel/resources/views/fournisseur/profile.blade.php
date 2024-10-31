@@ -40,7 +40,6 @@
                         <div class="card-body">
                             <p>NEQ: {{ $fournisseur->NEQ }}</p>
                             <p>Nom: {{ $fournisseur->Entreprise }}</p>
-                            <p>Courriel: {{ $fournisseur->Courriel }}</p>
                         </div>
                     </div>
                     <div class="card cardInfo">
