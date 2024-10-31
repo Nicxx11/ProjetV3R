@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-md-3 text-left filter_box"> <!--Filtres et Recherches-->
             @csrf
-            <div class="m-4">
+            <div class="m-4 fixedTitle">
                 <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>
             </div>
         </div>
