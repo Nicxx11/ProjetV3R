@@ -31,7 +31,7 @@ class ContactsFournisseursSeeder extends Seeder
                 'Courriel' => 'administration@walmart.ca',
                 'TypeTelephone' => 'Bureau',
                 'Numero' => '8192224560',
-                'Poste' => '',
+                'Poste' => '1245',
                 'No_Fournisseur' => 1
             ],
             [

@@ -31,6 +31,14 @@ class ServicesSeeder extends Seeder
                 'No_Fournisseur' => 1
             ],
             [
+                'Nature' => 'Travaux de licorne',
+                'Code_Categorie' => 'L21',
+                'Categorie' => 'Aventure magique',
+                'UNSPSC' => '11111111',
+                'Description' => 'Aventure vers le pays des licornes',
+                'No_Fournisseur' => 1
+            ],
+            [
                 'Nature' => 'Travaux de construction',
                 'Code_Categorie' => 'C01',
                 'Categorie' => 'Stationnements',

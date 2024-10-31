@@ -93,6 +93,9 @@ class FournisseursController extends Controller
         $service = Service::where('No_Fournisseur',$fournisseur->id)->get();
 
         $licRbq = Licence_Rbq::where('No_Fournisseur',$fournisseur->id)->get();
+    
+        $coord = Coordonnee::where('No_Fournisseur',$fournisseur->id)->first();
+
 
         if (!$fournisseur || hash('sha1', $request->input('MotDePasse')) != $fournisseur->MotDePasse) {
             // Ajouter un message d'erreur personnalisé pour le champ 'id'

@@ -64,7 +64,13 @@
                                     <p>{{ $contact->Prenom }} {{ $contact->Nom }}</p>
                                     <p>{{ $contact->Fonction }}</p>
                                     <p>{{ $contact->Courriel }}</p>
-                                    <p>{{ $contact->Telephone }}</p>
+                                    <p>{{ $contact->Numero }} 
+                                    @if ($contact->Poste != '')
+                                    #{{$contact->Poste}}</p>
+                                    @else
+                                    </p>
+                                    @endif
+                                    
                                 </div>                 
                             </div>
                         @endforeach
@@ -82,6 +88,14 @@
                         </div>
                         <div class="card-body">
                             <h3>Approvisionnements</h3>
+
+                            @foreach ($service->groupBy('Code_Categorie') as $codeCategorie => $services)
+                                <h3>{{ $codeCategorie }} - {{ $services->first()->Categorie }}</h3>
+
+                                @foreach ($services as $ser)
+                                    <p>{{ $ser->UNSPSC }} - {{ $ser->Description }}</p>
+                                @endforeach
+                            @endforeach
                             <div class="card mt-3">   
                                 <div class="card-header">
                                     Details et spécifications
@@ -103,13 +117,17 @@
                                     Catégories et sous-catégories autorisées
                                 </div>
                                 <div class="card-body">
+                                    @if ($licRbq->contains('Categorie', 'Général'))
                                     <h3>CATÉGORIE ENTREPRENEUR GÉNÉRAL</h3>
+                                    @endif
                                     @foreach ($licRbq as $lic)
                                         @if ($lic->Categorie == "Général")
                                             <p>{{ $lic->Code_Sous_Categorie }} {{ $lic->Travaux_Permis }}</p>
                                         @endif
                                         @endforeach
+                                            @if ($licRbq->contains('Categorie', 'Spécialisé'))
                                             <h3>CATÉGORIE ENTREPRENEUR SPÉCIALISÉ</h3>
+                                            @endif
                                         @foreach ($licRbq as $lic)
                                         @if ($lic->Categorie == "Spécialisé")
                                             {{ $lic->Code_Sous_Categorie }} {{ $lic->Travaux_Permis }}</br>
@@ -137,7 +155,7 @@
                         <div class="card-body">
                             <p>Numéro TPS: {{ $fournisseur->No_TPS }}</p>
                             <p>Numéro TVQ: {{ $fournisseur->No_TVQ }}</p>
-                            <p>Condition de paiement: {{ $fournisseur->Conditions_paiement }}</p>
+                            <p>Condition de paiement: {{ $fournisseur->Conditions_Paiement }}</p>
                             <p>Devis: {{ $fournisseur->Devise }}</p>
                             <p>Mode de communication: {{ $fournisseur->Mode_Communication }}</p>
                         </div>
