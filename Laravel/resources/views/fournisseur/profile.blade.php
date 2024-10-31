@@ -48,8 +48,24 @@
                             Adresse
                         </div>
                         <div class="card-body">
-                            <!-- adresse ici -->
-                            Je suis une adresse!
+                            <p>{{$coord->NoCivique}}, {{$coord->Rue}}
+                            </br>{{$coord->Ville}} ({{$coord->Province}}) {{$coord->CodePostal}}
+                            </br></br><i class="fa-solid fa-envelope"></i> {{$fournisseur->Courriel}}
+                            </br>                            <!-- ICI SE TROUVE LE IF POUR LES ICONS -->
+                            @if ($coord->TypeTelephone == 'Bureau')
+                            <i class="fa-solid fa-phone"></i>
+                            @elseif ($coord->TypeTelephone == 'Télécopieur')
+                            <i class="fa-solid fa-fax"></i>
+                            @elseif ($coord->TypeTelephone == 'Cellulaire')
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            @endif
+                             {{$coord->Numero}}
+                            @if ($coord->Poste != '')
+                                    #{{$coord->Poste}}</p>
+                                    @else
+                                    </p>
+                                    @endif
+                            </p>
                         </div>
                     </div>
                     <div class="card cardInfo">   
@@ -63,8 +79,8 @@
                                 <div class="card-body">
                                     <p>{{ $contact->Prenom }} {{ $contact->Nom }}</p>
                                     <p>{{ $contact->Fonction }}</p>
-                                    <p>{{ $contact->Courriel }}</p>
-                                    <p>{{ $contact->Numero }} 
+                                    <p><i class="fa-solid fa-envelope"></i> {{ $contact->Courriel }}</p>
+                                    <p><i class="fa-solid fa-phone"></i> {{ $contact->Numero }} 
                                     @if ($contact->Poste != '')
                                     #{{$contact->Poste}}</p>
                                     @else
@@ -148,6 +164,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
+                    @if ($fournisseur->Etat_Demande == 'Acceptée')
                     <div class="card">
                     <div class="card-header">
                             Finances
@@ -160,6 +177,7 @@
                             <p>Mode de communication: {{ $fournisseur->Mode_Communication }}</p>
                         </div>
                         </div>
+                    @endif
                 </div>
 
             </div>

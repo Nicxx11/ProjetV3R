@@ -107,7 +107,7 @@ class FournisseursController extends Controller
         {
             if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
             {
-                return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq'))->with('success','Connexion réussi');
+                return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
             }
             else{
                 return redirect()->route('index.index')->with('error','identifiant non valide');

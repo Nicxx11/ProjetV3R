@@ -26,7 +26,7 @@ class FournisseursSeeder extends Seeder
                 'Conditions_paiement' => 'Z001',
                 'Devise' => 'CAD',
                 'Mode_Communication' => 'Par courriel',
-                'Etat_Demande' => 'Acceptée',
+                'Etat_Demande' => 'Refusée',
                 'Date_Changement_Etat' => '2024-04-25 10:37:00',
                 'Date_Creation' => '2024-04-21 11:14:00',
                 'Date_Derniere_Modification' => '2024-04-30 15:29:00'
