@@ -70,7 +70,7 @@ class FournisseursController extends Controller
         ]);
 
         // Hash du mot de passe avant d'enregistrer
-        $validatedData['MotDePasse'] = bcrypt($validatedData['MotDePasse']);
+        $validatedData['MotDePasse'] = hash('sha1', $validatedData['MotDePasse']);
 
         // Enregistrement dans la base de données
         Fournisseur::create($validatedData);
