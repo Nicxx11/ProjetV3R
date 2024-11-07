@@ -26,3 +26,7 @@ use App\Http\Controllers\FournisseursController;
 
  Route::post('/Fournisseurs/Profile/Modifier', 
  [FournisseursController::class, 'update'])->name('profile.edit');
+
+ Route::post('/check-rbq', 
+ [FournisseursController::class, 'checkRBQ']);
+

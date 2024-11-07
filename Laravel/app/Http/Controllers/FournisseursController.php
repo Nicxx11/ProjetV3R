@@ -10,6 +10,9 @@ use App\Models\Coordonnee;
 use App\Models\Service;
 use App\Models\ContactFournisseur;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
+use Log;
+use Symfony\Component\ErrorHandler\Debug;
 
 class FournisseursController extends Controller
 {
@@ -42,7 +45,11 @@ class FournisseursController extends Controller
      */
     public function create()
     {
-        return View('login.inscription');
+        $categories_rbq = new Categorie_Rbq();
+        $rbqs_general = $categories_rbq->getCategoriesByType('Général');
+        $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
+
+        return View('login.inscription', compact('rbqs_general', 'rbqs_specialise'));
     }
 
     /**
@@ -233,5 +240,38 @@ class FournisseursController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function checkRBQ(Request $request)
+    {
+        // Get the RBQ number from the incoming request
+        $rbq = $request->input('rbq');
+
+
+        $url = 'https://www.donneesquebec.ca/recherche/api/3/action/datastore_search_sql';
+        $query = [
+            'sql' => 'SELECT * from "32f6ec46-85fd-45e9-945b-965d9235840a" WHERE "Numero de licence" LIKE "' . $rbq . '" LIMIT 1'
+        ];
+
+        $fullUrl = $url . '?sql=SELECT%20*%20from%20"32f6ec46-85fd-45e9-945b-965d9235840a"%20WHERE%20"Numero%20de%20licence"%20LIKE%20%27'.$rbq.'%27%20LIMIT%201'; // Builds the full URL with query parameters
+        Log::info('Full URL:', ['url' => $fullUrl]);
+
+        $response = Http::withoutVerifying()->get($fullUrl);
+
+        // $response = Http::withoutVerifying()->get('https://www.donneesquebec.ca/recherche/api/3/action/datastore_search_sql', [
+        //     'sql' => 'SELECT * from "32f6ec46-85fd-45e9-945b-965d9235840a" WHERE "Numero de licence" LIKE "'. $rbq . '" LIMIT 1'
+        // ]);
+
+        if ($response->successful()) {
+            $data = $response->json(); // Get the response body as an array
+            
+            if (empty($data['result']['records'])) {
+                return response()->json(['message' => 'No records found.']);
+            } else {
+                return response()->json($data['result']['records']);
+            }
+        } else {
+            return response()->json(['message' => 'Request failed with status: ' . $response->status()], 400);
+        }
     }
 }
