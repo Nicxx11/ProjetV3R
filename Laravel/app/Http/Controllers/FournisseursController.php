@@ -97,6 +97,15 @@ class FournisseursController extends Controller
     
         $coord = Coordonnee::where('No_Fournisseur',$fournisseur->id)->first();
 
+        session([
+            'id' => $inputNeq,
+            'fournisseur' => $fournisseur,
+            'contactFourni' => $contactFourni,
+            'service' => $service,
+            'licRbq' => $licRbq,
+            'coord' => $coord
+        ]);
+
 
         if (!$fournisseur || hash('sha1', $request->input('MotDePasse')) != $fournisseur->MotDePasse) {
             // Ajouter un message d'erreur personnalisé pour le champ 'id'
@@ -131,17 +140,91 @@ class FournisseursController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
+    public function edit()
+    {        
+        $id = session('id');
+        $fournisseur = session('fournisseur');
+        $contactFourni = session('contactFourni');
+        $service = session('service');
+        $licRbq = session('licRbq');
+        $coord = session('coord');
+
+
+        return view('fournisseur.editProfile', compact('id', 'fournisseur','contactFourni','service','licRbq','coord'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        // Récupérer l'ID du fournisseur à partir de la session
+        $id = session('id');
+        
+        // Récupérer le fournisseur et autres données de la session
+        $fournisseur = session('fournisseur');
+        $contactFourni = session('contactFourni');
+        $service = session('service');
+        $licRbq = session('licRbq');
+        $coord = session('coord');
+    
+        // Validation des données reçues via le formulaire
+        $request->validate([
+            'entreprise' => 'required|string|max:255',
+            'noCivic' => 'required|numeric',
+            'rue' => 'required|string|max:255',
+            'ville' => 'required|string|max:255',
+            'province' => 'required|string|max:255',
+            'codePostal' => 'required|string|max:10',
+            'courriel' => 'required|email|max:255',
+            'coordNum' => 'required|numeric',
+            'numPoste' => 'nullable|numeric',
+            'contactPrenom' => 'nullable|array',
+            'contactNom' => 'nullable|array',
+            'contactFonction' => 'nullable|array',
+            'contactCourriel' => 'nullable|array|email',
+            'contactNumero' => 'nullable|array|numeric',
+            'contactPoste' => 'nullable|array|numeric',
+        ]);
+    
+        // Mise à jour du fournisseur
+        //$fournisseur = Fournisseur::findOrFail($id);
+        //$fournisseur->Entreprise = $request->input('entreprise');
+        //$fournisseur->Courriel = $request->input('courriel');
+        //$fournisseur->save();
+        $fournisseur->update([
+            'Entreprise' => $request->input('entreprise'),
+            'Courriel' => $request->input('courriel'),
+        ]);
+    
+        // Mise à jour des coordonnées
+        $coord = Coordonnee::where('fournisseur_id', $id)->first();
+        $coord->NoCivique = $request->input('noCivic');
+        $coord->Rue = $request->input('rue');
+        $coord->Ville = $request->input('ville');
+        $coord->Province = $request->input('province');
+        $coord->CodePostal = $request->input('codePostal');
+        $coord->Numero = $request->input('coordNum');
+        $coord->Poste = $request->input('numPoste', null); // Si non défini, valeur par défaut null
+        $coord->save();
+    
+        // Mise à jour des contacts
+        if ($request->has('contactPrenom')) {
+            foreach ($request->input('contactPrenom') as $index => $prenom) {
+                $contact = ContactFournisseur::findOrFail($index);  // Trouve chaque contact par son ID
+                $contact->Prenom = $prenom;
+                $contact->Nom = $request->input('contactNom')[$index];
+                $contact->Fonction = $request->input('contactFonction')[$index];
+                $contact->Courriel = $request->input('contactCourriel')[$index];
+                $contact->Numero = $request->input('contactNumero')[$index];
+                $contact->Poste = $request->input('contactPoste')[$index];
+                $contact->save();
+            }
+        }
+    
+        // Rediriger vers la page du fournisseur avec un message de succès
+        return redirect()->route('fournisseur.profile', ['id' => $id])
+                         ->with('success', 'Le profil du fournisseur a été mis à jour avec succès !');
     }
 
     /**

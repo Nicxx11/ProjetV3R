@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titre','Profile')
+@section('titre','Edit profile')
 @section('newCss','../css/profileFournisseur.css')
 
 @section('contenu')
@@ -9,13 +9,17 @@
         <div class="col-md-3 text-left filter_box"> 
             @csrf
             <div class="m-4 fixedTitle">
-                <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>
+                <h5>Modification de {{ $fournisseur->Entreprise }}</h5>
             </div>
         </div>
 
         <div class="col-md-9"> 
-        <h2>Information du profil</h2>
-        <a href="{{ route('profile.modifier') }}"><button>Modifier</button></a>
+            <!-- Form start -->
+        <form action="{{ route('profile.edit') }}" method="POST">
+        @csrf
+        <h2>Information du profil</h2>                
+        <button class="mb-4 px-2 py-1" type="submit">Confirmer</button>
+
             <div class="row m-4">
                 <div class="col-md-4">
                     <div class="card ">
@@ -40,7 +44,8 @@
                         </div>
                         <div class="card-body">
                             <p>NEQ: {{ $fournisseur->NEQ }}</p>
-                            <p>Nom: {{ $fournisseur->Entreprise }}</p>
+                            <label for="NEQ">Nom: </label>
+                            <input type="text" id="entreprise" name="entreprise" value="{{ $fournisseur->Entreprise }}">
                         </div>
                     </div>
                     <div class="card cardInfo">
@@ -48,9 +53,9 @@
                             Adresse
                         </div>
                         <div class="card-body">
-                            <p>{{$coord->NoCivique}}, {{$coord->Rue}}
-                            </br>{{$coord->Ville}} ({{$coord->Province}}) {{$coord->CodePostal}}
-                            </br></br><i class="fa-solid fa-envelope"></i> {{$fournisseur->Courriel}}
+                            <p><input type="number" id="noCivic" name="noCivic" value="{{$coord->NoCivique}}">, <input type="text" id="rue" name="rue" value="{{$coord->Rue}}">
+                            </br><input type="text" id="ville" name="ville" value="{{$coord->Ville}}"> (<input type="text" id="province" name="province" value="{{$coord->Province}}">) <input type="text" id="codePostal" name="codePostal" value="{{$coord->CodePostal}}">
+                            </br></br><i class="fa-solid fa-envelope"></i> <input type="text" id="courriel" name="courriel" value="{{$fournisseur->Courriel}}">
                             </br>                            <!-- ICI SE TROUVE LE IF POUR LES ICONS -->
                             @if ($coord->TypeTelephone == 'Bureau')
                             <i class="fa-solid fa-phone"></i>
@@ -59,9 +64,9 @@
                             @elseif ($coord->TypeTelephone == 'Cellulaire')
                             <i class="fa-solid fa-mobile-screen"></i>
                             @endif
-                             {{$coord->Numero}}
+                            <input type="number" id="coordNum" name="coordNum" value="{{$coord->Numero}}">
                             @if ($coord->Poste != '')
-                                    #{{$coord->Poste}}</p>
+                                    Poste: <input type="number" id="numPoste" name="numPoste" value="{{$coord->Poste}}"></p>
                                     @else
                                     </p>
                                     @endif
@@ -77,12 +82,12 @@
                         @foreach($contactFourni as $contact)
                             <div class="card mb-2">   
                                 <div class="card-body">
-                                    <p>{{ $contact->Prenom }} {{ $contact->Nom }}</p>
-                                    <p>{{ $contact->Fonction }}</p>
-                                    <p><i class="fa-solid fa-envelope"></i> {{ $contact->Courriel }}</p>
-                                    <p><i class="fa-solid fa-phone"></i> {{ $contact->Numero }} 
+                                    <p>Prenom: <input type="text" id="contactPrenom" name="contactPrenom" value="{{ $contact->Prenom }}"> Nom: <input type="text" id="contactNom" name="contactNom" value="{{ $contact->Nom }}"></p>
+                                    <p>Fonction: <input type="text" id="contactFonction" name="contactFonction" value="{{ $contact->Fonction }}"></p>
+                                    <p><i class="fa-solid fa-envelope"></i> <input type="email" id="contactCourriel" name="contactCourriel" value="{{ $contact->Courriel }}"></p>
+                                    <p><i class="fa-solid fa-phone"></i> <input type="number" id="contactNumero" name="contactNumero" value="{{ $contact->Numero }}"> 
                                     @if ($contact->Poste != '')
-                                    #{{$contact->Poste}}</p>
+                                    Poste: <input type="number" id="contactFonction" name="contactFonction" value="{{ $contact->Poste }}"></p>
                                     @else
                                     </p>
                                     @endif
@@ -181,6 +186,7 @@
                 </div>
 
             </div>
+            </form>
         </div>
     </div>
 </div>

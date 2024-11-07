@@ -20,3 +20,9 @@ use App\Http\Controllers\FournisseursController;
 
  Route::get('/Fournisseurs/Profile', 
  [FournisseursController::class, 'index'])->name('fournisseurs.profile');
+ 
+ Route::get('/Fournisseurs/Profile/Modifier', 
+ [FournisseursController::class, 'edit'])->name('profile.modifier');
+
+ Route::post('/Fournisseurs/Profile/Modifier', 
+ [FournisseursController::class, 'update'])->name('profile.edit');

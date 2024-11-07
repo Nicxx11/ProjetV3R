@@ -26,3 +26,15 @@ h3, h4{
 .fixedTitle{
     position: fixed;
 }
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox REVOIR*/
+input[type="number"] {
+    -moz-appearance: none; /* This might still work in some Firefox versions */
+    appearance: none; /* Use the standard 'appearance' property */
+  }
