@@ -48,17 +48,21 @@
                  -->
 
                 <div class="form-group">
-                    <label for="RBQ">Licence RBQ (si applicable)</label>
+                    <label for="No_Licence_RBQ">Licence RBQ (si applicable)</label>
                     </br>
-                    <input placeholder="1234-1234-12" type="text" id="no_rbq" name="no_rbq" value="{{ old('RBQ') }}">
+                    <input placeholder="1234-1234-12" type="text" id="No_Licence_RBQ" name="No_Licence_RBQ" value="{{ old('No_Licence_RBQ') }}">
                     </br>
-                    <button type="button" onclick="checkRBQ(document.getElementById('no_rbq').value)">Vérifier</button>
+                    <button type="button" onclick="checkRBQ(document.getElementById('No_Licence_RBQ').value)">Vérifier</button>
                     
-                    @error('RBQ')
-                        <p class="erreur">{{ $message }}</p>
-                    @enderror
+                    <p class="erreur" id="erreurRBQ" style="display:none;">Licence non trouvée</p>
                 </div>
 
+                <!-- les valeurs sorties du check pour la rbq -->
+                <input name="Statut" type="hidden" id="Statut" style="display:none;">
+                <input name="TypeLicence" type="hidden" id="TypeLicence" style="display:none;">
+                <input name="Categorie" type="hidden" id="Categorie" style="display:none;">
+                <input name="Code_Sous_Categorie" type="hidden" id="Code_Sous_Categorie" style="display:none;">
+                <input name="Travaux_Permis" type="hidden" id="Travaux_Permis" style="display:none;">
 
                 <div class="form-group mt-4">
                     <label for="NEQ">NEQ:</label></br>
@@ -136,7 +140,7 @@
                 <div class="form-group mt-4">
                     <label for="RegionAdministrative">Région administrative:</label></br>
                     <select id="RegionAdministrative" name="RegionAdministrative">
-                        <option disabled selected>--Choisir une région--</option>
+                        <option disabled>--Choisir une région--</option>
                         <option>Bas-Saint-Laurent</option>
                         <option>Saguenay-Lac-Saint-Jean</option>
                         <option>Capitale-Nationale</option>
@@ -217,6 +221,7 @@
         .then(data => {
           if (data.message) {
             console.log(data.message); // if no data
+            document.getElementById('erreurRBQ').style = "display:block";
           } else {
             console.log('Data:', data[0]); 
 
@@ -225,7 +230,13 @@
             document.getElementById('Entreprise').value = data[0]["Nom de l'intervenant"];
             document.getElementById('RegionAdministrative').value = data[0]["Region administrative"];
             document.getElementById('Numero').value = data[0]["Numero de telephone"];
-            
+            document.getElementById('erreurRBQ').style = "display:none";
+
+            document.getElementById('Statut').value = data[0]["Statut de la licence"];
+            document.getElementById('TypeLicence').value = data[0]["Type de licence"];
+            document.getElementById('Categorie').value = data[0]["Categorie"];
+            document.getElementById('Code_Sous_Categorie').value = data[0]["Sous-categories"];
+
             let code_postal = data[0]["Adresse"];
             code_postal = code_postal.match(/.{7}$/)[0];
             code_postal = code_postal.replace(/ /g, '');

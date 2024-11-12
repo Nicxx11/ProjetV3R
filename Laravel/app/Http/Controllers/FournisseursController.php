@@ -57,7 +57,10 @@ class FournisseursController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
+
+        Log::info('REQUEST VALUE:');
+        Log::info($request); 
+        $validatedFournisseur = $request->validate([
             'NEQ' => 'nullable|digits:10',
             'Courriel' => 'required|email|unique:fournisseurs',
             'Entreprise' => 'required|string|max:64',
@@ -76,11 +79,32 @@ class FournisseursController extends Controller
             'Details.max' => 'Maximum de 500 caractères',
         ]);
 
+        $request['No_Licence_RBQ'] = str_replace('-','',$request['No_Licence_RBQ']);
+
+        $validatedRBQ = $request->validate([
+            'No_Licence_RBQ' => 'nullable|string|max:12',
+            'Statut' => 'nullable|string|max:23',
+            'TypeLicence' => 'nullable|string|max:26',
+            'Categorie' => 'nullable|string|max:10',
+            'Code_Sous_Categorie' => 'nullable|string|max:64',
+            'Travaux_Permis' => 'nullable|string|max:64',
+        ]);
+
         // Hash du mot de passe avant d'enregistrer
-        $validatedData['MotDePasse'] = hash('sha1', $validatedData['MotDePasse']);
+        $validatedFournisseur['MotDePasse'] = hash('sha1', $validatedFournisseur['MotDePasse']);
+
+
+        if(array_key_exists('Details', $validatedFournisseur)){
+            Log::info('Details Existe');
+        } else {
+            Log::info('Details n\'existe pas');
+        }
 
         // Enregistrement dans la base de données
-        Fournisseur::create($validatedData);
+        $fournisseur = Fournisseur::create($validatedFournisseur);
+        
+        $validatedRBQ['No_Fournisseur'] = $fournisseur->id;
+        Licence_Rbq::create($validatedRBQ);
 
         return redirect()->route('index.index')->with('success', 'Inscription réussie!');
     }
@@ -247,11 +271,10 @@ class FournisseursController extends Controller
         // Get the RBQ number from the incoming request
         $rbq = $request->input('rbq');
 
-
         $url = 'https://www.donneesquebec.ca/recherche/api/3/action/datastore_search_sql';
-        $query = [
-            'sql' => 'SELECT * from "32f6ec46-85fd-45e9-945b-965d9235840a" WHERE "Numero de licence" LIKE "' . $rbq . '" LIMIT 1'
-        ];
+        // $query = [
+        //     'sql' => 'SELECT * from "32f6ec46-85fd-45e9-945b-965d9235840a" WHERE "Numero de licence" LIKE "' . $rbq . '" LIMIT 1'
+        // ];
 
         $fullUrl = $url . '?sql=SELECT%20*%20from%20"32f6ec46-85fd-45e9-945b-965d9235840a"%20WHERE%20"Numero%20de%20licence"%20LIKE%20%27'.$rbq.'%27%20LIMIT%201'; // Builds the full URL with query parameters
         Log::info('Full URL:', ['url' => $fullUrl]);

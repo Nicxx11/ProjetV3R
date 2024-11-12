@@ -4,6 +4,7 @@ html,body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .overlay {
@@ -12,8 +13,10 @@ html,body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.65); /* white overlay with .65 transparency */
+    /*background-color: rgba(255, 255, 255, 0.65); /* white overlay with .65 transparency */
     z-index: 1; /* Ensure it is above the image */
+    background-attachment: fixed;
+    background-size: cover;
 }
 .erreur{
     color:red;

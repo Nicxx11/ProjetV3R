@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(FournisseursSeeder::class);
         $this->call(ServicesSeeder::class);
+        $this->call(CategoriesRbqsSeeder::class);
         $this->call(LicencesRBQsSeeder::class);
         $this->call(CoordonneesSeeder::class);
         $this->call(ContactsFournisseursSeeder::class);
@@ -24,6 +25,5 @@ class DatabaseSeeder extends Seeder
         $this->call(UtilisateursSeeder::class);
         $this->call(ParametresSystemesSeeder::class);
         $this->call(ModelesCourrielsSeeder::class);
-        $this->call(CategoriesRbqsSeeder::class);
     }
 }
