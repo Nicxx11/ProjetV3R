@@ -119,7 +119,7 @@ class FournisseursController extends Controller
         $inputNeq = $request->input('id');
 
         $fournisseur = Fournisseur::where('NEQ',$inputNeq)->first();
-
+        
         $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id)->get();
 
         $service = Service::where('No_Fournisseur',$fournisseur->id)->get();
@@ -129,7 +129,8 @@ class FournisseursController extends Controller
         $coord = Coordonnee::where('No_Fournisseur',$fournisseur->id)->first();
 
         session([
-            'id' => $inputNeq,
+            'id' => $fournisseur->id,
+            'neq' => $inputNeq,
             'fournisseur' => $fournisseur,
             'contactFourni' => $contactFourni,
             'service' => $service,
@@ -147,7 +148,7 @@ class FournisseursController extends Controller
         {
             if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
             {
-                return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
+                return view('fournisseur.profile',compact('inputNeq','fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
             }
             else{
                 return redirect()->route('index.index')->with('error','identifiant non valide');
@@ -174,6 +175,7 @@ class FournisseursController extends Controller
     public function edit()
     {        
         $id = session('id');
+        $neq = session('neq');
         $fournisseur = session('fournisseur');
         $contactFourni = session('contactFourni');
         $service = session('service');
@@ -181,81 +183,36 @@ class FournisseursController extends Controller
         $coord = session('coord');
 
 
-        return view('fournisseur.editProfile', compact('id', 'fournisseur','contactFourni','service','licRbq','coord'));
-    }
+        return view('fournisseur.editProfile', compact('id','neq', 'fournisseur','contactFourni','service','licRbq','coord'));
+    }/*'inputNeq','fournisseur','contactFourni','service','licRbq','coord'*/
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request)
     {
-        // Récupérer l'ID du fournisseur à partir de la session
-        $id = session('id');
-        
-        // Récupérer le fournisseur et autres données de la session
-        $fournisseur = session('fournisseur');
-        $contactFourni = session('contactFourni');
-        $service = session('service');
-        $licRbq = session('licRbq');
-        $coord = session('coord');
+
+        $fournisseur = Fournisseur::where('NEQ',session('neq'))->first();
+
+        $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id)->get();
+
+        $service = Service::where('No_Fournisseur',$fournisseur->id)->get();
+
+        $licRbq = Licence_Rbq::where('No_Fournisseur',$fournisseur->id)->get();
     
-        // Validation des données reçues via le formulaire
-        $request->validate([
-            'entreprise' => 'required|string|max:255',
-            'noCivic' => 'required|numeric',
-            'rue' => 'required|string|max:255',
-            'ville' => 'required|string|max:255',
-            'province' => 'required|string|max:255',
-            'codePostal' => 'required|string|max:10',
-            'courriel' => 'required|email|max:255',
-            'coordNum' => 'required|numeric',
-            'numPoste' => 'nullable|numeric',
-            'contactPrenom' => 'nullable|array',
-            'contactNom' => 'nullable|array',
-            'contactFonction' => 'nullable|array',
-            'contactCourriel' => 'nullable|array|email',
-            'contactNumero' => 'nullable|array|numeric',
-            'contactPoste' => 'nullable|array|numeric',
-        ]);
-    
-        // Mise à jour du fournisseur
-        //$fournisseur = Fournisseur::findOrFail($id);
-        //$fournisseur->Entreprise = $request->input('entreprise');
-        //$fournisseur->Courriel = $request->input('courriel');
-        //$fournisseur->save();
-        $fournisseur->update([
-            'Entreprise' => $request->input('entreprise'),
-            'Courriel' => $request->input('courriel'),
-        ]);
-    
-        // Mise à jour des coordonnées
-        $coord = Coordonnee::where('fournisseur_id', $id)->first();
-        $coord->NoCivique = $request->input('noCivic');
-        $coord->Rue = $request->input('rue');
-        $coord->Ville = $request->input('ville');
-        $coord->Province = $request->input('province');
-        $coord->CodePostal = $request->input('codePostal');
-        $coord->Numero = $request->input('coordNum');
-        $coord->Poste = $request->input('numPoste', null); // Si non défini, valeur par défaut null
-        $coord->save();
-    
-        // Mise à jour des contacts
-        if ($request->has('contactPrenom')) {
-            foreach ($request->input('contactPrenom') as $index => $prenom) {
-                $contact = ContactFournisseur::findOrFail($index);  // Trouve chaque contact par son ID
-                $contact->Prenom = $prenom;
-                $contact->Nom = $request->input('contactNom')[$index];
-                $contact->Fonction = $request->input('contactFonction')[$index];
-                $contact->Courriel = $request->input('contactCourriel')[$index];
-                $contact->Numero = $request->input('contactNumero')[$index];
-                $contact->Poste = $request->input('contactPoste')[$index];
-                $contact->save();
-            }
-        }
-    
-        // Rediriger vers la page du fournisseur avec un message de succès
-        return redirect()->route('fournisseur.profile', ['id' => $id])
-                         ->with('success', 'Le profil du fournisseur a été mis à jour avec succès !');
+        $coord = Coordonnee::where('No_Fournisseur',$fournisseur->id)->first();
+
+        $currentId = session('id');
+
+        $newName = $request->input('entreprise');
+
+        $fournisseurs = Fournisseur::find($currentId);
+        $fournisseurs->Entreprise = $newName;
+
+        $fournisseurs->save();
+
+        return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
+
     }
 
     /**
