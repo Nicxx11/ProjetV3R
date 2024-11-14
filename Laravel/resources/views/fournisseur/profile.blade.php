@@ -135,11 +135,11 @@
                                     Catégories et sous-catégories autorisées
                                 </div>
                                 <div class="card-body">
-                                    @if ($licRbq->contains('Categorie', 'Général'))
+                                    @if ($licRbq->contains('Categorie', 'Général') || $licRbq->contains('Categorie', 'Generale'))
                                         <h3>CATÉGORIE ENTREPRENEUR GÉNÉRAL</h3>
                                     @endif
                                     @foreach ($licRbq as $lic)
-                                        @if ($lic->Categorie == "Général")
+                                        @if ($lic->Categorie == "Generale" || $lic->Categorie == "Général")
                                             <p>{{ $lic->Code_Sous_Categorie }} {{ $lic->Travaux_Permis }}</p>
                                         @endif
                                     @endforeach
