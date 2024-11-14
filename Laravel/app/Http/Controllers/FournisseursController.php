@@ -30,13 +30,13 @@ class FournisseursController extends Controller
         $licences_rbqs = Licence_Rbq::all();
 
 
-        if(Route::currentRouteName() == "fournisseurs.list"){
+        if (Route::currentRouteName() == "fournisseurs.list") {
             return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
         }
-        if(Route::currentRouteName() == "fournisseurs.profile"){
+        if (Route::currentRouteName() == "fournisseurs.profile") {
             return view('fournisseur.profile', compact('fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
-        
+
         return View('login.connexion', compact('fournisseurs'));
     }
 
@@ -59,7 +59,7 @@ class FournisseursController extends Controller
     {
 
         Log::info('REQUEST VALUE:');
-        Log::info($request); 
+        Log::info($request);
         $validatedFournisseur = $request->validate([
             'NEQ' => 'nullable|digits:10',
             'Courriel' => 'required|email|unique:fournisseurs',
@@ -79,7 +79,7 @@ class FournisseursController extends Controller
             'Details.max' => 'Maximum de 500 caractères',
         ]);
 
-        $request['No_Licence_RBQ'] = str_replace('-','',$request['No_Licence_RBQ']);
+        $request['No_Licence_RBQ'] = str_replace('-', '', $request['No_Licence_RBQ']);
 
         $validatedRBQ = $request->validate([
             'No_Licence_RBQ' => 'nullable|string|max:12',
@@ -94,7 +94,7 @@ class FournisseursController extends Controller
         $validatedFournisseur['MotDePasse'] = hash('sha1', $validatedFournisseur['MotDePasse']);
 
 
-        if(array_key_exists('Details', $validatedFournisseur)){
+        if (array_key_exists('Details', $validatedFournisseur)) {
             Log::info('Details Existe');
         } else {
             Log::info('Details n\'existe pas');
@@ -102,7 +102,7 @@ class FournisseursController extends Controller
 
         // Enregistrement dans la base de données
         $fournisseur = Fournisseur::create($validatedFournisseur);
-        
+
         $validatedRBQ['No_Fournisseur'] = $fournisseur->id;
         Licence_Rbq::create($validatedRBQ);
 
@@ -118,15 +118,15 @@ class FournisseursController extends Controller
 
         $inputNeq = $request->input('id');
 
-        $fournisseur = Fournisseur::where('NEQ',$inputNeq)->first();
-        
-        $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id)->get();
+        $fournisseur = Fournisseur::where('NEQ', $inputNeq)->first();
 
-        $service = Service::where('No_Fournisseur',$fournisseur->id)->get();
+        $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
 
-        $licRbq = Licence_Rbq::where('No_Fournisseur',$fournisseur->id)->get();
-    
-        $coord = Coordonnee::where('No_Fournisseur',$fournisseur->id)->first();
+        $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
+
+        $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
+
+        $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
 
         session([
             'id' => $fournisseur->id,
@@ -144,18 +144,14 @@ class FournisseursController extends Controller
             return redirect()->back()->withErrors(['loginError' => 'ID ou mot de passe incorrect']);
         }
 
-        if($fournisseur)
-        {
-            if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
-            {
-                return view('fournisseur.profile',compact('inputNeq','fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
+        if ($fournisseur) {
+            if (hash('sha1', $request->input('MotDePasse'), $fournisseur->MotDePasse)) {
+                return view('fournisseur.profile', compact('inputNeq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
+            } else {
+                return redirect()->route('index.index')->with('error', 'identifiant non valide');
             }
-            else{
-                return redirect()->route('index.index')->with('error','identifiant non valide');
-            }
-        }
-        else{
-            return redirect()->route('index.index')->with('error','identifiant non valide');
+        } else {
+            return redirect()->route('index.index')->with('error', 'identifiant non valide');
         }
 
 
@@ -173,7 +169,7 @@ class FournisseursController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit()
-    {        
+    {
         $id = session('id');
         $neq = session('neq');
         $fournisseur = session('fournisseur');
@@ -183,7 +179,7 @@ class FournisseursController extends Controller
         $coord = session('coord');
 
 
-        return view('fournisseur.editProfile', compact('id','neq', 'fournisseur','contactFourni','service','licRbq','coord'));
+        return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
     }/*'inputNeq','fournisseur','contactFourni','service','licRbq','coord'*/
 
     /**
@@ -192,26 +188,89 @@ class FournisseursController extends Controller
     public function update(Request $request)
     {
 
-        $fournisseur = Fournisseur::where('NEQ',session('neq'))->first();
-
-        $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id)->get();
-
-        $service = Service::where('No_Fournisseur',$fournisseur->id)->get();
-
-        $licRbq = Licence_Rbq::where('No_Fournisseur',$fournisseur->id)->get();
-    
-        $coord = Coordonnee::where('No_Fournisseur',$fournisseur->id)->first();
+        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+        $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
+        $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
+        $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
+        $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
 
         $currentId = session('id');
 
+        //---fournisseurs---//
         $newName = $request->input('entreprise');
+        $newCourriel = $request->input('courriel');
 
+        //---Coordonnees----//
+        $newNoCivic = $request->input('noCivic');
+        $newRue = $request->input('rue');
+        $newVille = $request->input('ville');
+        $newProvince = $request->input('province');
+        $newCodePostal = $request->input('codePostal');
+        $newNumTel = $request->input('coordNum');
+        $newPoste = $request->input('numPoste');
+
+        //---Modification profil Fournisseurs---//
         $fournisseurs = Fournisseur::find($currentId);
         $fournisseurs->Entreprise = $newName;
+        $fournisseurs->Courriel = $newCourriel;
 
+        //---Modification profil Coordonnees---//
+        $coordonnees = Coordonnee::find($currentId);
+        $coordonnees->NoCivique = $newNoCivic;
+        $coordonnees->Rue = $newRue;
+        $coordonnees->Ville = $newVille;
+        $coordonnees->Province = $newProvince;
+        $coordonnees->CodePostal = $newCodePostal;
+        $coordonnees->Numero = $newNumTel;
+        $coordonnees->Poste = $newPoste;
+
+        //---Modification profil Contact---//
+
+        // Récupérer les données envoyées
+        $contactIds = $request->input('contactId'); // Tableau avec les ids des contacts
+        $contactPrenoms = $request->input('contactPrenom'); // Tableau des prénoms
+        $contactNoms = $request->input('contactNom'); // Tableau des noms
+        $contactFonctions = $request->input('contactFonction'); // Tableau des fonctions
+        $contactCourriels = $request->input('contactCourriel'); // Tableau des courriels
+        $contactNumeros = $request->input('contactNumero'); // Tableau des numéros
+        $contactPostes = $request->input('contactPoste'); // Tableau des postes (si présents)
+
+        // Pour chaque contact, on met à jour les informations
+        foreach ($contactIds as $contactId) {
+            $contact = ContactFournisseur::find($contactId); // Trouver le contact par son id
+
+            if ($contact) {
+                // Mettre à jour les informations du contact
+                $contact->Prenom = $contactPrenoms[$contactId];
+                $contact->Nom = $contactNoms[$contactId];
+                $contact->Fonction = $contactFonctions[$contactId];
+                $contact->Courriel = $contactCourriels[$contactId];
+                $contact->Numero = $contactNumeros[$contactId];
+
+                if (isset($contactPostes[$contactId])) {
+                    $contact->Poste = $contactPostes[$contactId];
+                }
+
+                // Sauvegarder les changements
+                $contact->save();
+            }
+        }
         $fournisseurs->save();
+        $coordonnees->save();
 
-        return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
+        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+        $coord = Coordonnee::where('No_Fournisseur', session('id'))->first();
+        $contactFourni = ContactFournisseur::where('No_Fournisseur', session('id'))->get();
+
+        session([
+            'fournisseur' => $fournisseur,
+            'contactFourni' => $contactFourni,
+            'service' => $service,
+            'licRbq' => $licRbq,
+            'coord' => $coord
+        ]);
+
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
 
     }
 
@@ -220,7 +279,20 @@ class FournisseursController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //---SUPRESSION NON FONCTIONNEL---//
+        $contact = ContactFournisseur::find($id);
+
+        // Vérifier si le contact existe
+        if ($contact) {
+            // Supprimer le contact
+            $contact->delete();
+            
+            // Rediriger vers la page de profil avec un message de succès
+            return redirect()->route('fournisseurs.profile')->with('success', 'Contact supprimé avec succès!');
+        }
+    
+        // Si le contact n'est pas trouvé, rediriger avec un message d'erreur
+        return redirect()->route('fournisseurs.profile')->with('error', 'Contact non trouvé!');
     }
 
     public function checkRBQ(Request $request)
@@ -233,7 +305,7 @@ class FournisseursController extends Controller
         //     'sql' => 'SELECT * from "32f6ec46-85fd-45e9-945b-965d9235840a" WHERE "Numero de licence" LIKE "' . $rbq . '" LIMIT 1'
         // ];
 
-        $fullUrl = $url . '?sql=SELECT%20*%20from%20"32f6ec46-85fd-45e9-945b-965d9235840a"%20WHERE%20"Numero%20de%20licence"%20LIKE%20%27'.$rbq.'%27%20LIMIT%201'; // Builds the full URL with query parameters
+        $fullUrl = $url . '?sql=SELECT%20*%20from%20"32f6ec46-85fd-45e9-945b-965d9235840a"%20WHERE%20"Numero%20de%20licence"%20LIKE%20%27' . $rbq . '%27%20LIMIT%201'; // Builds the full URL with query parameters
         Log::info('Full URL:', ['url' => $fullUrl]);
 
         $response = Http::withoutVerifying()->get($fullUrl);
@@ -244,7 +316,7 @@ class FournisseursController extends Controller
 
         if ($response->successful()) {
             $data = $response->json(); // Get the response body as an array
-            
+
             if (empty($data['result']['records'])) {
                 return response()->json(['message' => 'No records found.']);
             } else {
