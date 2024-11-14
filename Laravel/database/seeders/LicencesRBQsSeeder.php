@@ -16,7 +16,7 @@ class LicencesRBQsSeeder extends Seeder
         DB::table('licences_rbqs')->insert([
             [
                 'No_Licence_RBQ' => '2156455180', # 1234-1234-12 (10 nombres mais tirets 4-4-2)
-                'Statut' => 'Valide',
+                'Statut' => 'Valide avec restriction',
                 'TypeLicence' => 'Entrepreneur',
                 'Categorie' => 'Spécialisé',
                 'Code_Sous_Categorie' => '4.2',
@@ -43,7 +43,7 @@ class LicencesRBQsSeeder extends Seeder
             ],
             [
                 'No_Licence_RBQ' => '5707680401',
-                'Statut' => 'Valide',
+                'Statut' => 'Non valide',
                 'TypeLicence' => 'Entrepreneur',
                 'Categorie' => 'Spécialisé',
                 'Code_Sous_Categorie' => '6.2',

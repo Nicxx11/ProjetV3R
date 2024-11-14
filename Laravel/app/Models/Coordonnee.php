@@ -9,5 +9,5 @@ class Coordonnee extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['NoCivique', 'Rue', 'Bureau','Ville','Province','CodePostal','CodeRegionAdministrative','SiteInternet','TypeTelephone','Numero','Poste','No_Fournisseur'];
+    protected $fillable = ['NoCivique', 'Rue', 'Bureau','Ville','Province','CodePostal','RegionAdministrative','CodeRegionAdministrative','SiteInternet','TypeTelephone','Numero','Poste','No_Fournisseur'];
 }

@@ -102,7 +102,7 @@
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
-                <!-- <div class="form-group mt-4">
+                <div class="form-group mt-4">
                     <label for="NoCivique">Numéro Civique:</label></br>
                     <input placeholder="Numéro Civique" type="text" id="NoCivique" name="NoCivique">
                     @error('NoCivique')
@@ -116,20 +116,7 @@
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="form-group mt-4">
-                    <label for="Ville">Ville:</label></br>
-                    <input placeholder="Ville" type="text" id="Ville" name="Ville">
-                    @error('Ville')
-                        <p class="erreur">{{ $message }}</p>
-                    @enderror
-                </div>
-                <div class="form-group mt-4">
-                    <label for="Province">Province:</label></br>
-                    <input placeholder="Province" type="text" id="Province" name="Province">
-                    @error('Province')
-                        <p class="erreur">{{ $message }}</p>
-                    @enderror
-                </div> -->
+                
                 <div class="form-group mt-4">
                     <label for="CodePostal">Code Postal:</label></br>
                     <input placeholder="Code Postal" type="text" id="CodePostal" name="CodePostal">
@@ -137,32 +124,50 @@
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
+                
+                
                 <div class="form-group mt-4">
-                    <label for="RegionAdministrative">Région administrative:</label></br>
-                    <select id="RegionAdministrative" name="RegionAdministrative">
-                        <option disabled>--Choisir une région--</option>
-                        <option>Bas-Saint-Laurent</option>
-                        <option>Saguenay-Lac-Saint-Jean</option>
-                        <option>Capitale-Nationale</option>
-                        <option>Mauricie</option>
-                        <option>Estrie</option>
-                        <option>Montréal</option>
-                        <option>Outaouais</option>
-                        <option>Abitibi-Témiscamingue</option>
-                        <option>Côte-Nord</option>
-                        <option>Nord-du-Québec</option>
-                        <option>Gaspésie-Îles-de-la-Madeleine</option>
-                        <option>Chaudière-Appalaches</option>
-                        <option>Laval</option>
-                        <option>Lanaudière</option>
-                        <option>Laurentides</option>
-                        <option>Montérégie</option>
-                        <option>Centre-du-Québec</option>
+                    <label for="Province">Province:</label></br>
+                    <select id="Province" name="Province">
+                        <option>Alberta</option>
+                        <option>Colombie-Britannique</option>
+                        <option>Île-du-Prince-Édouard</option>
+                        <option>Manitoba</option>
+                        <option>Nouveau-Brunswick</option>
+                        <option>Nouvelle-Écosse</option>
+                        <option>Ontario</option>
+                        <option selected>Québec</option>
+                        <option>Saskatchewan</option>
+                        <option>Terre-Neuve-et-Labrador</option>
+                        <option>Nunavut</option>
+                        <option>Territoires du Nord-Ouest</option>
+                        <option>Yukon</option>
                     </select>
-                    @error('RegionAdministrative')
+                    @error('Province')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
+                
+                
+                <div class="form-group mt-4" id="VilleContainer">
+                    <label for="Ville">Ville:</label></br>
+                    <select id="Ville" name="Ville">
+                        
+                    </select>
+                    @error('Ville')
+                        <p class="erreur">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="form-group mt-4" id="VilleContainerText">
+                    <label for="Ville">Ville:</label></br>
+                    <input placeholder="Ville" type="text" id="villeText" name="villeText">
+                    @error('Ville')
+                        <p class="erreur">{{ $message }}</p>
+                    @enderror
+                </div>
+
+
                 <div class="form-group mt-4">
                     <label for="Numero">Téléphone:</label></br>
                     <input placeholder="Numero" type="text" id="Numero" name="Numero">
@@ -208,6 +213,41 @@
 </div>
 <script src="{{ asset('js/inscription.js') }}" type="module"></script>
 <script>
+    function changeSelectedOptionByValue(selectElement, value) {
+        const option = Array.from(selectElement.options).find(option => option.value === value);
+    
+        if (option) {
+            selectElement.value = value;
+        }
+    }
+
+    function getProvince(provinceAbbr){
+        if(provinceAbbr !== 'QC'){
+            document.getElementById('VilleContainer').style.display = 'none';
+            document.getElementById('VilleContainerText').style.display = 'block';
+        } else {
+            document.getElementById('VilleContainer').style.display = 'block';
+            document.getElementById('VilleContainerText').style.display = 'none';
+        }
+
+
+        switch(provinceAbbr){
+            case 'AB': return 'Alberta';
+            case 'BC': return 'Colombie-Britannique';
+            case 'PE': return 'Île-du-Prince-Édouard';
+            case 'MB': return 'Manitoba';
+            case 'NB': return 'Nouveau-Brunswick';
+            case 'NS': return 'Nouvelle-Écosse';
+            case 'ON': return 'Ontario';
+            case 'QC': return 'Québec';
+            case 'SK': return 'Saskatchewan';
+            case 'NL': return 'Terre-Neuve-et-Labrador';
+            case 'NU': return 'Nunavut';
+            case 'NT': return 'Territoires du Nord-Ouest';
+            case 'YT': return 'Yukon';
+        }
+    }
+
     function checkRBQ(rbq) {
         fetch('/check-rbq', {
           method: 'POST',
@@ -222,27 +262,55 @@
           if (data.message) {
             console.log(data.message); // if no data
             document.getElementById('erreurRBQ').style = "display:block";
+
+            document.getElementById('Statut') = '';
+            document.getElementById('TypeLicence') = '';
+            document.getElementById('Categorie') = '';
+            document.getElementById('Code_Sous_Categorie') = '';
+            document.getElementById('Adresse') = '';
+            document.getElementById('CodePostal') = '';
           } else {
+
             console.log('Data:', data[0]); 
 
             document.getElementById('NEQ').value = data[0]["NEQ"];
             document.getElementById('Courriel').value = data[0]["Courriel"];
             document.getElementById('Entreprise').value = data[0]["Nom de l'intervenant"];
-            document.getElementById('RegionAdministrative').value = data[0]["Region administrative"];
             document.getElementById('Numero').value = data[0]["Numero de telephone"];
             document.getElementById('erreurRBQ').style = "display:none";
+            
 
-            document.getElementById('Statut').value = data[0]["Statut de la licence"];
+
+    
+            if(data[0]["Statut de la licence"] == "Active")
+                document.getElementById('Statut').value = "Valide";
+            else
+                document.getElementById('Statut').value = data[0]["Statut de la licence"];
+    
+                
             document.getElementById('TypeLicence').value = data[0]["Type de licence"];
             document.getElementById('Categorie').value = data[0]["Categorie"];
             document.getElementById('Code_Sous_Categorie').value = data[0]["Sous-categories"];
 
             let code_postal = data[0]["Adresse"];
-            code_postal = code_postal.match(/.{7}$/)[0];
-            code_postal = code_postal.replace(/ /g, '');
+            code_postal = code_postal.slice(-7).replace(/ /g, '');
             document.getElementById('CodePostal').value = code_postal;
 
+            let no_civique = data[0]["Adresse"];
+            no_civique = no_civique.match(/^\d+/);
+            document.getElementById('NoCivique').value = no_civique;
 
+            let rue = data[0]["Adresse"];
+            rue = rue.slice(0, rue.length -17);
+            rue = rue.replace(/^[^a-zA-Z]*/, '');
+            document.getElementById('Rue').value = rue;
+
+            let province = data[0]["Adresse"];
+            province = province.slice(province.length -17, province.length -15);
+            console.log(province);
+            province = getProvince(province);
+            selectProvince = document.getElementById('Province');
+            changeSelectedOptionByValue(selectProvince, province);
 
           }
         })

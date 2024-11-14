@@ -32,4 +32,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Repositionner le pop-up lors du redimensionnement de la fenêtre
     window.addEventListener('resize', positionPopup);
+
+
+    document.getElementById('Province').addEventListener('change', function(){
+        if(document.getElementById('Province').value === 'Québec'){
+            document.getElementById('VilleContainer').style.display = 'block';
+            document.getElementById('VilleContainerText').style.display = 'none';
+        } else {
+            document.getElementById('VilleContainer').style.display = 'none';
+            document.getElementById('VilleContainerText').style.display = 'block';
+        }
+    });
+
+
+    function renderVilles(){
+        fetch('/json/villes.json') // Adjust the path as needed
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Process the filtered data and display it
+            const container = document.getElementById('Ville');
+            container.innerHTML = '';
+
+            //console.log(filteredData);
+
+            data.forEach(item => {
+                // Create the checkbox input
+                const selectInput = document.createElement('option');
+                selectInput.id = item.ville; // Use regadm as the ID
+                selectInput.name = item.ville; // Use regadm as the name
+                selectInput.value = item.ville; // Use regadm as the value
+                selectInput.innerHTML = item.ville;
+
+                container.appendChild(selectInput);
+            });
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+
+    renderVilles();
 });

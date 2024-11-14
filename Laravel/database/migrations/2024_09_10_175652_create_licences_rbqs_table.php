@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('TypeLicence', 26); # Entrepreneur, Contructeur-Propriétaire
             $table->string('Categorie', 10); # Général, Spécialisé
             $table->string('Code_Sous_Categorie', 64); # liste prédéterminée (AnnexeListeSousCategories.pdf)
-            $table->string('Travaux_Permis', 255)->nullable(); # liste prédéterminée (AnnexeListeSousCategories.pdf)
+            $table->string('Travaux_Permis', 64); # liste prédéterminée (AnnexeListeSousCategories.pdf)
             $table->integer('No_Fournisseur');
             $table->foreign('No_Fournisseur')->references('id')->on('fournisseurs');
 

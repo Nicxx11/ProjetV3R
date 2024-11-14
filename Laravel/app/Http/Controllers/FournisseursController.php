@@ -59,12 +59,21 @@ class FournisseursController extends Controller
     {
 
         Log::info('REQUEST VALUE:');
-        Log::info($request);
+        Log::info($request); 
+
+        $request['No_Licence_RBQ'] = str_replace('-','',$request['No_Licence_RBQ']);
+        $request['Etat_Demande'] = 'En attente';
+        $request['Numero'] = str_replace(' ','',str_replace('-', '', $request['Numero']));
+        if($request['VilleText'] != '')
+            $request['Ville'] = $request['VilleText'];
+
+
         $validatedFournisseur = $request->validate([
             'NEQ' => 'nullable|digits:10',
             'Courriel' => 'required|email|unique:fournisseurs',
             'Entreprise' => 'required|string|max:64',
             'MotDePasse' => 'required|string|min:8|max:12|confirmed',
+            'Etat_Demande' => 'required|string',
             'Details' => 'nullable|string|max:500'
         ], [
             'NEQ.required' => 'Le NEQ est obligatoire',
@@ -78,11 +87,8 @@ class FournisseursController extends Controller
             'MotDePasse.confirmed' => 'Les mots de passe doivent correspondre',
             'Details.max' => 'Maximum de 500 caractères',
         ]);
-
-        $request['No_Licence_RBQ'] = str_replace('-', '', $request['No_Licence_RBQ']);
-
         $validatedRBQ = $request->validate([
-            'No_Licence_RBQ' => 'nullable|string|max:12',
+            'No_Licence_RBQ' => 'nullable|string|max:10',
             'Statut' => 'nullable|string|max:23',
             'TypeLicence' => 'nullable|string|max:26',
             'Categorie' => 'nullable|string|max:10',
@@ -90,22 +96,51 @@ class FournisseursController extends Controller
             'Travaux_Permis' => 'nullable|string|max:64',
         ]);
 
+        $validatedCoordonnees = $request->validate([
+            'NoCivique' => 'required|string|max:8',
+            'Rue' => 'required|string|max:64',
+            'Bureau' => 'nullable|string|max:8',
+            'Ville' => 'required|string|max:64',
+            'CodePostal' => 'required|string|max:6',
+            'Province' => 'required|string|max:255',
+            'TypeTelephone' => 'required|string|max:255',
+            'Numero' => 'required|string|max:10',
+            'Poste' => 'nullable|string|max:6',
+        ], [
+            'NoCivique.required' => 'Le numéro civique est obligatoire',
+            'NoCivique.max' => 'Le numéro civique ne doit pas dépasser 8 caractères',
+            'Rue.required' => 'La rue est obligatoire',
+            'Rue.max' => 'La rue ne doit pas dépasser 64 caractères',
+            'Bureau.max' => 'Le bureau ne doit pas dépasser 8 caractères',
+            'Ville.required' => 'La ville est obligatoire',
+            'Ville.max' => 'La ville ne doit pas dépasser 64 caractères',
+            'Province.required' => 'La province est obligatoire',
+            'Province.max' => 'La province ne doit pas dépasser 255 caractères',
+            'CodePostal.required' => 'Le code postal est obligatoire',
+            'CodePostal.max' => 'Le code postal ne doit pas dépasser les 6 caractères',
+            'TypeTelephone.required' => 'Le type de téléphone est obligatoire',
+            'TypeTelephone.max' => 'Le type de téléphone ne doit pas dépasser 255 caractères',
+            'Numero.required' => 'Le numéro de téléphone est obligatoire',
+            'Numero.max' => 'Le numéro de téléphone ne doit pas dépasser 10 caractères',
+            'Poste.max' => 'Le poste ne doit pas dépasser 6 caractères'
+        ]);
+
         // Hash du mot de passe avant d'enregistrer
         $validatedFournisseur['MotDePasse'] = hash('sha1', $validatedFournisseur['MotDePasse']);
-
-
-        if (array_key_exists('Details', $validatedFournisseur)) {
-            Log::info('Details Existe');
-        } else {
-            Log::info('Details n\'existe pas');
-        }
 
         // Enregistrement dans la base de données
         $fournisseur = Fournisseur::create($validatedFournisseur);
 
         $validatedRBQ['No_Fournisseur'] = $fournisseur->id;
-        Licence_Rbq::create($validatedRBQ);
+        $validatedCoordonnees['No_Fournisseur'] = $fournisseur->id;
+        $validatedCoordonnees['RegionAdministrative'] = $this->getRegionByVille($validatedCoordonnees['Ville']);
+        $validatedCoordonnees['CodeRegionAdministrative'] = $this->getCodeRegion($validatedCoordonnees['RegionAdministrative']);
 
+        Log::info('COORDONNEES');
+        Log::info($validatedCoordonnees);
+        
+        Licence_Rbq::create($validatedRBQ);
+        Coordonnee::create($validatedCoordonnees);
         return redirect()->route('index.index')->with('success', 'Inscription réussie!');
     }
 
@@ -116,9 +151,15 @@ class FournisseursController extends Controller
             'MotDePasse' => 'required|string',
         ]);
 
-        $inputNeq = $request->input('id');
+        $input = $request->input('id');
+        if(filter_var($input, FILTER_VALIDATE_EMAIL)){
+            $fournisseur = Fournisseur::where('Courriel',$input)->first();
+        } else {
+            $fournisseur = Fournisseur::where('NEQ',$input)->first();
+        }
 
-        $fournisseur = Fournisseur::where('NEQ', $inputNeq)->first();
+        $inputNEQ = $fournisseur->NEQ;
+        $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id)->get();
 
         $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
 
@@ -130,7 +171,7 @@ class FournisseursController extends Controller
 
         session([
             'id' => $fournisseur->id,
-            'neq' => $inputNeq,
+            'neq' => $inputNEQ,
             'fournisseur' => $fournisseur,
             'contactFourni' => $contactFourni,
             'service' => $service,
@@ -144,11 +185,12 @@ class FournisseursController extends Controller
             return redirect()->back()->withErrors(['loginError' => 'ID ou mot de passe incorrect']);
         }
 
-        if ($fournisseur) {
-            if (hash('sha1', $request->input('MotDePasse'), $fournisseur->MotDePasse)) {
-                return view('fournisseur.profile', compact('inputNeq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
-            } else {
-                return redirect()->route('index.index')->with('error', 'identifiant non valide');
+        if($fournisseur)
+        {
+            
+            if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
+            {
+                return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
             }
         } else {
             return redirect()->route('index.index')->with('error', 'identifiant non valide');
@@ -324,6 +366,68 @@ class FournisseursController extends Controller
             }
         } else {
             return response()->json(['message' => 'Request failed with status: ' . $response->status()], 400);
+        }
+    }
+
+    public function getRegionByVille($ville){
+        
+        $path = public_path('/json/villes.json');
+        if (!file_exists($path)){
+            return 'error1';
+        }
+
+        $villes_json = file_get_contents($path);
+        $data = json_decode($villes_json, true);
+
+        if($data === null){
+            return 'error2';
+        }
+
+        $region = null;
+        foreach($data as $entry) {
+            if($entry['ville'] === $ville){
+                $region = $entry['region'];
+                break;
+            }
+        }
+
+        if ($region !== null) {
+            return $region;
+        } else {
+            return 'error3';
+        }
+    }
+
+    public function getCodeRegion($region){
+        $path = public_path('/json/regions.json');
+        if (!file_exists($path)){
+            return 'error1';
+        }
+
+        $regions_json = file_get_contents($path);
+        $data = json_decode($regions_json, true);
+
+        if($data === null){
+            return 'error2';
+        }
+
+        $codeRegion = null;
+        foreach ($data as $entry) {
+            if (strpos($entry['regadm'], $region) !== false) {
+                preg_match('/\((\d+)\)/', $entry['regadm'], $matches);
+
+                if (isset($matches[1])) {
+                    $codeRegion = $matches[1];
+                }
+                break;
+            }
+        }
+        
+
+        if ($region !== null) {
+            return $codeRegion;
+        } else {
+            return 'error3';
         }
     }
 }
