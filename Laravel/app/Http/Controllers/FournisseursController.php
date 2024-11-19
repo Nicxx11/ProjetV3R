@@ -321,22 +321,71 @@ class FournisseursController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroyContact(string $id)
+    public function destroyContact(int $contactId)
     {
-        //---SUPRESSION NON FONCTIONNEL---//
-        $contact = ContactFournisseur::find($id);
+        $contact = ContactFournisseur::find($contactId);
 
-        // Vérifier si le contact existe
-        if ($contact) {
-            // Supprimer le contact
-            $contact->delete();
+    if ($contact) {
+        $contact->delete();
+
+        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+        $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
+        $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
+        $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
+        $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
+
+        session([
+            'fournisseur' => $fournisseur,
+            'contactFourni' => $contactFourni,
+            'service' => $service,
+            'licRbq' => $licRbq,
+            'coord' => $coord
+        ]);
+
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
+    }
+
+    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('error', 'Contact non trouvé!');
+    }
+
+    public function ajoutContact(Request $request)
+    {
+        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+
+        if ($fournisseur) {
+            // Créer un nouveau contact pour le fournisseur
+            $contact = new ContactFournisseur();
             
-            // Rediriger vers la page de profil avec un message de succès
-            return redirect()->route('fournisseurs.profile')->with('success', 'Contact supprimé avec succès!');
-        }
+            // Remplir les champs du contact avec les données de la requête (ou d'autres sources)
+            $contact->Prenom = $request->input('Prenom');
+            $contact->Nom = $request->input('Nom');
+            $contact->Fonction = $request->input('Fonction');
+            $contact->Courriel = $request->input('Courriel');
+            $contact->Numero = $request->input('Numero');
+            $contact->Poste = $request->input('Poste', '');  // Poste est facultatif
     
-        // Si le contact n'est pas trouvé, rediriger avec un message d'erreur
-        return redirect()->route('fournisseurs.profile')->with('error', 'Contact non trouvé!');
+            // Sauvegarder le contact dans la base de données
+            $contact->save();
+    
+            // Récupérer les informations actualisées pour le fournisseur
+            $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
+            $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
+            $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
+            $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
+    
+            // Mettre à jour les données de session
+            session([
+                'fournisseur' => $fournisseur,
+                'contactFourni' => $contactFourni,
+                'service' => $service,
+                'licRbq' => $licRbq,
+                'coord' => $coord
+            ]);
+
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
+    }
+
+    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('error', 'Contact non trouvé!');
     }
 
     public function checkRBQ(Request $request)

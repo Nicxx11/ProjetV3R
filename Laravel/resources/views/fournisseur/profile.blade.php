@@ -77,7 +77,7 @@
                             Contacts
                         </div>
                         <div class="card-body">
-
+                            @if($contactFourni && $contactFourni->isNotEmpty())
                             @foreach($contactFourni as $contact)
                                 <div class="card mb-2">
                                     <div class="card-body">
@@ -95,7 +95,9 @@
                                     </div>
                                 </div>
                             @endforeach
-
+                            @else
+                                <p>Aucun contact</p>
+                            @endif
                         </div>
                     </div>
                     <div class="card">

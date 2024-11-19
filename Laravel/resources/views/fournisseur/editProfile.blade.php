@@ -84,7 +84,7 @@
                                 Contacts
                             </div>
                             <div class="card-body">
-
+                                @if($contactFourni && $contactFourni->isNotEmpty())
                                 @foreach($contactFourni as $contact)
                                     <div class="card mb-2">
                                         <div class="card-body">
@@ -104,11 +104,48 @@
                                                     Poste: <input type="number" name="contactPoste[{{ $contact->id }}]"
                                                         value="{{ $contact->Poste }}">
                                                 @endif
-                                                <a href="{{ route('profile.supprimer', ['contactId' => $contact->id]) }}"><button>Supprimer</button></a>
+                                                <p><a href="{{ route('profile.supprimer', ['contactId' => $contact->id]) }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce contact ?');">
+                                                    <button type="button">Supprimer</button>
+                                                </a></p>                                   
                                         </div>
                                     </div>
                                 @endforeach
+                                @else
+                                <div id="noContact">
+                                    <p>Aucun contact</p>
+                                </div>
+                                @endif
+                                <button id="ajoutBtn">Ajouter un contact</button>
+                                <div id="ajoutContact">
+                                    <div class="card mb-2">
+                                        <div class="card-body">
 
+                                        <!-- Ajout non fonctionnel (double form)-->
+                                        <form action="{{ route('profile.ajouter') }}" method="POST">
+                                        <p><label for="Prenom">Prénom</label>
+                                            <input type="text" name="Prenom" required>
+
+                                            <label for="Nom">Nom</label>
+                                            <input type="text" name="Nom" required></p>
+
+                                            <p><label for="Fonction">Fonction</label>
+                                            <input type="text" name="Fonction"></p>
+
+                                            <p><i class="fa-solid fa-envelope"> </i><label for="Courriel">Courriel</label>
+                                            <input type="email" name="Courriel"></p>
+
+                                            <p><i class="fa-solid fa-phone"> </i><label for="Numero">Numéro</label>
+                                            <input type="number" name="Numero"></p>
+
+                                            <label for="Poste">Poste</label>
+                                            <input type="number" name="Poste"></br>
+                                            
+                                            </br><button type="submit">Ajouter</button>
+                                            </a>  
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
@@ -207,3 +244,4 @@
 
 
 @endsection
+<script src="{{ asset('js/editProfile.js') }}"></script>

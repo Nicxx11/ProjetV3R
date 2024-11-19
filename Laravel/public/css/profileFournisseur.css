@@ -38,3 +38,7 @@ input[type="number"] {
     -moz-appearance: none; /* This might still work in some Firefox versions */
     appearance: none; /* Use the standard 'appearance' property */
   }
+
+  #ajoutContact {
+    display: none;
+}

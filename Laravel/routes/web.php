@@ -30,6 +30,9 @@ use App\Http\Controllers\FournisseursController;
  Route::get('/Fournisseurs/Profile/Supprimer', 
  [FournisseursController::class, 'destroyContact'])->name('profile.supprimer');
 
+ Route::get('/Fournisseurs/Profile/Ajouter/', 
+ [FournisseursController::class, 'ajoutContact'])->name('profile.ajouter');
+
  Route::post('/check-rbq', 
  [FournisseursController::class, 'checkRBQ']);
 
