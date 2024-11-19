@@ -15,10 +15,10 @@ class ParametresSystemesSeeder extends Seeder
     {
         DB::table('parametres_systemes')->insert([
             [
-                'Approvisionnement' => 'approvisionnement@v3r.net',
+                'Approvisionnement' => 'projetv3r2024@gmail.com',
                 'DelaiRevision' => '24',
                 'TailleMaxBrochures' => '75',
-                'Finances' => 'finances@v3r.net'
+                'Finances' => 'projetv3r2024@gmail.com'
             ]
          ]);
     }

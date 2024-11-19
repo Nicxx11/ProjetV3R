@@ -87,6 +87,7 @@ class FournisseursController extends Controller
             'MotDePasse.confirmed' => 'Les mots de passe doivent correspondre',
             'Details.max' => 'Maximum de 500 caractères',
         ]);
+
         $validatedRBQ = $request->validate([
             'No_Licence_RBQ' => 'nullable|string|max:10',
             'Statut' => 'nullable|string|max:23',
@@ -136,11 +137,27 @@ class FournisseursController extends Controller
         $validatedCoordonnees['RegionAdministrative'] = $this->getRegionByVille($validatedCoordonnees['Ville']);
         $validatedCoordonnees['CodeRegionAdministrative'] = $this->getCodeRegion($validatedCoordonnees['RegionAdministrative']);
 
+        $correctRBQ = true;
+        foreach ($validatedRBQ as $key => $value) {
+            if($value == null || $value == ''){
+                $correctRBQ = false;
+            }
+        }
+
+        if($correctRBQ){
+            Licence_Rbq::create($validatedRBQ);
+        }
+
+
         Log::info('COORDONNEES');
         Log::info($validatedCoordonnees);
         
-        Licence_Rbq::create($validatedRBQ);
         Coordonnee::create($validatedCoordonnees);
+        
+        $controlleur = new MailController();
+        $controlleur->sendWelcomeEmail($validatedFournisseur["Courriel"]);
+
+
         return redirect()->route('index.index')->with('success', 'Inscription réussie!');
     }
 

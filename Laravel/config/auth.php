@@ -62,7 +62,11 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => env('AUTH_MODEL', App\Models\Fournisseur::class),
+        ],
+        'Fournisseurs' => [
+            'driver' => 'eloquent', 
+            'model' => App\Models\Fournisseur::class, 
         ],
 
         // 'users' => [
@@ -91,11 +95,11 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => env('AUTH_PASSWORD_RESET_TOKEN_TABLE', 'password_reset_tokens'),
-            'expire' => 60,
-            'throttle' => 60,
+        'Fournisseurs' => [
+            'provider' => 'Fournisseurs', // This refers to the 'members' provider you defined above
+            'table' => 'password_resets', // The table where reset tokens will be stored
+            'expire' => 10, // Token expiration in minutes (integer)
+            'throttle' => 5, // Optional: Throttling (in seconds) to prevent too many requests
         ],
     ],
 

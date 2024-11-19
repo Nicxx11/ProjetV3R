@@ -1,34 +1,35 @@
 <?php
 
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FournisseursController;
 
- Route::get('/',
- [FournisseursController::class,'index'])->name('index.index');
+Route::get('/',
+[FournisseursController::class,'index'])->name('index.index');
 
- Route::get('/inscription',
- [FournisseursController::class,'create'])->name('inscription.create');
+Route::get('/inscription',
+[FournisseursController::class,'create'])->name('inscription.create');
 
- Route::post('/inscription',
- [FournisseursController::class,'store'])->name('inscription.store');
+Route::post('/inscription',
+[FournisseursController::class,'store'])->name('inscription.store');
 
- Route::get('/Fournisseurs/Liste', 
- [FournisseursController::class, 'index'])->name('fournisseurs.list');
+Route::get('/Fournisseurs/Liste', 
+[FournisseursController::class, 'index'])->name('fournisseurs.list');
 
- Route::post('/Connexion', 
- [FournisseursController::class, 'login'])->name('fournisseurs.login');
+Route::post('/Connexion', 
+[FournisseursController::class, 'login'])->name('fournisseurs.login');
 
- Route::get('/Fournisseurs/Profile', 
- [FournisseursController::class, 'index'])->name('fournisseurs.profile');
+Route::get('/Fournisseurs/Profile', 
+[FournisseursController::class, 'index'])->name('fournisseurs.profile');
  
- Route::get('/Fournisseurs/Profile/Modifier', 
- [FournisseursController::class, 'edit'])->name('profile.modifier');
+Route::get('/Fournisseurs/Profile/Modifier', 
+[FournisseursController::class, 'edit'])->name('profile.modifier');
 
- Route::post('/Fournisseurs/Profile/Modifier', 
- [FournisseursController::class, 'update'])->name('profile.edit');
+Route::post('/Fournisseurs/Profile/Modifier', 
+[FournisseursController::class, 'update'])->name('profile.edit');
 
- Route::get('/Fournisseurs/Profile/Supprimer', 
- [FournisseursController::class, 'destroyContact'])->name('profile.supprimer');
+Route::get('/Fournisseurs/Profile/Supprimer', 
+[FournisseursController::class, 'destroyContact'])->name('profile.supprimer');
 
  Route::get('/Fournisseurs/Profile/Ajouter/', 
  [FournisseursController::class, 'ajoutContact'])->name('profile.ajouter');
@@ -36,3 +37,12 @@ use App\Http\Controllers\FournisseursController;
  Route::post('/check-rbq', 
  [FournisseursController::class, 'checkRBQ']);
 
+Route::get('/emailtest',
+[MailController::class, 'sendFournisseurToFinancesEmail'])->name('email.test');
+
+Route::get('/ResetPassword', function () {
+    return view('fournisseur.passwordReset');
+})->name('password.forgotten');
+
+Route::post('/ResetPassword',
+[MailController::class, 'sendPasswordResetLink'])->name('password.reset');
