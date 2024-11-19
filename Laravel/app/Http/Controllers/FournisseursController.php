@@ -278,23 +278,25 @@ class FournisseursController extends Controller
         $contactPostes = $request->input('contactPoste'); // Tableau des postes (si présents)
 
         // Pour chaque contact, on met à jour les informations
-        foreach ($contactIds as $contactId) {
-            $contact = ContactFournisseur::find($contactId); // Trouver le contact par son id
+        if($contactIds != null){
+            foreach ($contactIds as $contactId) {
+                $contact = ContactFournisseur::find($contactId); // Trouver le contact par son id
 
-            if ($contact) {
-                // Mettre à jour les informations du contact
-                $contact->Prenom = $contactPrenoms[$contactId];
-                $contact->Nom = $contactNoms[$contactId];
-                $contact->Fonction = $contactFonctions[$contactId];
-                $contact->Courriel = $contactCourriels[$contactId];
-                $contact->Numero = $contactNumeros[$contactId];
+                if ($contact) {
+                    // Mettre à jour les informations du contact
+                    $contact->Prenom = $contactPrenoms[$contactId];
+                    $contact->Nom = $contactNoms[$contactId];
+                    $contact->Fonction = $contactFonctions[$contactId];
+                    $contact->Courriel = $contactCourriels[$contactId];
+                    $contact->Numero = $contactNumeros[$contactId];
 
-                if (isset($contactPostes[$contactId])) {
-                    $contact->Poste = $contactPostes[$contactId];
+                    if (isset($contactPostes[$contactId])) {
+                        $contact->Poste = $contactPostes[$contactId];
+                    }
+
+                    // Sauvegarder les changements
+                    $contact->save();
                 }
-
-                // Sauvegarder les changements
-                $contact->save();
             }
         }
         $fournisseurs->save();
