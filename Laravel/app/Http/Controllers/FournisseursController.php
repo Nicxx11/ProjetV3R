@@ -321,7 +321,7 @@ class FournisseursController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroyContact(string $id)
     {
         //---SUPRESSION NON FONCTIONNEL---//
         $contact = ContactFournisseur::find($id);

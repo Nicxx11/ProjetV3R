@@ -142,7 +142,7 @@
                         </div>
                         <div class="card cardInfo">
                             <div class="card-header">
-                                License RBQ
+                                Licence(s) RBQ
                             </div>
                             <div class="card-body">
                                 <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}

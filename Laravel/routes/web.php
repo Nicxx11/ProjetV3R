@@ -28,7 +28,7 @@ use App\Http\Controllers\FournisseursController;
  [FournisseursController::class, 'update'])->name('profile.edit');
 
  Route::get('/Fournisseurs/Profile/Supprimer', 
- [FournisseursController::class, 'destroy'])->name('profile.supprimer');
+ [FournisseursController::class, 'destroyContact'])->name('profile.supprimer');
 
  Route::post('/check-rbq', 
  [FournisseursController::class, 'checkRBQ']);
