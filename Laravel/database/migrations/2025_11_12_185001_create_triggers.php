@@ -47,6 +47,23 @@ return new class extends Migration
             SET NEW.Date_Derniere_Modification = NOW();
         END;
         ');
+
+        DB::statement('
+        CREATE TRIGGER before_insert_password_resets
+        BEFORE INSERT ON password_resets
+        FOR EACH ROW
+        BEGIN
+            SET NEW.created_at = NOW();
+        END;
+        ');
+
+        DB::statement('
+        CREATE EVENT delete_old_records
+        ON SCHEDULE EVERY 1 MINUTE
+        DO
+        DELETE FROM password_resets
+        WHERE created_at < NOW() - INTERVAL 10 MINUTE;
+        ');
     }
 
     /**
@@ -64,6 +81,14 @@ return new class extends Migration
 
         DB::statement('
             DROP TRIGGER IF EXISTS before_update_fournisseurs;
+        ');
+
+        DB::statement('
+            DROP TRIGGER IF EXISTS before_insert_password_resets;
+        ');
+
+        DB::statement('
+            DROP EVENT IF EXISTS delete_old_records;
         ');
     }
 };

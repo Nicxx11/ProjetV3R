@@ -10,9 +10,6 @@
             @csrf
             <div class="m-4 fixedTitle">
                 <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>
-                @error('')
-                    <p class="erreur">{{$message}}</p>
-                @enderror
             </div>
         </div>
 
@@ -42,8 +39,10 @@
                             Identification
                         </div>
                         <div class="card-body">
-                            <p>NEQ: {{ $fournisseur->NEQ }}</p>
-                            <p>Nom: {{ $fournisseur->Entreprise }}</p>
+                            @if($fournisseur->NEQ != null)
+                                <p>NEQ: {{ $fournisseur->NEQ }}</p>
+                            @endif
+                                <p>Nom: {{ $fournisseur->Entreprise }}</p>
                         </div>
                     </div>
                     <div class="card cardInfo">
@@ -134,7 +133,9 @@
                             Licence(s) RBQ
                         </div>
                         <div class="card-body">
-                            <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}</p>
+                            @if(isset($licRbq[0]))
+                                <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}</p>
+                            @endif
                             <div class="card">
                                 <div class="card-header">
                                     Catégories et sous-catégories autorisées

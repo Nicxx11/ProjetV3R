@@ -159,10 +159,10 @@
                     @enderror
                 </div>
 
-                <div class="form-group mt-4" id="VilleContainerText">
-                    <label for="Ville">Ville:</label></br>
+                <div class="form-group mt-4" id="VilleContainerText" style="display:none;">
+                    <label for="villeText">Ville:</label></br>
                     <input placeholder="Ville" type="text" id="villeText" name="villeText">
-                    @error('Ville')
+                    @error('villeText')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>

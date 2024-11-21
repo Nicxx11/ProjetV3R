@@ -31,7 +31,7 @@
                 <a href="{{ route('inscription.create') }}"><span style="color:#1294ff;">Soumettre une demande</span></a>
                 <button class="mt-2 margCo px-2 py-1" type="submit">Connexion</button>
                 <!--mauvaise route v -->
-                <a href="{{ route('inscription.create') }}"><p class="margCardB" style="color:#1294ff;">Mot de passe oublié?</p></a>
+                <a href="{{ route('password.forgotten') }}"><p class="margCardB" style="color:#1294ff;">Mot de passe oublié?</p></a>
             </form>
 
             </div>

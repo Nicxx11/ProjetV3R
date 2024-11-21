@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('Ville', 64); #si province québec, utiliser une dropdown pour choisir ville.
             $table->string('Province')->default('Québec'); #énumération des provinces.
             $table->string('CodePostal',6); #nombres & lettres seulement
-            $table->string('CodeRegionAdministrative', 2); #liste prédéterminée
-            $table->string('RegionAdministrative'); #liste prédéterminée, obligatoire juste pour québec.
+            $table->string('CodeRegionAdministrative', 2)->nullable(); #liste prédéterminée
+            $table->string('RegionAdministrative')->nullable(); #liste prédéterminée, obligatoire juste pour québec.
             $table->string('SiteInternet', 64)->nullable();
             $table->string('TypeTelephone'); #Bureau, Télécopieur ou Cellulaire
             $table->string('Numero', 10); #exactement 10, numérique seulement

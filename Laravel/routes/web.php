@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ForgottenPasswordController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FournisseursController;
@@ -40,9 +41,14 @@ Route::get('/Fournisseurs/Profile/Supprimer',
 Route::get('/emailtest',
 [MailController::class, 'sendFournisseurToFinancesEmail'])->name('email.test');
 
-Route::get('/ResetPassword', function () {
-    return view('fournisseur.passwordReset');
-})->name('password.forgotten');
+Route::get('/Password',
+ function () {return view('auth.forgotten');})->name('password.forgotten');
 
-Route::post('/ResetPassword',
-[MailController::class, 'sendPasswordResetLink'])->name('password.reset');
+Route::post('/Password',
+[MailController::class, 'sendPasswordResetLink'])->name('token.send');
+
+Route::get('/Password/Reset/{Courriel}',
+[ForgottenPasswordController::class, 'index'])->name('token.input');
+
+Route::post('/Password/Reset/{Courriel}',
+[ForgottenPasswordController::class, 'resetPassword'])->name('password.reset');

@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\parametres_systeme;
-use Illuminate\Support\Facades\Password;
 use Log;
 
 
@@ -29,10 +28,7 @@ temps, et nous nous engageons à vous fournir une réponse définitive dans les 
 Nous vous remercions de votre patience et de votre compréhension, et nous sommes impatients d'explorer les 
 possibilités d'une collaboration fructueuse. 
         
-Cordialement, 
-        
-John Doe 
-Direction de l'approvisionnement 
+Cordialement,      
 Ville de Trois-Rivières";
 
         $record = parametres_systeme::findOrFail(1);
@@ -65,7 +61,6 @@ possibilités d'une collaboration fructueuse.
 Cordialement, 
         
 John Doe 
-Direction de l'approvisionnement 
 Ville de Trois-Rivières";
 
         Mail::raw($message, function ($message) use ($email, $subject) {
@@ -91,8 +86,6 @@ Nous vous remercions de l'intérêt que vous portez à la Ville de Trois-Rivièr
 Dans l'attente de votre mise à jour, nous vous prions d’agréer, Madame, Monsieur, l’expression de nos salutations distinguées.
         
 Cordialement,
-John Doe
-Direction de l'approvisionnement
 Ville de Trois-Rivières";
 
         Mail::raw($message, function ($message) use ($email, $subject) {
@@ -131,7 +124,7 @@ Devise: ".$fournisseur->Devise."
 Ceci est un courriel automatisé, veuillez ne pas répondre à ce courriel.
         
 Cordialement,
-Trois-Rivières";
+Ville de Trois-Rivières";
 
         $record = parametres_systeme::findOrFail(1);
         $email = "" . $record->Finances;
@@ -155,15 +148,42 @@ Trois-Rivières";
             'Courriel.email' => 'Le courriel doit être valide'
         ]);
 
-        $status = Password::broker('Fournisseurs')->sendResetLink($request->only('Courriel'));
+        $status = "";
 
-
-        if ($status == Password::RESET_LINK_SENT) {
-            Log::info('Password reset link sent to: ' . $request->input('Courriel'));
-        } else {
-            Log::error('Failed to send password reset link: ' . $status);
+        $user = Fournisseur::where('Courriel', $request['Courriel'])->first();
+        if($user){
+            $fournisseurController = new ForgottenPasswordController();
+            $status = $fournisseurController->createToken($request['Courriel']);
         }
 
-        return response()->json(['message' => 'Si l\'adresse courriel est existante, vous avez reçu une demande de réinitialisation à celle-ci.'], 200);
+        Log::info($status);
+        if($status == 'Success'){
+            $email = $request['Courriel'];
+            $subject = "Réinitialisation de votre mot de passe";
+            $message = "Madame, Monsieur,
+    
+Nous avons reçu une demande de réinitialisation de mot de passe pour votre compte sur le portail de fournisseurs de la ville de Trois-Rivières. Si vous n'êtes pas à l'origine de cette demande, veuillez ignorer ce message.
+
+Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous :
+            
+http://127.0.0.1:8000/Password/Reset/".$request['Courriel']."
+            
+Ce lien expirera dans 10 minutes. Si vous ne parvenez pas à réinitialiser votre mot de passe dans ce délai, vous devrez demander une nouvelle réinitialisation.
+
+Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à nous contacter à projetv3r2024@gmail.com.
+            
+Cordialement,
+Ville de Trois-Rivières";
+    
+            Mail::raw($message, function ($message) use ($email, $subject) {
+                $message->to($email)
+                        ->subject($subject)
+                        ->from('projetv3r2024@gmail.com');
+            });
+        }
+
+        return redirect()->route('index.index');
     }
+
+
 }

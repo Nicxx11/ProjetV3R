@@ -22,9 +22,8 @@ class Fournisseur extends Model implements CanResetPassword
     public $timestamps = false;
     protected $fillable = ['id', 'NEQ', 'Courriel', 'Entreprise', 'MotDePasse', 'Details', 'No_TPS', 'No_TVQ', 'Conditions_Paiement', 'Devise', 'Mode_Communication', 'Etat_Demande'];
 
-    public function getEmailForPasswordReset()
+    public function getEmailForPasswordReset(): mixed
     {
-        // Return the email field you want to use for password resets (Courriel in your case)
         return $this->Courriel;
     }
 

@@ -182,7 +182,9 @@
                                 Licence(s) RBQ
                             </div>
                             <div class="card-body">
-                                <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}
+                                @if(isset($licRbq[0]))
+                                    <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}
+                                @endif
                                 </p>
                                 <div class="card">
                                     <div class="card-header">

@@ -64,15 +64,26 @@ class FournisseursController extends Controller
         $request['No_Licence_RBQ'] = str_replace('-','',$request['No_Licence_RBQ']);
         $request['Etat_Demande'] = 'En attente';
         $request['Numero'] = str_replace(' ','',str_replace('-', '', $request['Numero']));
-        if($request['VilleText'] != '')
-            $request['Ville'] = $request['VilleText'];
+        Log::info('VILLE TEXT');
+        Log::info($request['villeText']);
 
+        if($request['villeText'] !== null){
+            $request['Ville'] = $request['villeText'];
+        }
+//MotDePasse1$
 
         $validatedFournisseur = $request->validate([
             'NEQ' => 'nullable|digits:10',
             'Courriel' => 'required|email|unique:fournisseurs',
             'Entreprise' => 'required|string|max:64',
-            'MotDePasse' => 'required|string|min:8|max:12|confirmed',
+            'MotDePasse' => [
+                'required',
+                'string',
+                'min:8', 
+                'max:12', 
+                'confirmed', 
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/' //au moins 1 maj, 1 min, 1 chiffre, 1 symbole
+            ],
             'Etat_Demande' => 'required|string',
             'Details' => 'nullable|string|max:500'
         ], [
@@ -85,6 +96,7 @@ class FournisseursController extends Controller
             'MotDePasse.min' => 'Le mot de passe doit contenir un minimum de 8 caractères',
             'MotDePasse.max' => 'Le mot de passe ne doit pas dépasser 12 caractères',
             'MotDePasse.confirmed' => 'Les mots de passe doivent correspondre',
+            'MotDePasse.regex' => 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un symbole.',
             'Details.max' => 'Maximum de 500 caractères',
         ]);
 
@@ -139,7 +151,7 @@ class FournisseursController extends Controller
 
         $correctRBQ = true;
         foreach ($validatedRBQ as $key => $value) {
-            if($value == null || $value == ''){
+            if($value == null || $value === ''){
                 $correctRBQ = false;
             }
         }

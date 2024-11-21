@@ -95,10 +95,15 @@ return [
     */
 
     'passwords' => [
+        'users' => [
+            'provider' => 'users',  // This should match the provider for your users.
+            'table' => 'password_resets',
+            'expire' => 1,
+        ],
         'Fournisseurs' => [
             'provider' => 'Fournisseurs', // This refers to the 'members' provider you defined above
             'table' => 'password_resets', // The table where reset tokens will be stored
-            'expire' => 10, // Token expiration in minutes (integer)
+            'expire' => 1, // Token expiration in minutes (integer)
             'throttle' => 5, // Optional: Throttling (in seconds) to prevent too many requests
         ],
     ],
