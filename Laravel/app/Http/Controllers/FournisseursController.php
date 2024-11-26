@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use App\Models\Licence_Rbq;
 use Illuminate\Http\Request;
 use App\Models\Fournisseur;
@@ -28,13 +29,13 @@ class FournisseursController extends Controller
         $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
         $services = Service::all();
         $licences_rbqs = Licence_Rbq::all();
-
+        $files = Storage::files('public/uploads');
 
         if (Route::currentRouteName() == "fournisseurs.list") {
             return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
         }
         if (Route::currentRouteName() == "fournisseurs.profile") {
-            return view('fournisseur.profile', compact('fournisseurs', 'rbqs_general', 'rbqs_specialise'));
+            return view('fournisseur.profile', compact('files','fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
 
         return View('login.connexion', compact('fournisseurs'));
@@ -198,6 +199,8 @@ class FournisseursController extends Controller
 
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
 
+        $files = Storage::files('public/uploads');
+
         session([
             'id' => $fournisseur->id,
             'neq' => $inputNEQ,
@@ -219,7 +222,7 @@ class FournisseursController extends Controller
             
             if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
             {
-                return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord'))->with('success','Connexion réussi');
+                return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','files'))->with('success','Connexion réussi');
             }
         } else {
             return redirect()->route('index.index')->with('error', 'identifiant non valide');
@@ -280,6 +283,7 @@ class FournisseursController extends Controller
         $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
         $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
+        $files = Storage::files('public/uploads');
 
         $currentId = session('id');
 
@@ -359,7 +363,7 @@ class FournisseursController extends Controller
             'coord' => $coord
         ]);
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','files'))->with('success', 'Connexion réussi');
 
     }
 
@@ -532,5 +536,4 @@ class FournisseursController extends Controller
             return 'error3';
         }
     }
-
 }

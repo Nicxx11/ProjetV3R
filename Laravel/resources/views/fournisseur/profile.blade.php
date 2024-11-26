@@ -167,7 +167,36 @@
                             Brochures et cartes d'affaire
                         </div>
                         <div class="card-body">
-                            Place Holder
+                        <h1>Liste des fichiers téléchargés</h1>
+
+                        <!-- Afficher les fichiers -->
+                        @if(session('success'))
+                            <p style="color: green;">{{ session('success') }}</p>
+                        @endif
+
+                        @if(session('error'))
+                            <p style="color: red;">{{ session('error') }}</p>
+                        @endif
+
+                            <ul>
+                                @if ($files)
+                                @foreach ($files as $file)
+                                    <li>
+                                        <p>{{ basename($file) }}</p> <!-- Affiche le nom du fichier -->
+
+                                        <!-- Afficher l'image si c'est une image -->
+                                        @if(in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']))
+                                            <img src="{{ asset('storage/' . $file) }}" alt="{{ basename($file) }}" width="200">
+                                        @else
+                                            <!-- Affiche un lien de téléchargement pour les autres types de fichiers -->
+                                            <a href="{{ asset('storage/' . $file) }}" download="{{ basename($file) }}">Télécharger le fichier</a>
+                                        @endif
+                                    </li>
+                                @endforeach
+                                @else 
+                                <p>Aucun fichier disponible</p>
+                                @endif
+                            </ul>                        
                         </div>
                     </div>
                 </div>

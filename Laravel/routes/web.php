@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ForgottenPasswordController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +53,9 @@ Route::get('/Password/Reset/{Token}',
 
 Route::post('/Password/Reset',
 [ForgottenPasswordController::class, 'resetPassword'])->name('password.reset');
+
+Route::get('/files', 
+[FileUploadController::class, 'showFiles'])->name('files.index');
+
+Route::post('/upload', 
+[FileUploadController::class, 'upload'])->name('file.upload');

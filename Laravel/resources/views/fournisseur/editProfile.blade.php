@@ -226,7 +226,14 @@
                                 Brochures et cartes d'affaire
                             </div>
                             <div class="card-body">
-                                Place Holder
+                                <form action="{{ route('file.upload') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="file">Choisir un fichier :</label>
+                                    <input type="file" name="file" id="file" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Envoyer</button>
+                            </form>
                             </div>
                         </div>
                     </div>
