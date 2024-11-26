@@ -12,13 +12,15 @@ use App\Models\ContactFournisseur;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use Log;
-use Symfony\Component\ErrorHandler\Debug;
+
+//Excel management
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 
 class FournisseursController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $fournisseurs = Fournisseur::all();
@@ -40,9 +42,6 @@ class FournisseursController extends Controller
         return View('login.connexion', compact('fournisseurs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $categories_rbq = new Categorie_Rbq();
@@ -52,9 +51,6 @@ class FournisseursController extends Controller
         return View('login.inscription', compact('rbqs_general', 'rbqs_specialise'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
 
@@ -228,7 +224,6 @@ class FournisseursController extends Controller
 
     }
 
-
     public function updatePassword($id, $password){
      
         $fournisseur = Fournisseur::find($id);
@@ -244,17 +239,6 @@ class FournisseursController extends Controller
        
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit()
     {
         $id = session('id');
@@ -267,11 +251,8 @@ class FournisseursController extends Controller
 
 
         return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
-    }/*'inputNeq','fournisseur','contactFourni','service','licRbq','coord'*/
+    }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request)
     {
 
@@ -363,9 +344,6 @@ class FournisseursController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroyContact(int $contactId)
     {
         $contact = ContactFournisseur::find($contactId);
@@ -397,7 +375,6 @@ class FournisseursController extends Controller
 
     return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('error', 'Contact non trouvé!');
     }
-
     public function ajoutContact(Request $request)
     {
         $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
@@ -531,6 +508,15 @@ class FournisseursController extends Controller
         } else {
             return 'error3';
         }
+    }
+
+    
+
+    public function generateExcel($fournisseurData){
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
     }
 
 }
