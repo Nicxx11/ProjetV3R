@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fournisseur;
+use App\Models\ModeleCourriel;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -46,22 +47,8 @@ Ville de Trois-Rivières";
     public function sendWelcomeEmail($email)
     {
         $subject = "Accusé de réception de votre demande d'ajout au bottin central";
-        $message = "Madame, Monsieur,
-
-Nous vous remercions d'avoir contacté la Ville de Trois-Rivières et d'avoir exprimé votre intérêt à être ajouté à 
-notre bottin central en tant que fournisseur potentiel.
-Nous accusons réception de votre demande ainsi que des documents et informations que vous avez soumis.
-Nous tenons à vous assurer que votre demande sera traitée avec l'attention et la diligence requises. 
-Notre processus d'évaluation implique une revue détaillée des informations fournies, ainsi qu'une analyse de la 
-compatibilité de vos produits et services avec les besoins de la Ville. Ce processus peut prendre un certain 
-temps, et nous nous engageons à vous fournir une réponse définitive dans les meilleurs délais.
-Nous vous remercions de votre patience et de votre compréhension, et nous sommes impatients d'explorer les 
-possibilités d'une collaboration fructueuse. 
-        
-Cordialement, 
-        
-John Doe 
-Ville de Trois-Rivières";
+        $modele = ModeleCourriel::where('NomModele', 'Accusé de réception')->first();
+        $message = $modele['MessageModele'];
 
         Mail::raw($message, function ($message) use ($email, $subject) {
             $message->to($email)
@@ -181,17 +168,11 @@ Ville de Trois-Rivières";
             <p>Cordialement,</p>
             <p>Ville de Trois-Rivières</p>';
     
-            // Mail::raw($message, function ($message) use ($email, $subject) {
-            //     $message->to($email)
-            //             ->subject($subject)
-            //             ->from('projetv3r2024@gmail.com');
-            // });
-
             Mail::send([], [], function($mail) use ($email, $subject, $message) {
                 $mail->to($email)
                     ->subject($subject)
                     ->from('projetv3r2024@gmail.com')
-                    ->html($message); // Set the body as HTML
+                    ->html($message);
             });
         }
 
