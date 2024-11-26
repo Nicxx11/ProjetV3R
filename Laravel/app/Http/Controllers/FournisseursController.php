@@ -369,7 +369,12 @@ class FournisseursController extends Controller
     public function destroyContact(int $contactId)
     {
         $contact = ContactFournisseur::find($contactId);
-
+        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+        $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
+        $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
+        $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
+        $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
+    
     if ($contact) {
         $contact->delete();
 
@@ -407,8 +412,9 @@ class FournisseursController extends Controller
             $contact->Fonction = $request->input('Fonction');
             $contact->Courriel = $request->input('Courriel');
             $contact->Numero = $request->input('Numero');
+            $contact->TypeTelephone = $request->input('type');
             $contact->Poste = $request->input('Poste', '');  // Poste est facultatif
-    
+            $contact->No_Fournisseur = $fournisseur['id'];
             // Sauvegarder le contact dans la base de données
             $contact->save();
     

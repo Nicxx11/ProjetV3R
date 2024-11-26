@@ -29,10 +29,10 @@ Route::get('/Fournisseurs/Profile/Modifier',
 Route::post('/Fournisseurs/Profile/Modifier', 
 [FournisseursController::class, 'update'])->name(name: 'profile.edit');
 
-Route::get('/Fournisseurs/Profile/Supprimer', 
+Route::get('/Fournisseurs/Profile/Supprimer/{contactId}', 
 [FournisseursController::class, 'destroyContact'])->name('profile.supprimer');
 
- Route::get('/Fournisseurs/Profile/Ajouter/', 
+ Route::post('/Fournisseurs/Profile/Ajouter', 
  [FournisseursController::class, 'ajoutContact'])->name('profile.ajouter');
 
  Route::post('/check-rbq', 

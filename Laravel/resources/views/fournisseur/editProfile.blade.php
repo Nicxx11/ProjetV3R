@@ -7,7 +7,6 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 text-left filter_box">
-            @csrf
             <div class="m-4 fixedTitle">
                 <h5>Modification de {{ $fournisseur->Entreprise }}</h5>
             </div>
@@ -79,6 +78,7 @@
                                 </p>
                             </div>
                         </div>
+                        </form>
                         <div class="card cardInfo">
                             <div class="card-header">
                                 Contacts
@@ -115,13 +115,14 @@
                                     <p>Aucun contact</p>
                                 </div>
                                 @endif
-                                <button id="ajoutBtn">Ajouter un contact</button>
+                                <button type="button" id="ajoutBtn">Ajouter un contact</button>
                                 <div id="ajoutContact">
                                     <div class="card mb-2">
                                         <div class="card-body">
 
                                         <!-- Ajout non fonctionnel (double form)-->
                                         <form action="{{ route('profile.ajouter') }}" method="POST">
+                                        @csrf
                                         <p><label for="Prenom">Prénom</label>
                                             <input type="text" name="Prenom" required>
 
@@ -135,7 +136,15 @@
                                             <input type="email" name="Courriel"></p>
 
                                             <p><i class="fa-solid fa-phone"> </i><label for="Numero">Numéro</label>
-                                            <input type="number" name="Numero"></p>
+                                            <input type="number" name="Numero">
+                                        
+                                            <label for="type">Type</label>
+                                            <select name="type">
+                                                <option disabled selected>Default</option>
+                                                <option>Bureau</option>
+                                                <option>Cellulaire</option>
+                                                <option>Télécopieur</option>
+                                            </select></p>
 
                                             <label for="Poste">Poste</label>
                                             <input type="number" name="Poste"></br>
@@ -239,7 +248,6 @@
                     </div>
 
                 </div>
-            </form>
         </div>
     </div>
 </div>
