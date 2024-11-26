@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Courriel', 64);
             $table->string('TypeTelephone'); #Bureau, Télécopieur, Cellulaire
             $table->string('Numero', 10); #numerique seulement
-            $table->string('Poste', 6); #numerique seulement
+            $table->string('Poste', 6)->nullable(); #numerique seulement
             $table->integer('No_Fournisseur');
             $table->foreign('No_Fournisseur')->references('id')->on('fournisseurs');
         });

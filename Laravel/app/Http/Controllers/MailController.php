@@ -157,33 +157,47 @@ Ville de Trois-Rivières";
         }
 
         Log::info($status);
-        if($status == 'Success'){
+
+        if(strpos($status, 'Success') !== false){
+
+            $token = last(explode(';',$status));
+
             $email = $request['Courriel'];
             $subject = "Réinitialisation de votre mot de passe";
-            $message = "Madame, Monsieur,
+            $message = '<p>Madame, Monsieur,</p>
     
-Nous avons reçu une demande de réinitialisation de mot de passe pour votre compte sur le portail de fournisseurs de la ville de Trois-Rivières. Si vous n'êtes pas à l'origine de cette demande, veuillez ignorer ce message.
+            <p>Nous avons reçu une demande de réinitialisation de mot de passe pour votre compte sur le portail de fournisseurs de la ville de Trois-Rivières. Si vous n\'êtes pas à l\'origine de cette demande, veuillez ignorer ce message.</p>
 
-Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous :
+            <p>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien ci-dessous :</p>
             
-http://127.0.0.1:8000/Password/Reset/".$request['Courriel']."
-            
-Ce lien expirera dans 10 minutes. Si vous ne parvenez pas à réinitialiser votre mot de passe dans ce délai, vous devrez demander une nouvelle réinitialisation.
+            <p><a href="http://127.0.0.1:8000/Password/Reset/'.hash('sha1', $token).'">Réinitialiser mon mot de passe</a></p>
 
-Si vous avez des questions ou avez besoin d'assistance supplémentaire, n'hésitez pas à nous contacter à projetv3r2024@gmail.com.
+            <p>Votre code de réinitialisation est le suivant: '.$token.'</p>
             
-Cordialement,
-Ville de Trois-Rivières";
+            <p>Ce lien expirera dans 10 minutes. Si vous ne parvenez pas à réinitialiser votre mot de passe dans ce délai, vous devrez demander une nouvelle réinitialisation.</p>
+
+            <p>Si vous avez des questions ou avez besoin d\'assistance supplémentaire, n\'hésitez pas à nous contacter à projetv3r2024@gmail.com.</p>
+            
+            <p>Cordialement,</p>
+            <p>Ville de Trois-Rivières</p>';
     
-            Mail::raw($message, function ($message) use ($email, $subject) {
-                $message->to($email)
-                        ->subject($subject)
-                        ->from('projetv3r2024@gmail.com');
+            // Mail::raw($message, function ($message) use ($email, $subject) {
+            //     $message->to($email)
+            //             ->subject($subject)
+            //             ->from('projetv3r2024@gmail.com');
+            // });
+
+            Mail::send([], [], function($mail) use ($email, $subject, $message) {
+                $mail->to($email)
+                    ->subject($subject)
+                    ->from('projetv3r2024@gmail.com')
+                    ->html($message); // Set the body as HTML
             });
         }
+
 
         return redirect()->route('index.index');
     }
 
-
+        
 }

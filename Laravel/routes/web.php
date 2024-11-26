@@ -27,7 +27,7 @@ Route::get('/Fournisseurs/Profile/Modifier',
 [FournisseursController::class, 'edit'])->name('profile.modifier');
 
 Route::post('/Fournisseurs/Profile/Modifier', 
-[FournisseursController::class, 'update'])->name('profile.edit');
+[FournisseursController::class, 'update'])->name(name: 'profile.edit');
 
 Route::get('/Fournisseurs/Profile/Supprimer', 
 [FournisseursController::class, 'destroyContact'])->name('profile.supprimer');
@@ -47,8 +47,8 @@ Route::get('/Password',
 Route::post('/Password',
 [MailController::class, 'sendPasswordResetLink'])->name('token.send');
 
-Route::get('/Password/Reset/{Courriel}',
+Route::get('/Password/Reset/{Token}',
 [ForgottenPasswordController::class, 'index'])->name('token.input');
 
-Route::post('/Password/Reset/{Courriel}',
+Route::post('/Password/Reset',
 [ForgottenPasswordController::class, 'resetPassword'])->name('password.reset');

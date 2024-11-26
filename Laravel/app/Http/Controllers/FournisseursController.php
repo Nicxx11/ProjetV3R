@@ -228,6 +228,22 @@ class FournisseursController extends Controller
 
     }
 
+
+    public function updatePassword($id, $password){
+     
+        $fournisseur = Fournisseur::find($id);
+
+        if(!$fournisseur){
+            return redirect()->route('index.index')->with('message', 'Erreur lors de la mise à jour du mot de passe. Assurez-vous que le fournisseur est existant.');
+        }
+
+        $hashedPassword = hash('sha1', $password);
+
+        $fournisseur->MotDePasse = $hashedPassword;
+        $fournisseur->save();
+       
+    }
+
     /**
      * Display the specified resource.
      */
@@ -510,4 +526,5 @@ class FournisseursController extends Controller
             return 'error3';
         }
     }
+
 }
