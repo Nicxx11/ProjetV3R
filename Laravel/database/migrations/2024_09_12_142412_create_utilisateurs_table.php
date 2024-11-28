@@ -15,7 +15,7 @@ return new class extends Migration
             $table->integer('id', 1)->autoIncrement();
             $table->string('Prenom', 32); #lettres et , -
             $table->string('Nom', 32); #lettres et , -
-            $table->string('Courriel', 64);
+            $table->string('Courriel', 64)->unique();
             $table->string('Role'); #Administrateur, Responsable, Commis. Minimum 2 admins & 1 responsable at all times.
             $table->string('MotDePasse'); #Maj, Min, Symbole. Doit être encrypté.
         });

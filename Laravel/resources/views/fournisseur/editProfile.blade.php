@@ -258,7 +258,5 @@
         </div>
     </div>
 </div>
-
-
 @endsection
 <script src="{{ asset('js/editProfile.js') }}"></script>

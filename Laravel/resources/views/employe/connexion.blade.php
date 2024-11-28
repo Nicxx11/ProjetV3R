@@ -14,27 +14,26 @@
                 <!-- empty column -->
             </div>
             <div class="col-md-7">
-            <form action="{{ route('fournisseurs.login') }}" method="POST">
+            <form action="{{ route('utilisateurs.login') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label class="margCardT" for="id">Identifiant</label></br>
-                    <input placeholder="  NEQ/Courriel" type="text" id="id" name="id" value="{{ old('id') }}">
+                    <input placeholder="  Courriel" type="text" id="Courriel" name="Courriel" value="{{ old('id') }}">
+                    @error('Courriel')
+                        <p class="erreur">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="form-group mt-5">
                     <label for="MotDePasse">Mot de passe:</label><br>
                     <input placeholder="  Mot de passe" type="password" id="MotDePasse" name="MotDePasse">
-                    @error('loginError')
+                    @error('MotDePasse')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                     
                 </div>
-                <a href="{{ route('inscription.create') }}"><span style="color:#1294ff;">Soumettre une demande</span></a>
                 <button class="mt-2 margCo px-2 py-1" type="submit">Connexion</button>
-                <!--mauvaise route v -->
-                
             </form>
-            <a href="{{route('utilisateurs.showLogin')}}">Employés</a>
-            <a href="{{ route('password.forgotten') }}"><p class="margCardB" style="color:#1294ff;">Mot de passe oublié?</p></a>
+            <a href="{{route('index.index')}}" ><p class="margCardB" style="color:#1294ff;">Fournisseurs</p></a>
 
             </div>
             </div>

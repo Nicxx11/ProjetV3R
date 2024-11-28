@@ -9,13 +9,14 @@
         <div class="col-md-3 text-left filter_box">
             @csrf
             <div class="m-4 fixedTitle">
-                <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>
+                    <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>                
             </div>
         </div>
 
         <div class="col-md-9">
             <h2>Information du profil</h2>
             <a href="{{ route('profile.modifier') }}"><button>Modifier</button></a>
+            <a href="{{ route('fournisseur.logout') }}" style="color:red;">Déconnexion</a>
             <div class="row m-4">
                 <div class="col-md-4">
                     <div class="card ">
@@ -221,6 +222,4 @@
         </div>
     </div>
 </div>
-
-
 @endsection
