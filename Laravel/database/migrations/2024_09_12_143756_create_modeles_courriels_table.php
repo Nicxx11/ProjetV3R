@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('modeles_courriels', function (Blueprint $table) {
             $table->integer('id', 1)->autoIncrement();
             $table->string('NomModele', 64);
-            $table->string('ObjetModele', 64);
+            $table->string('ObjetModele', 255);
             $table->string('MessageModele', 5000);
         });
     }

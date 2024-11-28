@@ -164,7 +164,7 @@ class FournisseursController extends Controller
         Coordonnee::create($validatedCoordonnees);
         
         $controlleur = new MailController();
-        $controlleur->sendWelcomeEmail($validatedFournisseur["Courriel"]);
+        $controlleur->sendFournisseurEmail($validatedFournisseur["Courriel"], 'Accusé de réception');
 
 
         return redirect()->route('index.index')->with('success', 'Inscription réussie!');
@@ -334,12 +334,12 @@ class FournisseursController extends Controller
         if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
             if($fournisseur->Etat_Demande == "Acceptée"){
                 $controlleur = new MailController();
-                $controlleur->sendAcceptationEmail($request->input('courriel'));
+                $controlleur->sendFournisseurEmail($request->input('courriel'), 'Confirmation acceptation');
             }
 
             if($fournisseur->Etat_Demande == "Refusée"){
                 $controlleur = new MailController();
-                $controlleur->sendNotAcceptationEmail($request->input('courriel'));
+                $controlleur->sendFournisseurEmail($request->input('courriel'), 'Refus demande');
             }
         }*/
 
