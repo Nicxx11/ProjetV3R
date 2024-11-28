@@ -30,7 +30,11 @@ class UtilisateurController extends Controller
                 'role' => $utilisateur->Role
             ]);
 
-            return redirect()->route('fournisseurs.list');
+            if($utilisateur->Role == 'Commis'){
+                return redirect()->route('fournisseurs.listcommis');
+            } else {
+                return redirect()->route('fournisseurs.list');
+            }
         }
     }
 }

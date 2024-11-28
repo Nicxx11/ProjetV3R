@@ -30,10 +30,22 @@ class FournisseursController extends Controller
         if (Route::currentRouteName() == "fournisseurs.list") {
             return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
         }
+
+        $fournisseurs = Fournisseur::where('Etat_Demande', 'Acceptée')->get();
+        $no_fournisseurs_acceptes = $fournisseurs->pluck('id');
+        $coordonnees = Coordonnee::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
+        $services = Service::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
+        $licences_rbqs = Licence_Rbq::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
+
+        if(Route::currentRouteName() == "fournisseurs.listcommis"){
+            return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
+        }
+
         if (Route::currentRouteName() == "fournisseurs.profile") {
             return view('fournisseur.profile', compact('filteredFiles','fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
 
+        session()->flush();
         return View('login.connexion', compact('fournisseurs'));
     }
 
@@ -339,11 +351,12 @@ class FournisseursController extends Controller
         $fournisseurs->save();
         $coordonnees->save();
 
-        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+        $fournisseur = Fournisseur::where('id', session('id'))->first();
         $coord = Coordonnee::where('No_Fournisseur', session('id'))->first();
         $contactFourni = ContactFournisseur::where('No_Fournisseur', session('id'))->get();
 
         session([
+            'id' => $fournisseur->id,
             'fournisseur' => $fournisseur,
             'contactFourni' => $contactFourni,
             'service' => $service,

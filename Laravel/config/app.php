@@ -123,11 +123,4 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    'routeMiddleware' => [
-        'fournisseur' => \App\Http\Middleware\FournisseurMiddleware::class,
-        'employe' => \App\Http\Middleware\EmployeMiddleware::class,
-        'responsable' => \App\Http\Middleware\ResponsableMiddleware::class,
-        'admin' => \App\Http\Middleware\AdminMiddleware::class
-    ],
-
 ];

@@ -16,7 +16,7 @@
         <div class="col-md-9">
             <h2>Information du profil</h2>
             <a href="{{ route('profile.modifier') }}"><button>Modifier</button></a>
-            <a href="{{ route('fournisseur.logout') }}" style="color:red;">Déconnexion</a>
+            <a href="{{ route('fournisseur.logout') }}" style="color:red;"><button type="button">Déconnexion</button></a>
             <div class="row m-4">
                 <div class="col-md-4">
                     <div class="card ">
