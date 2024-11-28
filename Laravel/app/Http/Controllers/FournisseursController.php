@@ -329,7 +329,20 @@ class FournisseursController extends Controller
                 }
             }
         }
-        
+
+        /*$fournisseur = Fournisseur::where('id', session('id'))->first();
+        if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
+            if($fournisseur->Etat_Demande == "Acceptée"){
+                $controlleur = new MailController();
+                $controlleur->sendAcceptationEmail($request->input('courriel'));
+            }
+
+            if($fournisseur->Etat_Demande == "Refusée"){
+                $controlleur = new MailController();
+                $controlleur->sendNotAcceptationEmail($request->input('courriel'));
+            }
+        }*/
+
         $fournisseurs->save();
         $coordonnees->save();
 
