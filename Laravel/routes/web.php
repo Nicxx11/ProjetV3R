@@ -5,6 +5,7 @@ use App\Http\Controllers\ForgottenPasswordController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FournisseursController;
+use App\Http\Controllers\ExportController;
 
 Route::get('/',
 [FournisseursController::class,'index'])->name('index.index');
@@ -59,3 +60,6 @@ Route::get('/files',
 
 Route::post('/upload', 
 [FileUploadController::class, 'upload'])->name('file.upload');
+
+Route::get('/export/{id}',
+[ExportController::class, 'export'])->name('fournisseur.export');

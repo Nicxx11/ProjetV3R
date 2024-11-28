@@ -11,6 +11,6 @@ class Licence_Rbq extends Model
 
     public $timestamps = false;
 
-    protected $table = "licences_Rbqs";
+    protected $table = "licences_rbqs";
     protected $fillable = ['No_Licence_RBQ','Statut','TypeLicence','Categorie','Code_Sous_Categorie','Travaux_Permis','No_Fournisseur'];
 }
