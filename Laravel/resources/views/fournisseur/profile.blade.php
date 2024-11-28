@@ -168,7 +168,7 @@
                             Brochures et cartes d'affaire
                         </div>
                         <div class="card-body">
-                        <h1>Liste des fichiers téléchargés</h1>
+                        <h3>Liste des fichiers téléchargés</h3>
 
                         <!-- Afficher les fichiers -->
                         @if(session('success'))
@@ -180,20 +180,12 @@
                         @endif
 
                             <ul>
-                                @if ($files)
-                                @foreach ($files as $file)
-                                    <li>
-                                        <p>{{ basename($file) }}</p> <!-- Affiche le nom du fichier -->
-
-                                        <!-- Afficher l'image si c'est une image -->
-                                        @if(in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif']))
-                                            <img src="{{ asset('storage/' . $file) }}" alt="{{ basename($file) }}" width="200">
-                                        @else
-                                            <!-- Affiche un lien de téléchargement pour les autres types de fichiers -->
-                                            <a href="{{ asset('storage/' . $file) }}" download="{{ basename($file) }}">Télécharger le fichier</a>
-                                        @endif
-                                    </li>
-                                @endforeach
+                                @if ($filteredFiles)
+                                    @foreach ($filteredFiles as $file)
+                                    <div>
+                                    <a href="{{ asset('storage/' . $file) }}" target="_blank">{{ basename($file) }}</a>
+                                    </div>
+                                    @endforeach
                                 @else 
                                 <p>Aucun fichier disponible</p>
                                 @endif

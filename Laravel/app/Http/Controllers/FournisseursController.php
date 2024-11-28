@@ -14,12 +14,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use Log;
 
-//Excel management
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-
-
 class FournisseursController extends Controller
 {
     public function index()
@@ -31,13 +25,13 @@ class FournisseursController extends Controller
         $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
         $services = Service::all();
         $licences_rbqs = Licence_Rbq::all();
-        $files = Storage::files('public/uploads');
+        $filteredFiles = $this->getFilteredFilesBySessionId();
 
         if (Route::currentRouteName() == "fournisseurs.list") {
             return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
         }
         if (Route::currentRouteName() == "fournisseurs.profile") {
-            return view('fournisseur.profile', compact('files','fournisseurs', 'rbqs_general', 'rbqs_specialise'));
+            return view('fournisseur.profile', compact('filteredFiles','fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
 
         return View('login.connexion', compact('fournisseurs'));
@@ -195,7 +189,7 @@ class FournisseursController extends Controller
 
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
 
-        $files = Storage::files('public/uploads');
+        $filteredFiles = $this->getFilteredFilesBySessionId();
 
         session([
             'id' => $fournisseur->id,
@@ -218,7 +212,7 @@ class FournisseursController extends Controller
             
             if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
             {
-                return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','files'))->with('success','Connexion réussi');
+                return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','filteredFiles'))->with('success','Connexion réussi');
             }
         } else {
             return redirect()->route('index.index')->with('error', 'identifiant non valide');
@@ -264,7 +258,6 @@ class FournisseursController extends Controller
         $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
         $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
-        $files = Storage::files('public/uploads');
 
         $currentId = session('id');
 
@@ -358,7 +351,9 @@ class FournisseursController extends Controller
             'coord' => $coord
         ]);
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','files'))->with('success', 'Connexion réussi');
+        $filteredFiles = $this->getFilteredFilesBySessionId();
+
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('success', 'Connexion réussi');
 
     }
 
@@ -370,7 +365,8 @@ class FournisseursController extends Controller
         $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
         $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
-    
+        $filteredFiles = $this->getFilteredFilesBySessionId();
+
     if ($contact) {
         $contact->delete();
 
@@ -388,14 +384,15 @@ class FournisseursController extends Controller
             'coord' => $coord
         ]);
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('success', 'Connexion réussi');
     }
 
-    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('error', 'Contact non trouvé!');
+    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('error', 'Contact non trouvé!');
     }
     public function ajoutContact(Request $request)
     {
         $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+        $filteredFiles = $this->getFilteredFilesBySessionId();
 
         if ($fournisseur) {
             // Créer un nouveau contact pour le fournisseur
@@ -427,11 +424,12 @@ class FournisseursController extends Controller
                 'licRbq' => $licRbq,
                 'coord' => $coord
             ]);
+            
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('success', 'Connexion réussi');
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('success', 'Connexion réussi');
     }
 
-    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'))->with('error', 'Contact non trouvé!');
+    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('error', 'Contact non trouvé!');
     }
 
     public function checkRBQ(Request $request)
@@ -527,11 +525,29 @@ class FournisseursController extends Controller
             return 'error3';
         }
     }
+    protected function getFilteredFilesBySessionId()
+    {
+        // Récupérer tous les fichiers dans le répertoire 'uploads'
+        $files = Storage::files('uploads');
+        
+        // Récupérer l'ID de la session
+        $sessionId = session('id');
+        log::info($sessionId);
 
+        $pattern = '/^' . preg_quote($sessionId, '/') . '-.*/';
+
+        // Filtrer les fichiers qui commencent par l'ID de la session
+        return array_filter($files, function ($file) use ($pattern) {
+            // Récupérer le nom du fichier sans le chemin
+            $fileName = basename($file);
+            
+            // Vérifier si le début du nom du fichier correspond à l'ID
+            return preg_match($pattern, $fileName);
+        });
+    }
     public function logout(){
         session()->flush();
 
         return redirect()->route('index.index');
     }
-
 }

@@ -19,7 +19,7 @@ class FileUploadController extends Controller
             $file = $request->file('file');
 
             // Générer un nom unique pour le fichier
-            $uniqueFileName = time() . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $uniqueFileName = session('id') . '-' . uniqid() . '.' . $file->getClientOriginalExtension();
 
             // Stocker le fichier dans 'public/storage/uploads'
             $filePath = $file->storeAs('uploads', $uniqueFileName, 'public');
@@ -35,7 +35,7 @@ class FileUploadController extends Controller
     public function showFiles()
     {
         // Récupérer tous les fichiers stockés dans le répertoire 'public/uploads'
-        $files = Storage::files('public/uploads');
+        $files = Storage::files('public/storage/uploads');
 
         // Passer les fichiers à la vue
         return view('files.index', compact('files'));
