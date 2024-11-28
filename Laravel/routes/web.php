@@ -24,7 +24,10 @@ Route::post('/inscription',
 [FournisseursController::class,'store'])->name('inscription.store');
 
 Route::get('/Fournisseurs/Liste', 
-[FournisseursController::class, 'index'])->name('fournisseurs.list')->middleware('employe');
+[FournisseursController::class, 'index'])->name('fournisseurs.list')->middleware('responsable');
+
+Route::get('/Fournisseurs/Liste/Commis',
+[FournisseursController::class, 'index'])->name('fournisseurs.listcommis')->middleware('employe');
 
 Route::post('/Connexion', 
 [FournisseursController::class, 'login'])->name('fournisseurs.login');
@@ -33,10 +36,10 @@ Route::get('/Fournisseurs/Profile',
 [FournisseursController::class, 'index'])->name('fournisseurs.profile')->middleware('fournisseur');
  
 Route::get('/Fournisseurs/Profile/Modifier', 
-[FournisseursController::class, 'edit'])->name('profile.modifier')->middleware('fournisseur');
+[FournisseursController::class, 'edit'])->name('profile.modifier');
 
 Route::post('/Fournisseurs/Profile/Modifier', 
-[FournisseursController::class, 'update'])->name(name: 'profile.edit')->middleware('fournisseur');
+[FournisseursController::class, 'update'])->name(name: 'profile.edit');
 
 Route::get('/Fournisseurs/Profile/Supprimer/{contactId}', 
 [FournisseursController::class, 'destroyContact'])->name('profile.supprimer')->middleware('fournisseur');
