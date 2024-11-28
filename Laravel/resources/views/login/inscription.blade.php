@@ -104,14 +104,14 @@
                 </div>
                 <div class="form-group mt-4">
                     <label for="NoCivique">Numéro Civique:</label></br>
-                    <input placeholder="Numéro Civique" type="text" id="NoCivique" name="NoCivique">
+                    <input placeholder="Numéro Civique" type="text" id="NoCivique" name="NoCivique" value="{{ old('NoCivique') }}">
                     @error('NoCivique')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="form-group mt-4">
                     <label for="Rue">Rue:</label></br>
-                    <input placeholder="Rue" type="text" id="Rue" name="Rue">
+                    <input placeholder="Rue" type="text" id="Rue" name="Rue" value="{{ old('Rue') }}">
                     @error('Rue')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
@@ -119,7 +119,7 @@
                 
                 <div class="form-group mt-4">
                     <label for="CodePostal">Code Postal:</label></br>
-                    <input placeholder="Code Postal" type="text" id="CodePostal" name="CodePostal">
+                    <input placeholder="Code Postal" type="text" id="CodePostal" name="CodePostal" value="{{ old('CodePostal') }}">
                     @error('CodePostal')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
@@ -128,7 +128,7 @@
                 
                 <div class="form-group mt-4">
                     <label for="Province">Province:</label></br>
-                    <select id="Province" name="Province">
+                    <select id="Province" name="Province" value="{{ old('Province') }}">
                         <option>Alberta</option>
                         <option>Colombie-Britannique</option>
                         <option>Île-du-Prince-Édouard</option>
@@ -151,7 +151,7 @@
                 
                 <div class="form-group mt-4" id="VilleContainer">
                     <label for="Ville">Ville:</label></br>
-                    <select id="Ville" name="Ville">
+                    <select id="Ville" name="Ville" value="{{ old('Ville') }}">
                         
                     </select>
                     @error('Ville')
@@ -161,7 +161,7 @@
 
                 <div class="form-group mt-4" id="VilleContainerText" style="display:none;">
                     <label for="villeText">Ville:</label></br>
-                    <input placeholder="Ville" type="text" id="villeText" name="villeText">
+                    <input placeholder="Ville" type="text" id="villeText" name="villeText" value="{{ old('villeText') }}">
                     @error('villeText')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
@@ -170,14 +170,14 @@
 
                 <div class="form-group mt-4">
                     <label for="Numero">Téléphone:</label></br>
-                    <input placeholder="Numero" type="text" id="Numero" name="Numero">
+                    <input placeholder="Numero" type="text" id="Numero" name="Numero" value="{{ old('Numero') }}">
                     @error('Numero')
                         <p class="erreur">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="form-group mt-4">
                     <label for="TypeTelephone">Type de téléphone:</label></br>
-                    <select id="TypeTelephone" name="TypeTelephone">
+                    <select id="TypeTelephone" name="TypeTelephone" value="{{ old('TypeTelephone') }}">
                         <option>Cellulaire</option>
                         <option>Bureau</option>
                         <option>Télécopieur</option>
@@ -188,7 +188,7 @@
                 </div>
                 <div class="form-group mt-4">
                     <label for="Poste">Poste (si applicable):</label></br>
-                    <input placeholder="Poste" type="text" id="Poste" name="Poste">
+                    <input placeholder="Poste" type="text" id="Poste" name="Poste" value="{{ old('Poste') }}">
                     @error('Poste')
                         <p class="erreur">{{ $message }}</p>
                     @enderror

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ModeleCourriel extends Model
 {
     use HasFactory;
-    protected $timestamps = false;
+    public $timestamps = false;
     protected $table = 'modeles_courriels';
 
     protected $fillable = ['NomModele', 'ObjetModele', 'MessageModele'];

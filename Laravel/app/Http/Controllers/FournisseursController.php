@@ -259,7 +259,7 @@ class FournisseursController extends Controller
     public function update(Request $request)
     {
 
-        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+        $fournisseur = Fournisseur::where('id', session('id'))->first();
         $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
         $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
         $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
@@ -329,6 +329,7 @@ class FournisseursController extends Controller
                 }
             }
         }
+        
         $fournisseurs->save();
         $coordonnees->save();
 
