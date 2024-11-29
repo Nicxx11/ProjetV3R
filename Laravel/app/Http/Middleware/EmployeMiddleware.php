@@ -15,7 +15,7 @@ class EmployeMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!session('Role')){
+        if(session('Role') == '' || session('Role') == null){
             return redirect()->route('index.index');
         }
 

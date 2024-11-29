@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('titre','Fournisseurs')
-@section('newCss','../css/listeFournisseurs.css')
+@section('newCss', asset('css/listeFournisseurs.css'))
 
 @section('contenu')
 <!-- ajouter le contenu de la page ci bas -->
@@ -184,9 +184,6 @@
 
         <div class="col-md-9"> <!--Barre de navigation et Tableau-->
 
-            <div class="row">
-                <div class="row navbar m-4">Barre de navigation</div>
-            </div>
 
 
             <div class="row">
@@ -196,9 +193,9 @@
                             <th class="etat_column">État</th>
                             <th class="fournisseur_column">Fournisseur</th>
                             <th class="ville_column">Ville</th>
-                            <th class="produits_services_column">Produits & Services</th>
-                            <th class="categorie_column">Catégories de Travaux</th>
-                            <th class="ouvrir_column">Ouvrir</th>
+                            <th class="produits_services_column" style="text-align: center; vertical-align: middle;">Produits & Services</th>
+                            <th class="categorie_column" style="text-align: center; vertical-align: middle;">Catégories de Travaux</th>
+                            <th class="ouvrir_column" style="text-align: center; vertical-align: middle;">Ouvrir</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -225,5 +222,5 @@
     }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js"></script>
-<script src="../js/pageFournisseurs.js" crossorigin="anonymous" defer></script>
+<script src="{{ asset('js/pageFournisseurs.js') }}" crossorigin="anonymous" defer></script>
 @endsection

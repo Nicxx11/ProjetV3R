@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FournisseursController;
 use App\Http\Controllers\ExportController;
 
-Route::fallback(function () {
-    return redirect()->route('index.index'); // replace 'home' with your desired route name
-});
+// Route::fallback(function () {
+//     return redirect()->route('index.index'); // replace 'home' with your desired route name
+// });
 
 Route::middleware([FournisseurMiddleware::class])->group(function() {
     Route::get('/Fournisseurs/Profile', [FournisseursController::class, 'index'])->name('fournisseurs.profile');

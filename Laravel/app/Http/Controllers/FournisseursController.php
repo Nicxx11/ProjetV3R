@@ -31,13 +31,15 @@ class FournisseursController extends Controller
             return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
         }
 
-        $fournisseurs = Fournisseur::where('Etat_Demande', 'Acceptée')->get();
-        $no_fournisseurs_acceptes = $fournisseurs->pluck('id');
-        $coordonnees = Coordonnee::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
-        $services = Service::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
-        $licences_rbqs = Licence_Rbq::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
 
         if(Route::currentRouteName() == "fournisseurs.listcommis"){
+
+            $fournisseurs = Fournisseur::where('Etat_Demande', 'Acceptée')->get();
+            $no_fournisseurs_acceptes = $fournisseurs->pluck('id');
+            $coordonnees = Coordonnee::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
+            $services = Service::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
+            $licences_rbqs = Licence_Rbq::whereIn('No_Fournisseur', $no_fournisseurs_acceptes)->get();
+
             return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
         }
 

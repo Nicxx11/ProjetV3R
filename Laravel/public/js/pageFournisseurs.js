@@ -211,8 +211,9 @@ document.addEventListener('DOMContentLoaded', function(){
                         <td class="pt-2">${obj.Etat_Demande}</td>
                         <td class="pt-2">${obj.Entreprise}</td>
                         <td class="pt-2">${matchUNSPSC ? matchUNSPSC.Ville : 'Introuvable'}</td>
-                        <td class="pt-2">${matchedCountUNSPSC}/${totalCheckedUNSPSC}</td>
-                        <td class="pt-2">${matchedCountRBQs}/${totalCheckedRBQs}</td>
+                        <td class="pt-2" style="text-align: center; vertical-align: middle;">${matchedCountUNSPSC}/${totalCheckedUNSPSC}</td>
+                        <td class="pt-2" style="text-align: center; vertical-align: middle;">${matchedCountRBQs}/${totalCheckedRBQs}</td>
+                        <td class="pt-2" style="text-align: center; vertical-align: middle;"><a href="/export/${obj.id}"><i class="fa-solid fa-file-arrow-up" style="color: #000000;"></i></i></a></td>
                     </tr>
                 `
                 tableBody.innerHTML += row;
