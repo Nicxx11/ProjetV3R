@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('brochures', function (Blueprint $table) {
             $table->id();
-            $table->string('Nom', 32); #alphanumérique
-            $table->string('TypeFichier'); # tout les documents imprimables possibles
-            $table->integer('Taille'); #en octets, somme ne doit pas depasser le maximum autorisé dans la table parametres
-            $table->date('DateCreation'); # date
-            $table->integer('No_Fournisseur');
+            $table->string('Nom', 32);  // Nom du fichier
+            $table->string('TypeFichier');  // Type de fichier
+            $table->integer('Taille');  // Taille du fichier en octets
+            $table->date('DateCreation');  // Date de création
+            $table->integer('No_Fournisseur');  // ID du fournisseur
             $table->foreign('No_Fournisseur')->references('id')->on('fournisseurs');
+            $table->binary('Contenu');  // Contenu du fichier sous forme binaire
         });
     }
 

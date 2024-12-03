@@ -179,12 +179,16 @@
                         @endif
 
                             <ul>
-                                @if ($filteredFiles)
-                                    @foreach ($filteredFiles as $file)
-                                    <div>
-                                    <a href="{{ asset('storage/' . $file) }}" target="_blank">{{ basename($file) }}</a>
-                                    </div>
-                                    @endforeach
+                                @if ($brochure)
+                                @foreach ($brochure as $brochures)
+                                   <p>
+                                       <strong>{{ $brochure->Nom }}</strong> 
+                                       ({{ $brochure->TypeFichier }}) 
+                                       - {{ $brochure->Taille }} octets 
+                                       - Date de création: {{ $brochure->DateCreation->format('d/m/Y') }}
+                                       <a href="{{ Storage::url($brochure->Nom) }}" target="_blank">Télécharger</a>
+                                   </p>
+                                @endforeach
                                 @else 
                                 <p>Aucun fichier disponible</p>
                                 @endif

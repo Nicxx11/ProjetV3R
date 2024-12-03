@@ -27,7 +27,7 @@ class FournisseursController extends Controller
         $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
         $services = Service::all();
         $licences_rbqs = Licence_Rbq::all();
-        $filteredFiles = $this->getFilteredFilesBySessionId();
+        $brochure = $this->getbrochureBySessionId();
 
         if (Route::currentRouteName() == "fournisseurs.list") {
             return view('employe.listeFournisseur', compact('fournisseurs', 'coordonnees', 'services', 'rbqs_general', 'rbqs_specialise', 'licences_rbqs'));
@@ -46,7 +46,7 @@ class FournisseursController extends Controller
         }
 
         if (Route::currentRouteName() == "fournisseurs.profile") {
-            return view('fournisseur.profile', compact('filteredFiles','fournisseurs', 'rbqs_general', 'rbqs_specialise'));
+            return view('fournisseur.profile', compact('brochure','fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
 
         return View('login.connexion');
@@ -98,8 +98,8 @@ class FournisseursController extends Controller
         }
     
         try {
-            $filteredFiles = $this->getFilteredFilesId($matchingId);
-            Log::info("Filtered Files: " . json_encode($filteredFiles));
+            $brochure = $this->getbrochureId($matchingId);
+            Log::info("Filtered Files: " . json_encode($brochure));
         } catch (Exception $e) {
             Log::error('Error fetching filtered files: ' . $e->getMessage());
         }
@@ -112,7 +112,7 @@ class FournisseursController extends Controller
         } 
         
 
-        return View('fournisseur.profileUser', compact('inputNEQ', 'filteredFiles', 'fournisseur', 'coord', 'service', 'licRbq', 'contactFourni'));
+        return View('fournisseur.profileUser', compact('inputNEQ', 'brochure', 'fournisseur', 'coord', 'service', 'licRbq', 'contactFourni'));
     }
 
     public function create()
@@ -270,7 +270,7 @@ class FournisseursController extends Controller
 
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
 
-        $filteredFiles = $this->getFilteredFilesBySessionId();
+        $brochure = $this->getbrochureBySessionId();
 
 
         if (!$fournisseur || hash('sha1', $request->input('MotDePasse')) != $fournisseur->MotDePasse) {
@@ -295,7 +295,7 @@ class FournisseursController extends Controller
             {    
                 if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
                 {
-                    return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','filteredFiles'))->with('success','Connexion réussi');
+                    return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','brochure'))->with('success','Connexion réussi');
                 }
             } else {
                 return redirect()->route('index.index')->with('error', 'identifiant non valide');
@@ -315,7 +315,7 @@ class FournisseursController extends Controller
             {    
                 if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
                 {
-                    return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq','coord','filteredFiles'))->with('success','Connexion réussi');
+                    return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq','coord','brochure'))->with('success','Connexion réussi');
                 }
             } else {
                 return redirect()->route('index.index')->with('error', 'identifiant non valide');
@@ -458,9 +458,9 @@ class FournisseursController extends Controller
             'coord' => $coord
         ]);
 
-        $filteredFiles = $this->getFilteredFilesBySessionId();
+        $brochure = $this->getbrochureBySessionId();
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('success', 'Connexion réussi');
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('success', 'Connexion réussi');
 
     }
 
@@ -472,7 +472,7 @@ class FournisseursController extends Controller
         $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
         $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
-        $filteredFiles = $this->getFilteredFilesBySessionId();
+        $brochure = $this->getbrochureBySessionId();
 
     if ($contact) {
         $contact->delete();
@@ -491,15 +491,15 @@ class FournisseursController extends Controller
             'coord' => $coord
         ]);
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('success', 'Connexion réussi');
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('success', 'Connexion réussi');
     }
 
-    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('error', 'Contact non trouvé!');
+    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('error', 'Contact non trouvé!');
     }
     public function ajoutContact(Request $request)
     {
         $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
-        $filteredFiles = $this->getFilteredFilesBySessionId();
+        $brochure = $this->getbrochureBySessionId();
 
         if ($fournisseur) {
             // Créer un nouveau contact pour le fournisseur
@@ -533,10 +533,10 @@ class FournisseursController extends Controller
             ]);
             
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('success', 'Connexion réussi');
+        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('success', 'Connexion réussi');
     }
 
-    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','filteredFiles'))->with('error', 'Contact non trouvé!');
+    return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('error', 'Contact non trouvé!');
     }
 
     public function checkRBQ(Request $request)
@@ -632,7 +632,7 @@ class FournisseursController extends Controller
             return 'error3';
         }
     }
-    protected function getFilteredFilesBySessionId()
+    protected function getbrochureBySessionId()
     {
         // Récupérer tous les fichiers dans le répertoire 'uploads'
         $files = Storage::files('uploads');
@@ -652,7 +652,7 @@ class FournisseursController extends Controller
         });
     }
 
-    protected function getFilteredFilesId($id): array
+    protected function getbrochureId($id): array
     {
         // Récupérer tous les fichiers dans le répertoire 'uploads'
         $files = Storage::files('uploads');
@@ -672,7 +672,7 @@ class FournisseursController extends Controller
         });
     }
 
-    protected function deleteFilteredFiles($id)
+    protected function deletebrochure($id)
     {
         // Récupérer tous les fichiers dans le répertoire 'uploads'
         $files = Storage::files('uploads');
@@ -725,7 +725,7 @@ class FournisseursController extends Controller
         });
 
         try{
-        $this->deleteFilteredFiles($matchingId);
+        $this->deletebrochure($matchingId);
         modification_fournisseur::where('No_Fournisseur', $matchingId)->delete();
         Licence_Rbq::where('No_Fournisseur', $matchingId)->delete();
         Coordonnee::where('No_Fournisseur', $matchingId)->delete();
