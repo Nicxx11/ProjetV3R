@@ -20,8 +20,6 @@ class FournisseursController extends Controller
 {
     public function index()
     {
-        //session()->regenerateToken();
-        Log::info(session()->all());
         $fournisseurs = Fournisseur::all();
         $categories_rbq = new Categorie_Rbq();
         $coordonnees = Coordonnee::all();
@@ -112,6 +110,7 @@ class FournisseursController extends Controller
         } catch (Exception $e) {
             Log::error('Error accessing NEQ: ' . $e->getMessage());
         } 
+        
 
         return View('fournisseur.profileUser', compact('inputNEQ', 'filteredFiles', 'fournisseur', 'coord', 'service', 'licRbq', 'contactFourni'));
     }
@@ -245,8 +244,6 @@ class FournisseursController extends Controller
 
     public function login(Request $request)
     {
-        Log::info('AAAA');
-
         $request->validate([
             'id' => 'required',
             'MotDePasse' => 'required|string',
@@ -259,7 +256,10 @@ class FournisseursController extends Controller
             $fournisseur = Fournisseur::where('NEQ',$input)->first();
         }
 
-        $inputNEQ = $fournisseur->NEQ;
+        if (!$fournisseur){
+            return redirect()->route('index.index')->withErrors(['loginError' => 'identifiant ou mot de passe incorrect']);
+        }
+
         $contactFourni = ContactFournisseur::where('No_Fournisseur',$fournisseur->id)->get();
 
         $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
@@ -272,33 +272,57 @@ class FournisseursController extends Controller
 
         $filteredFiles = $this->getFilteredFilesBySessionId();
 
-        session([
-            'id' => $fournisseur->id,
-            'neq' => $inputNEQ,
-            'fournisseur' => $fournisseur,
-            'contactFourni' => $contactFourni,
-            'service' => $service,
-            'licRbq' => $licRbq,
-            'coord' => $coord
-        ]);
-
 
         if (!$fournisseur || hash('sha1', $request->input('MotDePasse')) != $fournisseur->MotDePasse) {
             // Ajouter un message d'erreur personnalisé pour le champ 'id'
-            return redirect()->back()->withErrors(['loginError' => 'ID ou mot de passe incorrect']);
+            return redirect()->back()->withErrors(['loginError' => 'identifiant ou mot de passe incorrect']);
         }
+        
+        if($fournisseur->NEQ){
+            $inputNEQ = $fournisseur->NEQ;
 
-        if($fournisseur)
-        {
+            session([
+                'id' => $fournisseur->id,
+                'neq' => $inputNEQ,
+                'fournisseur' => $fournisseur,
+                'contactFourni' => $contactFourni,
+                'service' => $service,
+                'licRbq' => $licRbq,
+                'coord' => $coord
+            ]);
             
-            if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
-            {
-                Log::info('BBBB');
-                return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','filteredFiles'))->with('success','Connexion réussi');
+            if($fournisseur)
+            {    
+                if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
+                {
+                    return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','filteredFiles'))->with('success','Connexion réussi');
+                }
+            } else {
+                return redirect()->route('index.index')->with('error', 'identifiant non valide');
             }
+    
         } else {
-            return redirect()->route('index.index')->with('error', 'identifiant non valide');
+            session([
+                'id' => $fournisseur->id,
+                'fournisseur' => $fournisseur,
+                'contactFourni' => $contactFourni,
+                'service' => $service,
+                'licRbq' => $licRbq,
+                'coord' => $coord
+            ]);
+
+            if($fournisseur)
+            {    
+                if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
+                {
+                    return view('fournisseur.profile',compact('fournisseur','contactFourni','service','licRbq','coord','filteredFiles'))->with('success','Connexion réussi');
+                }
+            } else {
+                return redirect()->route('index.index')->with('error', 'identifiant non valide');
+            }
         }
+        
+        
 
 
     }
@@ -713,7 +737,7 @@ class FournisseursController extends Controller
             Log::error('Failed to fetch data:'. $e->getMessage());
         }
 
-        return 'Success';
+        return redirect()->route('index.index');
     }
 
 }

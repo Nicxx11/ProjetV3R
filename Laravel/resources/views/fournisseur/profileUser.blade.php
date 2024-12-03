@@ -16,7 +16,9 @@
 
         <div class="col-md-9">
             <h2>Information du profil</h2>
-            <a href="{{ route('index.index') }}"><button>Modifier</button></a>
+            @if(session('Role') == 'Responsable' || session('Role') == 'Administrateur')
+                <a href="{{ route('index.index') }}"><button>Modifier</button></a>
+            @endif
             <div class="row m-4">
                 <div class="col-md-4">
                     <div class="card ">
@@ -210,7 +212,7 @@
                         </div>
                     @endif
                 </div>
-
+                <a href="/export/{{ hash('sha1', $fournisseur->id) }}"><button type="button">Exporter</button></a>
             </div>
         </div>
     </div>

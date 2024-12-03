@@ -27,7 +27,13 @@ class ExportController extends Controller
         return $fournisseurData;
     }
 
-    public function export($id){
+    public function export($hashedid){
+
+       $ids = Fournisseur::pluck('id');
+
+       $id = $ids->first(function ($id2) use ($hashedid) {
+              return hash('sha1', $id2) === $hashedid;  // Compare SHA1 hash of the ID
+       });
 
         $fournisseurData = $this->getFournisseurData($id);
 

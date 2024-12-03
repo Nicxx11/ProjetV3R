@@ -44,6 +44,10 @@ return new class extends Migration
                 SET NEW.Date_Changement_Etat = NOW();
             end if;
 
+            IF (NEW.Etat_Demande = "Refusée") THEN
+                DELETE FROM brochures WHERE No_Fournisseur = NEW.id;
+            END IF;
+
             SET NEW.Date_Derniere_Modification = NOW();
         END;
         ');

@@ -16,16 +16,22 @@
             <div class="col-md-7">
             <form action="{{ route('fournisseurs.login') }}" method="POST">
                 @csrf
+                @if(session('message'))
+                    <div class="alert">
+                        {{ session('message') }}
+                    </div>
+                @endif
                 <div class="form-group">
                     <label class="margCardT" for="id">Identifiant</label></br>
                     <input placeholder="  NEQ/Courriel" type="text" id="id" name="id" value="{{ old('id') }}">
+                    @error('loginError')
+                        <p class="erreur" style="color:red;">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="form-group mt-5">
                     <label for="MotDePasse">Mot de passe:</label><br>
                     <input placeholder="  Mot de passe" type="password" id="MotDePasse" name="MotDePasse">
-                    @error('loginError')
-                        <p class="erreur">{{ $message }}</p>
-                    @enderror
+                    
                     
                 </div>
                 <a href="{{ route('inscription.create') }}"><span style="color:#1294ff;">Soumettre une demande</span></a>
