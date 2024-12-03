@@ -9,7 +9,7 @@
         <div class="col-md-3 text-left filter_box">
             <div class="m-4 fixedTitle">
                 <h5>Modification de {{ $fournisseur->Entreprise }}</h5>
-                <!-- <a href="{{ route('profile.delete') }}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre dossier ?');">Supprimer le dossier</a> -->
+                <a href="/Fournisseurs/Profile/Delete/{{ hash('sha1', $fournisseur->id)}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre dossier ?');">Supprimer le dossier</a>
             </div>
         </div>
 

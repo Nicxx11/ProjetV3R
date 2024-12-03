@@ -22,7 +22,7 @@ Route::middleware([FournisseurMiddleware::class])->group(function() {
     Route::post('/Fournisseurs/Profile/Ajouter', [FournisseursController::class, 'ajoutContact'])->name('profile.ajouter');
     Route::get('/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'edit'])->name('profile.modifier');
     Route::post('/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'update'])->name('profile.edit');
-    //Route::get('/Fournisseurs/Profile/Delete', [FournisseursController::class, 'deleteFournisseur'])->name('profile.delete');
+    Route::get('/Fournisseurs/Profile/Delete/{id}', [FournisseursController::class, 'deleteFournisseur'])->name('profile.delete');
 });
 
 Route::middleware([EmployeMiddleware::class])->group(function() {

@@ -51,8 +51,7 @@ class FournisseursController extends Controller
             return view('fournisseur.profile', compact('filteredFiles','fournisseurs', 'rbqs_general', 'rbqs_specialise'));
         }
 
-        session()->flush();
-        return View('login.connexion', compact('fournisseurs'));
+        return View('login.connexion');
     }
 
     public function showFournisseurProfile($id){
@@ -246,6 +245,8 @@ class FournisseursController extends Controller
 
     public function login(Request $request)
     {
+        Log::info('AAAA');
+
         $request->validate([
             'id' => 'required',
             'MotDePasse' => 'required|string',
@@ -292,6 +293,7 @@ class FournisseursController extends Controller
             
             if(hash('sha1',$request->input('MotDePasse'), $fournisseur->MotDePasse))
             {
+                Log::info('BBBB');
                 return view('fournisseur.profile',compact('inputNEQ','fournisseur','contactFourni','service','licRbq','coord','filteredFiles'))->with('success','Connexion réussi');
             }
         } else {
@@ -689,21 +691,29 @@ class FournisseursController extends Controller
         return view('employe.detailsFournisseurs', compact('fournisseurs', 'coordonnees', 'contacts'));
     }
 
-    // public function deleteFournisseur($id){
-    //     try{
-    //     $this->deleteFilteredFiles($id);
-    //     modification_fournisseur::where('No_Fournisseur', $id)->delete();
-    //     Licence_Rbq::where('No_Fournisseur', $id)->delete();
-    //     Coordonnee::where('No_Fournisseur', $id)->delete();
-    //     ContactFournisseur::where('No_Fournisseur', $id)->delete();
-    //     Service::where('No_Fournisseur', $id)->delete();
+    public function deleteFournisseur($sha1id){
 
-    //     Fournisseur::where('id', $id)->delete();
-    //     } catch(Exception $e){
-    //         Log::error('Failed to fetch data:'. $e->getMessage());
-    //     }
 
-    //     return 'Success';
-    // }
+        $ids = Fournisseur::pluck('id');
+
+        $matchingId = $ids->first(function ($id2) use ($sha1id) {
+            return hash('sha1', $id2) === $sha1id;  // Compare SHA1 hash of the ID
+        });
+
+        try{
+        $this->deleteFilteredFiles($matchingId);
+        modification_fournisseur::where('No_Fournisseur', $matchingId)->delete();
+        Licence_Rbq::where('No_Fournisseur', $matchingId)->delete();
+        Coordonnee::where('No_Fournisseur', $matchingId)->delete();
+        ContactFournisseur::where('No_Fournisseur', $matchingId)->delete();
+        Service::where('No_Fournisseur', $matchingId)->delete();
+
+        Fournisseur::where('id', $matchingId)->delete();
+        } catch(Exception $e){
+            Log::error('Failed to fetch data:'. $e->getMessage());
+        }
+
+        return 'Success';
+    }
 
 }
