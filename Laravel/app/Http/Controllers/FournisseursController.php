@@ -62,52 +62,44 @@ class FournisseursController extends Controller
             return hash('sha1', $id2) === $id;  // Compare SHA1 hash of the ID
         });
 
-        Log::info('HELP');
         try {
             $fournisseur = Fournisseur::where('id', $matchingId)->first();
-            Log::info($fournisseur);
         } catch (Exception $e) {
             Log::error('Error fetching fournisseur: ' . $e->getMessage());
         }
     
         try {
             $coord = Coordonnee::where('No_Fournisseur', $matchingId)->first();
-            Log::info($coord);
         } catch (Exception $e) {
             Log::error('Error fetching coord: ' . $e->getMessage());
         }
     
         try {
             $service = Service::whereIn('No_Fournisseur', [$matchingId])->get();
-            Log::info($service);
         } catch (Exception $e) {
             Log::error('Error fetching services: ' . $e->getMessage());
         }
     
         try {
             $licRbq = Licence_Rbq::whereIn('No_Fournisseur', [$matchingId])->get();
-            Log::info($licRbq);
         } catch (Exception $e) {
             Log::error('Error fetching licRbq: ' . $e->getMessage());
         }
     
         try {
             $contactFourni = ContactFournisseur::whereIn('No_Fournisseur', [$matchingId])->get();
-            Log::info('CONTACTFOURNI' . json_encode($contactFourni));
         } catch (Exception $e) {
             Log::error('Error fetching contactFourni: ' . $e->getMessage());
         }
     
         try {
             $brochure = $this->getbrochureId($matchingId);
-            Log::info("Filtered Files: " . json_encode($brochure));
         } catch (Exception $e) {
             Log::error('Error fetching filtered files: ' . $e->getMessage());
         }
     
         try {
             $inputNEQ = $fournisseur->NEQ;
-            Log::info('Input NEQ: ' . $inputNEQ);
         } catch (Exception $e) {
             Log::error('Error accessing NEQ: ' . $e->getMessage());
         } 
@@ -122,8 +114,7 @@ class FournisseursController extends Controller
         $rbqs_general = $categories_rbq->getCategoriesByType('Général');
         $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
 
-        $mail = new MailController();
-        $mail->sendFournisseurEmail(parametres_systeme::all()->first()->Approvisionnement,'Ajout fournisseur');
+        
 
         return View('login.inscription', compact('rbqs_general', 'rbqs_specialise'));
     }
@@ -216,6 +207,8 @@ class FournisseursController extends Controller
 
         // Enregistrement dans la base de données
         $fournisseur = Fournisseur::create($validatedFournisseur);
+        
+        
 
         $validatedRBQ['No_Fournisseur'] = $fournisseur->id;
         $validatedCoordonnees['No_Fournisseur'] = $fournisseur->id;
@@ -241,7 +234,7 @@ class FournisseursController extends Controller
         
         $controlleur = new MailController();
         $controlleur->sendFournisseurEmail($validatedFournisseur["Courriel"], 'Accusé de réception');
-
+        $controlleur->sendFournisseurEmail(parametres_systeme::all()->first()->Approvisionnement,'Ajout fournisseur');
 
         return redirect()->route('index.index')->with('success', 'Inscription réussie!');
     }
@@ -360,16 +353,42 @@ class FournisseursController extends Controller
         return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
     }
 
+    public function editId($id){
+        
+        $ids = Fournisseur::pluck('id');
+        $matchingId = $ids->first(function ($id2) use ($id) {
+            return hash('sha1', $id2) === $id;  // Compare SHA1 hash of the ID
+        });
+
+        $id = $matchingId;
+        $fournisseur = Fournisseur::where('id', $id)->first();
+        Log::info($fournisseur);
+        $contactFourni = ContactFournisseur::where('No_Fournisseur', $id)->get();
+        $service = Service::where('No_Fournisseur', $id)->get();
+        $licRbq = Licence_Rbq::where('No_Fournisseur', $id)->get();
+        $coord = Coordonnee::where('No_Fournisseur', $id)->first();
+
+        if($fournisseur->NEQ){
+            $neq = $fournisseur->NEQ;
+
+            return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
+        }
+        else{
+            return view('fournisseur.editProfile', compact('id', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
+        }
+        
+
+    }
+
     public function update(Request $request)
     {
-
-        $fournisseur = Fournisseur::where('id', session('id'))->first();
+        $fournisseur = Fournisseur::where('id', $request->input('idFournisseur'))->first();
         $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
         $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
         $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
 
-        $currentId = session('id');
+        $currentId = $request->input('idFournisseur');
 
         //---fournisseurs---//
         $newName = $request->input('entreprise');
@@ -383,11 +402,13 @@ class FournisseursController extends Controller
         $newCodePostal = $request->input('codePostal');
         $newNumTel = $request->input('coordNum');
         $newPoste = $request->input('numPoste');
+        $newEtat_Demande = $request->input('Etat_Demande');
 
         //---Modification profil Fournisseurs---//
         $fournisseurs = Fournisseur::find($currentId);
         $fournisseurs->Entreprise = $newName;
         $fournisseurs->Courriel = $newCourriel;
+        $fournisseurs->Etat_Demande = $newEtat_Demande;
 
         //---Modification profil Coordonnees---//
         $coordonnees = Coordonnee::find($currentId);
@@ -433,24 +454,21 @@ class FournisseursController extends Controller
             }
         }
 
-        $fournisseur = Fournisseur::where('id', session('id'))->first();
-        if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
-            if($fournisseur->Etat_Demande == "Acceptée"){
-                //$controlleur = new MailController();
-                //$controlleur->sendFournisseurEmail($request->input('courriel'), 'Confirmation acceptation');
-            }
-
-            if($fournisseur->Etat_Demande == "Refusée"){
-                //$controlleur = new MailController();
-                //$controlleur->sendFournisseurEmail($request->input('courriel'), 'Refus demande');
-
-                //TODO ajouter le delete des brochures
-            }
-        }
-
         $fournisseurs->save();
         $coordonnees->save();
 
+        $fournisseur = Fournisseur::where('id', session('id'))->first();
+                // if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
+                    if($newEtat_Demande == "Acceptée"){
+                        $controlleur = new MailController();
+                        $controlleur->sendFournisseurEmail($request->input('courriel'), 'Confirmation acceptation');
+                    }
+
+                    if($newEtat_Demande == "Refusée"){ 
+                        $controlleur = new MailController();
+                        $controlleur->sendFournisseurEmail($request->input('courriel'), 'Refus demande', $request->raisonRefus);
+                    }
+                //}
         $fournisseur = Fournisseur::where('id', session('id'))->first();
         $coord = Coordonnee::where('No_Fournisseur', session('id'))->first();
         $contactFourni = ContactFournisseur::where('No_Fournisseur', session('id'))->get();

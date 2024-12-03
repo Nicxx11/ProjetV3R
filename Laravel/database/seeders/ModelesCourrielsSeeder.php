@@ -56,7 +56,9 @@ Ville de Trois-Rivières'
                 'MessageModele' => 'Madame, Monsieur,
 
 Nous avons bien pris connaissance de votre demande d\'ajout en tant que fournisseur auprès de la Ville de Trois-Rivières. Après examen de votre dossier, nous regrettons de vous informer que votre demande n\'a pas été retenue.        
-                
+
+La raison de votre refus est la suivante: RAISON_REFUS_DEMANDE
+
 Si vous avez des questions ou si vous souhaitez des précisions supplémentaires, n\'hésitez pas à nous contacter.
                 
 Nous vous prions d\'agréer, Madame, Monsieur, l\'expression de nos salutations distinguées.

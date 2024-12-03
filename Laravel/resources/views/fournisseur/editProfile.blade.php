@@ -15,8 +15,13 @@
 
         <div class="col-md-9">
             <!-- Form start -->
-            <form action="{{ route('profile.edit') }}" method="POST">
+            @if(session('Role') == 'Responsable' || session('Role') == 'Administrateur')
+                <form action="{{ route('fournisseur.updateProfileUser') }}" method="POST">
+            @else
+                <form action="{{ route('profile.edit') }}" method="POST">
+            @endif
                 @csrf
+                <input type="hidden" value="{{ $fournisseur->id }}" name="idFournisseur">
                 <h2>Information du profil</h2>
                 <button class="mb-4 px-2 py-1" type="submit">Confirmer</button>
 
@@ -27,6 +32,18 @@
                                 État de la demande
                             </div>
                             <div class="card-body">
+                            @if(session('Role') == 'Responsable' || session('Role') == 'Administrateur')
+                            <div id="Etat_Demande_Container">
+                                <select name="Etat_Demande" id="Etat_Demande_Select">
+                                    <option value="Acceptée" @if($fournisseur->Etat_Demande == 'Acceptée') selected @endif><i class="fa-regular fa-circle-check pe-2"></i> Acceptée</option>
+                                    <option value="En attente" @if($fournisseur->Etat_Demande == 'En attente') selected @endif><i class="fa-regular fa-clock pe-2"></i> En attente</option>
+                                    <option value="Refusée" @if($fournisseur->Etat_Demande == 'Refusée') selected @endif><i class="fa-regular fa-circle-xmark pe-2"> Refusée</i></option>
+                                </select>
+                                <br>
+                                <br>
+                                <input type="text" name="raisonRefus" placeholder="Raison du refus">
+                            </div>
+                            @else
                                 @if ($fournisseur->Etat_Demande == 'Acceptée')
                                     <i class="fa-regular fa-circle-check pe-2"></i> {{ $fournisseur->Etat_Demande }}
                                 @elseif ($fournisseur->Etat_Demande == 'En attente')
@@ -36,6 +53,7 @@
                                 @else
                                     <i class="fa-regular fa-pen-to-square pe-2"></i>{{ $fournisseur->Etat_Demande }}
                                 @endif
+                            @endif
                             </div>
                         </div>
                         <div class="card cardInfo">
@@ -43,8 +61,9 @@
                                 Identification
                             </div>
                             <div class="card-body">
-                                <p>NEQ: {{ $fournisseur->NEQ }}</p>
-                                <label for="NEQ">Nom: </label>
+                                @if($fournisseur->NEQ != null)
+                                    <p>NEQ: {{ $fournisseur->NEQ }}</p>
+                                @endif
                                 <input type="text" id="entreprise" name="entreprise"
                                     value="{{ $fournisseur->Entreprise }}">
                             </div>

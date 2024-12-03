@@ -27,6 +27,8 @@ Route::middleware([FournisseurMiddleware::class])->group(function() {
 
 Route::middleware([EmployeMiddleware::class])->group(function() {
     Route::get('/Utilisateur/Fournisseurs/{id}', [FournisseursController::class, 'showFournisseurProfile'])->name('fournisseur.profileUser');
+    Route::get('Utilisateur/Fournisseurs/Profile/Modifier/{id}', [FournisseursController::class, 'editId'])->name('fournisseur.editProfileUser');
+    Route::post('Utilisateur/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'update'])->name('fournisseur.updateProfileUser');
     Route::get('/Fournisseurs/Liste/Commis', [FournisseursController::class, 'index'])->name('fournisseurs.listcommis');
     Route::get('/export/{id}', [ExportController::class, 'export'])->name('fournisseur.export');
     Route::get('/export/{id}', [ExportController::class, 'export'])->name('fournisseur.export');

@@ -13,10 +13,16 @@ use Log;
 
 class MailController extends Controller
 {
-    public function sendFournisseurEmail($email, $NomModele){
+    public function sendFournisseurEmail($email, $NomModele, $raison=''){
         $modele = ModeleCourriel::where('NomModele', $NomModele)->first();
         $subject = $modele['ObjetModele'];
         $message = $modele['MessageModele'];
+
+        if($NomModele == 'Refus demande'){
+            $message = str_replace('RAISON_REFUS_DEMANDE', $raison, $modele['MessageModele']);
+        }
+
+        Log::info($message);
 
         Mail::raw($message, function ($message) use ($email, $subject) {
             $message->to($email)
@@ -24,6 +30,8 @@ class MailController extends Controller
                     ->from('projetv3r2024@gmail.com');
         });
     }
+
+    
 
     public function sendPasswordResetLink(Request $request){
         
