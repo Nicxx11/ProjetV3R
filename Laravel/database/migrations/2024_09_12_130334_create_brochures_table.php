@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('brochures', function (Blueprint $table) {
             $table->id();
             $table->string('Nom', 32);  // Nom du fichier
+            $table->string('NomUnique');
             $table->string('TypeFichier');  // Type de fichier
             $table->integer('Taille');  // Taille du fichier en octets
             $table->date('DateCreation');  // Date de création
