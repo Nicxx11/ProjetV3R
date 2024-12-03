@@ -9,5 +9,7 @@ class Brochure extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Nom','TypeFichier','Taille','DateCreation','No_Fournisseur'];
+    protected $fillable = [
+        'Nom','NomUnique', 'TypeFichier', 'Taille', 'DateCreation', 'No_Fournisseur', 'Contenu',
+    ];
 }
