@@ -1,0 +1,46 @@
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+td {
+    padding: 10px; /* Add some padding for spacing */
+    text-align: center; /* Center the content (checkbox) */
+    max-width: 100px; /* Limit the width of the table cell */
+    overflow: hidden; /* Hide overflow content */
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.arrow:disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.large-checkbox {
+    transform: scale(5); /* Adjust the scale factor as needed */
+    -webkit-transform: scale(5); /* For Safari */
+    transform-origin: center;
+}
+
+button{
+    border-radius: 5px;
+}

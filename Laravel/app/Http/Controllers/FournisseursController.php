@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\modification_fournisseur;
+use Exception;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Licence_Rbq;
 use Illuminate\Http\Request;
@@ -18,6 +20,8 @@ class FournisseursController extends Controller
 {
     public function index()
     {
+        //session()->regenerateToken();
+        Log::info(session()->all());
         $fournisseurs = Fournisseur::all();
         $categories_rbq = new Categorie_Rbq();
         $coordonnees = Coordonnee::all();
@@ -49,6 +53,68 @@ class FournisseursController extends Controller
 
         session()->flush();
         return View('login.connexion', compact('fournisseurs'));
+    }
+
+    public function showFournisseurProfile($id){
+
+        // get all ids
+        $ids = Fournisseur::pluck('id');
+
+        $matchingId = $ids->first(function ($id2) use ($id) {
+            return hash('sha1', $id2) === $id;  // Compare SHA1 hash of the ID
+        });
+
+        Log::info('HELP');
+        try {
+            $fournisseur = Fournisseur::where('id', $matchingId)->first();
+            Log::info($fournisseur);
+        } catch (Exception $e) {
+            Log::error('Error fetching fournisseur: ' . $e->getMessage());
+        }
+    
+        try {
+            $coord = Coordonnee::where('No_Fournisseur', $matchingId)->first();
+            Log::info($coord);
+        } catch (Exception $e) {
+            Log::error('Error fetching coord: ' . $e->getMessage());
+        }
+    
+        try {
+            $service = Service::whereIn('No_Fournisseur', [$matchingId])->get();
+            Log::info($service);
+        } catch (Exception $e) {
+            Log::error('Error fetching services: ' . $e->getMessage());
+        }
+    
+        try {
+            $licRbq = Licence_Rbq::whereIn('No_Fournisseur', [$matchingId])->get();
+            Log::info($licRbq);
+        } catch (Exception $e) {
+            Log::error('Error fetching licRbq: ' . $e->getMessage());
+        }
+    
+        try {
+            $contactFourni = ContactFournisseur::whereIn('No_Fournisseur', [$matchingId])->get();
+            Log::info('CONTACTFOURNI' . json_encode($contactFourni));
+        } catch (Exception $e) {
+            Log::error('Error fetching contactFourni: ' . $e->getMessage());
+        }
+    
+        try {
+            $filteredFiles = $this->getFilteredFilesId($matchingId);
+            Log::info("Filtered Files: " . json_encode($filteredFiles));
+        } catch (Exception $e) {
+            Log::error('Error fetching filtered files: ' . $e->getMessage());
+        }
+    
+        try {
+            $inputNEQ = $fournisseur->NEQ;
+            Log::info('Input NEQ: ' . $inputNEQ);
+        } catch (Exception $e) {
+            Log::error('Error accessing NEQ: ' . $e->getMessage());
+        } 
+
+        return View('fournisseur.profileUser', compact('inputNEQ', 'filteredFiles', 'fournisseur', 'coord', 'service', 'licRbq', 'contactFourni'));
     }
 
     public function create()
@@ -547,7 +613,6 @@ class FournisseursController extends Controller
         
         // Récupérer l'ID de la session
         $sessionId = session('id');
-        log::info($sessionId);
 
         $pattern = '/^' . preg_quote($sessionId, '/') . '-.*/';
 
@@ -560,9 +625,85 @@ class FournisseursController extends Controller
             return preg_match($pattern, $fileName);
         });
     }
+
+    protected function getFilteredFilesId($id): array
+    {
+        // Récupérer tous les fichiers dans le répertoire 'uploads'
+        $files = Storage::files('uploads');
+        
+        // Récupérer l'ID de la session
+        $sessionId = $id;
+
+        $pattern = '/^' . preg_quote($sessionId, '/') . '-.*/';
+
+        // Filtrer les fichiers qui commencent par l'ID de la session
+        return array_filter($files, function ($file) use ($pattern) {
+            // Récupérer le nom du fichier sans le chemin
+            $fileName = basename($file);
+            
+            // Vérifier si le début du nom du fichier correspond à l'ID
+            return preg_match($pattern, $fileName);
+        });
+    }
+
+    protected function deleteFilteredFiles($id)
+    {
+        // Récupérer tous les fichiers dans le répertoire 'uploads'
+        $files = Storage::files('uploads');
+        
+        // Récupérer l'ID de la session
+        $sessionId = $id;
+
+        $pattern = '/^' . preg_quote($sessionId, '/') . '-.*/';
+
+        // Filtrer les fichiers qui commencent par l'ID de la session
+        $filesToDelete = array_filter($files, function ($file) use ($pattern) {
+            // Récupérer le nom du fichier sans le chemin
+            $fileName = basename($file);
+            
+            // Vérifier si le début du nom du fichier correspond à l'ID
+            return preg_match($pattern, $fileName);
+        });
+
+        // Supprimer les fichiers filtrés
+        foreach ($filesToDelete as $file) {
+            Storage::delete($file);
+        }
+    }
+
     public function logout(){
         session()->flush();
 
         return redirect()->route('index.index');
     }
+
+    public function detailsFournisseurs($ids)
+    {
+        $idsArray = explode(',', $ids);
+
+        $fournisseurs = Fournisseur::whereIn('id', $idsArray)->get();
+        $coordonnees = Coordonnee::whereIn('No_Fournisseur', $idsArray)->get()->groupBy('No_Fournisseur');
+        $contacts = ContactFournisseur::whereIn('No_Fournisseur', $idsArray)->get()->groupBy('No_Fournisseur');
+
+        // Pass the data to your view
+        return view('employe.detailsFournisseurs', compact('fournisseurs', 'coordonnees', 'contacts'));
+    }
+
+    // public function deleteFournisseur($id){
+    //     try{
+    //     $this->deleteFilteredFiles($id);
+    //     modification_fournisseur::where('No_Fournisseur', $id)->delete();
+    //     Licence_Rbq::where('No_Fournisseur', $id)->delete();
+    //     Coordonnee::where('No_Fournisseur', $id)->delete();
+    //     ContactFournisseur::where('No_Fournisseur', $id)->delete();
+    //     Service::where('No_Fournisseur', $id)->delete();
+
+    //     Fournisseur::where('id', $id)->delete();
+    //     } catch(Exception $e){
+    //         Log::error('Failed to fetch data:'. $e->getMessage());
+    //     }
+
+    //     return 'Success';
+    // }
+
 }

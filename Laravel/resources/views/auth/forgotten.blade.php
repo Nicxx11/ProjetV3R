@@ -11,6 +11,7 @@
     <label for="Courriel">Adresse courriel :</label>
     <input type="email" id="Courriel" name="Courriel" required autofocus>
     <button type="submit">Envoyer le lien de réinitialisation</button>
+    <a href="{{ url()->previous() }}" class="mt-5 ms-5"><button type="button">Retour</button></a>
 </form>
 
 @endsection
