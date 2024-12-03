@@ -67,6 +67,22 @@ document.querySelector('.villes_toggler').addEventListener('click', function() {
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // FILTRES DE SERVICES & PRODUITS
 document.addEventListener('DOMContentLoaded', function(){
     const searchInput = document.getElementById('service_recherche');
@@ -74,6 +90,20 @@ document.addEventListener('DOMContentLoaded', function(){
     let checkedStates = {};
     //toutes les régions: ["Capitale-Nationale", "Laval", "Outaouais", "Côte-Nord", "Gaspésie-Îles-de-la-Madeleine", "Montréal", "Lanaudière", "Nord-du-Québec", "Mauricie", "Abitibi-Témiscamingue", "Montérégie", "Saguenay-Lac-Saint-Jean", "Chaudière-Appalaches", "Centre-du-Québec", "Bas-Saint-Laurent", "Laurentides", "Estrie"];
     let regionsFilter = [];
+    let selectedFournisseurs = [];
+
+    //setup details opener button
+    document.getElementById('openDetailsFournisseurs').addEventListener('click', openFournisseursDetails);
+
+
+    async function generateSHA1Hash(id) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(id);
+        const hashBuffer = await crypto.subtle.digest('SHA-1', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    }
 
     async function fetchData() {
         try {
@@ -133,15 +163,42 @@ document.addEventListener('DOMContentLoaded', function(){
             });
 
             renderItems(filteredItems);
-            renderServicesFournisseurs();
         });
     }
 
+    function fournisseurDetailsSetup(){
+        console.log('fournisseurDetailsSetup');
+        details = document.querySelectorAll('.fournisseurOpenCheckbox');
+        console.log(details);
+        details.forEach(detail => {
+            detail.addEventListener('change', function(){
+                const row = detail.closest('tr');
+                const id = row.querySelector('.fournisseur_id_td').textContent.trim();
+
+                if (detail.checked) {
+                    if (!selectedFournisseurs.includes(id)) {
+                        selectedFournisseurs.push(id); // Add the ID if it's not already in the array
+                    }
+                } else {
+                    // If the checkbox is unchecked, remove the ID from the array
+                    const index = selectedFournisseurs.indexOf(id);
+                    if (index > -1) {
+                        selectedFournisseurs.splice(index, 1); // Remove the ID from the array
+                    }
+                }
+                console.log(selectedFournisseurs);
+            });
+        })
+    }
+
+    //search bar
+    document.querySelector('.recherche_fournisseur').addEventListener('input', function(){
+        renderFournisseurs(''+this.value);
+    });
+
+
     function renderFournisseurs(searchedText=''){
-        //search bar
-        document.querySelector('.recherche_fournisseur').addEventListener('input', function(){
-            renderFournisseurs(''+this.value);
-        });
+        
 
         const fournisseurs = window.Laravel.fournisseurs;
         const coordonnees = window.Laravel.coordonnees;
@@ -150,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         const tableBody = document.querySelector('#fournisseurs-table tbody');
         tableBody.innerHTML = ``;
+        
 
         // services filtering
         const produitsCheckboxes = document.querySelectorAll('.produits_service_item input');
@@ -178,46 +236,45 @@ document.addEventListener('DOMContentLoaded', function(){
             .map(checkbox => checkbox.match(/^\s*[\d.]+/)[0]);
         const totalCheckedRBQs = checkedRBQs.length;
 
-        fournisseurs.forEach(obj => {
-            //find the fournisseur information
+        const renderPromises = fournisseurs.map(obj => {
             const matchUNSPSC = coordonnees.find(coord => coord.No_Fournisseur === obj.id);
             const filteredServices = services.filter(service => service.No_Fournisseur === obj.id);
             const serviceUNSPSCs = new Set(filteredServices.map(service => service.UNSPSC));
-
-            //find the rbq licences of the fournisseur
+    
             const rbqs_fournisseur = new Set(licences_rbq.filter(licence => licence.No_Fournisseur === obj.id).map(licence => licence.Code_Sous_Categorie));
-
-            //how many of the rbqs the fournisseur has
-            const matchedCountRBQs = checkedRBQs.filter(checkbox => {
-                return rbqs_fournisseur.has(checkbox);
-            }).length;
-            
-
-            //how many of the services the fournisseur has
-            const matchedCountUNSPSC = checkedProduits.filter(checkbox => {
-                const checkboxUNSPSC = checkbox.value;
-                return serviceUNSPSCs.has(checkboxUNSPSC);
-            }).length;
-
-            //does he have the correct ville
-            const matchedCountVilles = checkedVilles.includes(matchUNSPSC.Ville) ? 1 : 0;
-
-            //does he have a correct etat
+            const matchedCountRBQs = checkedRBQs.filter(checkbox => rbqs_fournisseur.has(checkbox)).length;
+            const matchedCountUNSPSC = checkedProduits.filter(checkbox => serviceUNSPSCs.has(checkbox.value)).length;
+            const matchedCountVilles = checkedVilles.includes(matchUNSPSC?.Ville) ? 1 : 0;
             const matchedCountEtat = checkedEtats.includes(obj.Etat_Demande) ? 1 : 0;
-
-            if ((matchedCountUNSPSC > 0 || totalCheckedUNSPSC == 0) && (matchedCountVilles > 0 || totalCheckedVilles == 0) && (matchedCountEtat > 0 || totalCheckedEtats == 0) && (matchedCountRBQs > 0 || totalCheckedRBQs == 0) && (obj.Entreprise.toLowerCase().includes(searchedText.toLowerCase()) || searchedText == '')){
-                const row = `
-                    <tr>
-                        <td class="pt-2">${obj.Etat_Demande}</td>
-                        <td class="pt-2">${obj.Entreprise}</td>
-                        <td class="pt-2">${matchUNSPSC ? matchUNSPSC.Ville : 'Introuvable'}</td>
-                        <td class="pt-2" style="text-align: center; vertical-align: middle;">${matchedCountUNSPSC}/${totalCheckedUNSPSC}</td>
-                        <td class="pt-2" style="text-align: center; vertical-align: middle;">${matchedCountRBQs}/${totalCheckedRBQs}</td>
-                        <td class="pt-2" style="text-align: center; vertical-align: middle;"><a href="/export/${obj.id}"><i class="fa-solid fa-file-arrow-up" style="color: #000000;"></i></i></a></td>
-                    </tr>
-                `
-                tableBody.innerHTML += row;
+    
+            if ((matchedCountUNSPSC > 0 || totalCheckedUNSPSC === 0) &&
+                (matchedCountVilles > 0 || totalCheckedVilles === 0) &&
+                (matchedCountEtat > 0 || totalCheckedEtats === 0) &&
+                (matchedCountRBQs > 0 || totalCheckedRBQs === 0) &&
+                (obj.Entreprise.toLowerCase().includes(searchedText.toLowerCase()) || searchedText === '')) {
+                return generateSHA1Hash(obj.id).then(hashValue => {
+                    const row = `
+                        <tr>
+                            <td class="pt-2 fournisseur_id_td" style="display:none;">${obj.id}</td>
+                            <td class="pt-2">${obj.Etat_Demande}</td>
+                            <td class="pt-2">${obj.Entreprise}</td>
+                            <td class="pt-2">${matchUNSPSC ? matchUNSPSC.Ville : 'Introuvable'}</td>
+                            <td class="pt-2" style="text-align: center; vertical-align: middle;">${matchedCountUNSPSC}/${totalCheckedUNSPSC}</td>
+                            <td class="pt-2" style="text-align: center; vertical-align: middle;">${matchedCountRBQs}/${totalCheckedRBQs}</td>
+                            <td class="pt-2" style="text-align: center; vertical-align: middle;"><input type="checkbox" class="fournisseurOpenCheckbox" style="transform: scale(2); -webkit-transform: scale(2);"></td>
+                            <td class="pt-2" style="text-align: center; vertical-align: middle;"><a href="/Utilisateur/Fournisseurs/${hashValue}"><button type="button">Ouvrir</button></a></td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
             }
+            return Promise.resolve(); // If the fournisseur doesn't match, resolve immediately
+        });
+        
+        Promise.all(renderPromises).then(() => {
+            fournisseurDetailsSetup();
+        }).catch(error => {
+            console.error("Error rendering fournisseurs:", error);
         });
 
     }
@@ -230,7 +287,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 checkedStates[event.target.value] = event.target.checked;
                 
                 renderFournisseurs();
-                renderServicesFournisseurs();
             });
         });
     }
@@ -341,6 +397,17 @@ document.addEventListener('DOMContentLoaded', function(){
                 renderFournisseurs();
             });
         })
+    }
+
+    
+
+    function openFournisseursDetails(){
+        console.log('Clicked!');
+        const selectedIds = selectedFournisseurs.join(',');
+
+        const newUrl = `/Fournisseurs/Details/${selectedIds}`;
+
+        window.location.href = newUrl;
     }
 
     fetchData();

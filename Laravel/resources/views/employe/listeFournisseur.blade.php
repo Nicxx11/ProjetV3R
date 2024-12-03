@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titre','Fournisseurs')
+@section('titre','Liste de Fournisseurs')
 @section('newCss', asset('css/listeFournisseurs.css'))
 
 @section('contenu')
@@ -185,17 +185,28 @@
         <div class="col-md-9"> <!--Barre de navigation et Tableau-->
 
 
+            <div class="row mt-4">
+                
+                <div class="col d-flex justify-content-start align-items-center">
+                    <a href="/Utilisateur/Logout"><button style="background-color:red; color:white; border-radius:5px;">Déconnexion</button></a>
+                </div>
+                <div class="col d-flex justify-content-end align-items-center">
+                    <button style=" border-radius:5px;" id="openDetailsFournisseurs">Liste des fournisseurs sélectionnés</button>
+                </div>
+            </div>
 
             <div class="row">
                 <table class="col-md-10 ms-5 mt-4" id="fournisseurs-table">
                     <thead>
                         <tr>
+                            <th class="id_column" style="display:none;">ID</th>
                             <th class="etat_column">État</th>
                             <th class="fournisseur_column">Fournisseur</th>
                             <th class="ville_column">Ville</th>
                             <th class="produits_services_column" style="text-align: center; vertical-align: middle;">Produits & Services</th>
                             <th class="categorie_column" style="text-align: center; vertical-align: middle;">Catégories de Travaux</th>
-                            <th class="ouvrir_column" style="text-align: center; vertical-align: middle;">Ouvrir</th>
+                            <th class="ouvrir_column" style="text-align: center; vertical-align: middle;">Sélectionner</th>
+                            <th class="export_column" style="text-align: center; vertical-align: middle;">Ouvrir</th>
                         </tr>
                     </thead>
                     <tbody>

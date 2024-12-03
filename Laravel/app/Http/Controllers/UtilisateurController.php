@@ -45,4 +45,9 @@ class UtilisateurController extends Controller
             return view('employe.connexion');
         }
     }
+
+    public function logout(){
+        session()->flush();
+        return redirect('/');
+    }
 }

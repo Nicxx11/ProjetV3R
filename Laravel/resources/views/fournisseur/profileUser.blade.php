@@ -7,15 +7,16 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 text-left filter_box">
+            @csrf
             <div class="m-4 fixedTitle">
-                    <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>
+                <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>    
+                <a href="{{ url()->previous() }}" class="mt-5 ms-5"><button type="button">Retour</button></a>           
             </div>
         </div>
 
         <div class="col-md-9">
             <h2>Information du profil</h2>
-            <a href="{{ route('profile.modifier') }}"><button>Modifier</button></a>
-            <a href="{{ route('fournisseur.logout') }}" style="color:red;"><button type="button">Déconnexion</button></a>
+            <a href="{{ route('index.index') }}"><button>Modifier</button></a>
             <div class="row m-4">
                 <div class="col-md-4">
                     <div class="card ">
@@ -53,7 +54,7 @@
                             <p>{{$coord->NoCivique}}, {{$coord->Rue}}
                                 </br>{{$coord->Ville}} ({{$coord->Province}}) {{$coord->CodePostal}}
                                 </br></br><i class="fa-solid fa-envelope"></i> {{$fournisseur->Courriel}}
-                                </br> <!-- ICI SE TROUVE LE IF POUR LES ICONS -->
+                                </br>
                                 @if ($coord->TypeTelephone == 'Bureau')
                                     <i class="fa-solid fa-phone"></i>
                                 @elseif ($coord->TypeTelephone == 'Télécopieur')
@@ -135,7 +136,7 @@
                         <div class="card-body">
                             @if($licRbq->isNotEmpty())
                                 <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}</p>
-                            @endif
+                            
                             <div class="card">
                                 <div class="card-header">
                                     Catégories et sous-catégories autorisées
@@ -160,6 +161,7 @@
 
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="card cardInfo">
