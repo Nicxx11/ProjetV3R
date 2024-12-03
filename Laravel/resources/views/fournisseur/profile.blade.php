@@ -7,8 +7,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-3 text-left filter_box">
+            @csrf
             <div class="m-4 fixedTitle">
-                    <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>
+                    <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>                
             </div>
         </div>
 
@@ -133,7 +134,7 @@
                             Licence(s) RBQ
                         </div>
                         <div class="card-body">
-                            @if($licRbq->isNotEmpty())
+                            @if(isset($licRbq[0]))
                                 <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}</p>
                             @endif
                             <div class="card">

@@ -13,7 +13,7 @@ use App\Http\Controllers\FournisseursController;
 use App\Http\Controllers\ExportController;
 
 // Route::fallback(function () {
-//     return redirect()->to(url()->previous()); // go back to previous url if error in url/view/route
+//     return redirect()->route('index.index'); // replace 'home' with your desired route name
 // });
 
 Route::middleware([FournisseurMiddleware::class])->group(function() {
@@ -21,16 +21,13 @@ Route::middleware([FournisseurMiddleware::class])->group(function() {
     Route::get('/Fournisseurs/Profile/Supprimer/{contactId}', [FournisseursController::class, 'destroyContact'])->name('profile.supprimer');
     Route::post('/Fournisseurs/Profile/Ajouter', [FournisseursController::class, 'ajoutContact'])->name('profile.ajouter');
     Route::get('/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'edit'])->name('profile.modifier');
-    Route::post('/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'update'])->name('profile.edit');
-    //Route::get('/Fournisseurs/Profile/Delete', [FournisseursController::class, 'deleteFournisseur'])->name('profile.delete');
+    Route::post('/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'update'])->name(name: 'profile.edit');
 });
 
 Route::middleware([EmployeMiddleware::class])->group(function() {
-    Route::get('/Utilisateur/Fournisseurs/{id}', [FournisseursController::class, 'showFournisseurProfile'])->name('fournisseur.profileUser');
     Route::get('/Fournisseurs/Liste/Commis', [FournisseursController::class, 'index'])->name('fournisseurs.listcommis');
     Route::get('/export/{id}', [ExportController::class, 'export'])->name('fournisseur.export');
     Route::get('/export/{id}', [ExportController::class, 'export'])->name('fournisseur.export');
-    Route::get('/Fournisseurs/Details/{ids}', [FournisseursController::class, 'detailsFournisseurs'])->name('fournisseurs.details');
 });
 
 Route::middleware([ResponsableMiddleware::class])->group(function() {
@@ -82,6 +79,3 @@ Route::post('/upload',
 
 Route::get('Fournisseur/Logout',
 [FournisseursController::class, 'logout'])->name('fournisseur.logout');
-
-Route::get('/Utilisateur/Logout',
-[UtilisateurController::class, 'logout'])->name('utilisateur.logout');
