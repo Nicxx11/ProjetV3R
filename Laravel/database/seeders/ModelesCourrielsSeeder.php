@@ -63,6 +63,34 @@ Nous vous prions d\'agréer, Madame, Monsieur, l\'expression de nos salutations 
                 
 Cordialement,
 Ville de Trois-Rivières'
+            ],
+            [
+                'NomModele' => 'Ajout fournisseur',
+                'ObjetModele' => 'Nouveau fournisseur ajouté au bottin central',
+                'MessageModele' => 'Madame, Monsieur,
+            
+Nous avons le plaisir de vous informer qu\'un nouveau fournisseur a été ajouté avec succès au bottin central de la Ville de Trois-Rivières. Cette entreprise fait désormais partie de notre réseau de partenaires et sera disponible pour vos futures collaborations.
+            
+Si vous avez des questions ou souhaitez plus d\'informations concernant ce fournisseur, n\'hésitez pas à nous contacter.
+            
+Nous vous prions d\'agréer, Madame, Monsieur, l\'expression de nos salutations distinguées.
+            
+Cordialement,
+Ville de Trois-Rivières'
+            ],
+            [
+                "NomModele" => "Dépassement de la date de révision du fournisseur",
+  "ObjetModele" => "Le fournisseur a dépassé la date de révision",
+  "MessageModele" => "Madame, Monsieur,
+
+Nous tenons à vous informer qu'un fournisseur a dépassé la date prévue pour la révision de ses informations dans notre système. Nous vous prions de bien vouloir prendre les mesures nécessaires pour assurer une mise à jour rapide et précise de ses données.
+
+Si vous avez besoin de plus d'informations ou d'assistance pour effectuer cette révision, n'hésitez pas à nous contacter.
+
+Nous vous remercions de votre collaboration et restons disponibles pour toute question.
+
+Cordialement,
+Ville de Trois-Rivières"
             ]
          ]);
     }

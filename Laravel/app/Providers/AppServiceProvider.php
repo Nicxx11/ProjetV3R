@@ -3,22 +3,21 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\Scheduling\Schedule;
+use App\Console\Commands\expirationDelai;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
-    public function register(): void
+    public function register()
     {
-        //
+        $this->commands([
+            expirationDelai::class,
+        ]);
     }
 
-    /**
-     * Bootstrap any application services.
-     */
-    public function boot(): void
+    public function boot(Schedule $schedule)
     {
-        //
+        // Scheduling your command every minute
+        $schedule->command('fournisseur:expiration-delai')->everyMinute();
     }
 }

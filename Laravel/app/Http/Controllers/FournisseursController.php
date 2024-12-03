@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\modification_fournisseur;
+use App\Models\parametres_systeme;
 use Exception;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Licence_Rbq;
@@ -120,6 +121,9 @@ class FournisseursController extends Controller
         $categories_rbq = new Categorie_Rbq();
         $rbqs_general = $categories_rbq->getCategoriesByType('Général');
         $rbqs_specialise = $categories_rbq->getCategoriesByType('Spécialisé');
+
+        $mail = new MailController();
+        $mail->sendFournisseurEmail(parametres_systeme::all()->first()->Approvisionnement,'Ajout fournisseur');
 
         return View('login.inscription', compact('rbqs_general', 'rbqs_specialise'));
     }
@@ -429,18 +433,20 @@ class FournisseursController extends Controller
             }
         }
 
-        /*$fournisseur = Fournisseur::where('id', session('id'))->first();
+        $fournisseur = Fournisseur::where('id', session('id'))->first();
         if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
             if($fournisseur->Etat_Demande == "Acceptée"){
-                $controlleur = new MailController();
-                $controlleur->sendFournisseurEmail($request->input('courriel'), 'Confirmation acceptation');
+                //$controlleur = new MailController();
+                //$controlleur->sendFournisseurEmail($request->input('courriel'), 'Confirmation acceptation');
             }
 
             if($fournisseur->Etat_Demande == "Refusée"){
-                $controlleur = new MailController();
-                $controlleur->sendFournisseurEmail($request->input('courriel'), 'Refus demande');
+                //$controlleur = new MailController();
+                //$controlleur->sendFournisseurEmail($request->input('courriel'), 'Refus demande');
+
+                //TODO ajouter le delete des brochures
             }
-        }*/
+        }
 
         $fournisseurs->save();
         $coordonnees->save();
