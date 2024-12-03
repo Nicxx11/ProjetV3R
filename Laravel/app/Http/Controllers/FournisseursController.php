@@ -408,7 +408,9 @@ class FournisseursController extends Controller
         $fournisseurs = Fournisseur::find($currentId);
         $fournisseurs->Entreprise = $newName;
         $fournisseurs->Courriel = $newCourriel;
-        $fournisseurs->Etat_Demande = $newEtat_Demande;
+        if($newEtat_Demande){
+            $fournisseurs->Etat_Demande = $newEtat_Demande;
+        }
 
         //---Modification profil Coordonnees---//
         $coordonnees = Coordonnee::find($currentId);
@@ -458,7 +460,7 @@ class FournisseursController extends Controller
         $coordonnees->save();
 
         $fournisseur = Fournisseur::where('id', session('id'))->first();
-                // if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
+                if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
                     if($newEtat_Demande == "Acceptée"){
                         $controlleur = new MailController();
                         $controlleur->sendFournisseurEmail($request->input('courriel'), 'Confirmation acceptation');
@@ -468,7 +470,7 @@ class FournisseursController extends Controller
                         $controlleur = new MailController();
                         $controlleur->sendFournisseurEmail($request->input('courriel'), 'Refus demande', $request->raisonRefus);
                     }
-                //}
+                }
         $fournisseur = Fournisseur::where('id', session('id'))->first();
         $coord = Coordonnee::where('No_Fournisseur', session('id'))->first();
         $contactFourni = ContactFournisseur::where('No_Fournisseur', session('id'))->get();
@@ -498,25 +500,25 @@ class FournisseursController extends Controller
         $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
         $brochure = $this->getbrochureBySessionId();
 
-    if ($contact) {
-        $contact->delete();
+        if ($contact) {
+            $contact->delete();
 
-        $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
-        $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
-        $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
-        $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
-        $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
+            $fournisseur = Fournisseur::where('NEQ', session('neq'))->first();
+            $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
+            $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
+            $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
+            $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
 
-        session([
-            'fournisseur' => $fournisseur,
-            'contactFourni' => $contactFourni,
-            'service' => $service,
-            'licRbq' => $licRbq,
-            'coord' => $coord
-        ]);
+            session([
+                'fournisseur' => $fournisseur,
+                'contactFourni' => $contactFourni,
+                'service' => $service,
+                'licRbq' => $licRbq,
+                'coord' => $coord
+            ]);
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('success', 'Connexion réussi');
-    }
+            return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('success', 'Connexion réussi');
+        }
 
     return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('error', 'Contact non trouvé!');
     }
@@ -762,6 +764,40 @@ class FournisseursController extends Controller
         }
 
         return redirect()->route('index.index');
+    }
+
+    public function updateFinances(Request $request){
+        
+        $validatedData = $request->validate([
+            'No_TPS' => 'string|max:64',
+            'No_TVQ' => 'string|max:64',
+            'Conditions_Paiement' => 'string|max:4',
+            'Devise' => 'string|max:3',
+            'Mode_Communication' => 'string|max:64'
+        ],
+        [
+            'No_TPS.max' => 'Le TPS ne doit pas dépasser les 64 caractères',
+            'No_TVQ.max' => 'Le TVQ ne doit pas dépasser les 64 caractères',
+            'Conditions_Paiement.max' => 'La condition de paiement ne doit pas dépasser les 4 caractères',
+            'Devise.max' => 'La devise ne doit pas dépasser les 3 caractères',
+            'Mode_Communication.max' => 'Le mode de communication ne doit pas dépasser les 64 caractères'
+        ]);
+
+        $fournisseur = Fournisseur::where('id', $request->input('idFournisseur'))->first();       
+
+        $fournisseur->No_TPS = $validatedData['No_TPS'];
+        $fournisseur->No_TVQ = $validatedData['No_TVQ'];
+        $fournisseur->Conditions_Paiement = $validatedData['Conditions_Paiement'];
+        $fournisseur->Devise = $validatedData['Devise'];
+        $fournisseur->Mode_Communication = $validatedData['Mode_Communication'];
+
+        try{
+            $fournisseur->save();
+        } catch(Exception $e){
+            Log::info('Error while saving finances: ' . $e);
+        }
+
+        return redirect()->back()->with('messageFinances', 'Modification faite avec succès!');
     }
 
 }

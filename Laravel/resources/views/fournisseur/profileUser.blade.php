@@ -206,7 +206,7 @@
                                 <p>Numéro TPS: {{ $fournisseur->No_TPS }}</p>
                                 <p>Numéro TVQ: {{ $fournisseur->No_TVQ }}</p>
                                 <p>Condition de paiement: {{ $fournisseur->Conditions_Paiement }}</p>
-                                <p>Devis: {{ $fournisseur->Devise }}</p>
+                                <p>Devise: {{ $fournisseur->Devise }}</p>
                                 <p>Mode de communication: {{ $fournisseur->Mode_Communication }}</p>
                             </div>
                         </div>

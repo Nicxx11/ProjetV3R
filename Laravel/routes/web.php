@@ -5,6 +5,7 @@ use App\Http\Controllers\ForgottenPasswordController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\EitherFournisseurOrEmployeMiddleware;
 use App\Http\Middleware\EmployeMiddleware;
 use App\Http\Middleware\FournisseurMiddleware;
 use App\Http\Middleware\ResponsableMiddleware;
@@ -35,8 +36,13 @@ Route::middleware([EmployeMiddleware::class])->group(function() {
     Route::get('/Fournisseurs/Details/{ids}', [FournisseursController::class, 'detailsFournisseurs'])->name('fournisseurs.details');
 });
 
+Route::middleware([EitherFournisseurOrEmployeMiddleware::class])->group(function() {
+    Route::post('/Finances/Update/{id}', [FournisseursController::class, 'updateFinances'])->name('finances.upload');
+});
+
 Route::middleware([ResponsableMiddleware::class])->group(function() {
     Route::get('/Fournisseurs/Liste', [FournisseursController::class, 'index'])->name('fournisseurs.list');
+    Route::post('/upload', [FileUploadController::class, 'upload'])->name('file.upload');
 });
 
 Route::middleware([AdminMiddleware::class])->group(function() {
@@ -78,9 +84,6 @@ Route::post('/Password/Reset',
 
 Route::get('/files', 
 [FileUploadController::class, 'showFiles'])->name('files.index');
-
-Route::post('/upload', 
-[FileUploadController::class, 'upload'])->name('file.upload');
 
 Route::get('Fournisseur/Logout',
 [FournisseursController::class, 'logout'])->name('fournisseur.logout');

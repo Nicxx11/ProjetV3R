@@ -264,11 +264,53 @@
                                     Finances
                                 </div>
                                 <div class="card-body">
-                                    <p>Numéro TPS: {{ $fournisseur->No_TPS }}</p>
-                                    <p>Numéro TVQ: {{ $fournisseur->No_TVQ }}</p>
-                                    <p>Condition de paiement: {{ $fournisseur->Conditions_Paiement }}</p>
-                                    <p>Devis: {{ $fournisseur->Devise }}</p>
-                                    <p>Mode de communication: {{ $fournisseur->Mode_Communication }}</p>
+                                    <form action="{{ route('finances.upload', ['id' => hash('sha1', $fournisseur->id)]) }}" method="POST">
+                                    @csrf
+                                    
+                                    <input type="hidden" value="{{$fournisseur->id}}" name="idFournisseur">
+                                        <p>Numéro TPS: <input type="text" name="No_TPS" value="{{$fournisseur->No_TPS}}"></p>
+                                        @error('No_TPS')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+                                        <p>Numéro TVQ: <input type="text" name="No_TVQ" value="{{$fournisseur->No_TVQ}}"></p>
+                                        @error('No_TVQ')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+                                        <p>Condition de paiement: <select name="Conditions_Paiement" value="{{$fournisseur->Conditions_Paiement}}">
+                                            <option value="Z001">Z001 - payable immédiatement sans déduction</option>
+                                            <option value="Z115">Z115 - payable immédiatement sans déduction, Date de base au 15 du mois suivant</option>
+                                            <option value="Z152">Z152 - dans les 15 jours 2% escpte, dans les 30 jours sans déduction</option>
+                                            <option value="Z153">Z153 - après entrée facture jusqu'au 15 du mois, jusqu'au 15 du mois suivant es...</option>
+                                            <option value="Z210">Z210 - dans les 10 jours 2% escpte, dans les 30 jours sans déduction</option>
+                                            <option value="ZT15">ZT15 - dans les 15 jours sans déduction</option>
+                                            <option value="ZT30">ZT30 - dans les 30 jours sans déduction</option>
+                                            <option value="ZT45">ZT45 - dans les 45 jours sans déduction</option>
+                                            <option value="ZT60">ZT60 - dans les 60 jours sans déduction</option>
+                                        </select></p>
+                                        @error('Conditions_Paiement')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+                                        <p>Devise: <select name="Devise" value="{{$fournisseur->Devise}}">
+                                            <option value="CAD">CAD - Dollar canadien</option>
+                                            <option value="USD">USD - Dollar des États-Unis</option>
+                                        </select></p>
+                                        @error('Devise')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+                                        <p>Mode de communication: <select name="Mode_Communication" value="{{$fournisseur->Mode_Communication}}">
+                                            <option>Courriel</option>
+                                            <option>Courrier régulier</option>
+                                        </select></p>
+                                        @error('Mode_Communication')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+                                        <button>Soumettre</button>
+                                        @if(session('messageFinances'))
+                                        <div class="alert" style="color:green;">
+                                            {{ session('messageFinances') }}
+                                        </div>
+                                    @endif
+                                    </form>
                                 </div>
                             </div>
                         @endif
