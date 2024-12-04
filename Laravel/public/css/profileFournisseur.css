@@ -42,3 +42,8 @@ input[type="number"] {
   #ajoutContact {
     display: none;
 }
+
+select{
+    box-sizing: border-box;
+    width: 100%;
+}

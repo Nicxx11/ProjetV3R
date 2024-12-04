@@ -16,7 +16,7 @@ class FournisseursSeeder extends Seeder
     {
         DB::table('fournisseurs')->insert([
             [
-                'NEQ' => '1141037813',
+                'NEQ' => null,
                 'Courriel' => 'administration@walmart.ca',
                 'Entreprise' => 'Walmart',
                 'MotDePasse' => hash('sha1', 'MotDePasse1$'),

@@ -9,7 +9,7 @@
         <div class="col-md-3 text-left filter_box">
             <div class="m-4 fixedTitle">
                 <h5>Modification de {{ $fournisseur->Entreprise }}</h5>
-                <a href="/Fournisseurs/Profile/Delete/{{ hash('sha1', $fournisseur->id)}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre dossier ?');">Supprimer le dossier</a>
+                <a href="/Fournisseurs/Profile/Delete/{{ hash('sha1', $fournisseur->id)}}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre dossier ?');"><button type="button">Supprimer le dossier</button></a>
             </div>
         </div>
 
@@ -111,8 +111,11 @@
                                             <input type="hidden" name="contactId[]" value="{{ $contact->id }}">
                                             <p>Prenom: <input type="text" name="contactPrenom[{{ $contact->id }}]"
                                                     value="{{ $contact->Prenom }}">
+                                            </p>
+                                            <p>
                                                 Nom: <input type="text" name="contactNom[{{ $contact->id }}]"
-                                                    value="{{ $contact->Nom }}"></p>
+                                                    value="{{ $contact->Nom }}">
+                                            </p>
                                             <p>Fonction: <input type="text" name="contactFonction[{{ $contact->id }}]"
                                                     value="{{ $contact->Fonction }}"></p>
                                             <p><i class="fa-solid fa-envelope"></i> <input type="email"
@@ -211,32 +214,69 @@
                                 Licence(s) RBQ
                             </div>
                             <div class="card-body">
-                                @if(isset($licRbq[0]))
-                                    <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}
+                                
+                                @if(isset($licRbq))
+                                    @foreach($licRbq as $lic)
+                                        <p>{{$lic->No_Licence_RBQ}} {{ $lic->TypeLicence }} {{ $lic->Statut }} <a href="{{ route('rbq.delete', ['id' => hash('sha1',$lic->id)]) }}"><button type="button">Supprimer</button></a></p>
+                                    @endforeach
                                 @endif
-                                </p>
+                                @if(session('messageRBQ'))
+                                    <div class="alert" style="color:green;">
+                                        {{ session('messageRBQ') }}
+                                    </div>
+                                @endif
                                 <div class="card">
                                     <div class="card-header">
                                         Catégories et sous-catégories autorisées
                                     </div>
                                     <div class="card-body">
-                                        @if ($licRbq->contains('Categorie', 'Général'))
-                                            <h3>CATÉGORIE ENTREPRENEUR GÉNÉRAL</h3>
-                                        @endif
-                                        @foreach ($licRbq as $lic)
-                                            @if ($lic->Categorie == "Général")
-                                                <p>{{ $lic->Code_Sous_Categorie }} {{ $lic->Travaux_Permis }}</p>
-                                            @endif
-                                        @endforeach
-                                        @if ($licRbq->contains('Categorie', 'Spécialisé'))
-                                            <h3>CATÉGORIE ENTREPRENEUR SPÉCIALISÉ</h3>
-                                        @endif
-                                        @foreach ($licRbq as $lic)
-                                            @if ($lic->Categorie == "Spécialisé")
-                                                {{ $lic->Code_Sous_Categorie }} {{ $lic->Travaux_Permis }}</br>
-                                            @endif
-                                        @endforeach
+                                    <form action="{{ route('rbq.add') }}" method="POST">
+                                    @csrf
+                                        
+                                    
+                                        <input type="hidden" value="{{$fournisseur->id}}" name="idFournisseur">
+                                        <p>Numéro de licence: <input type="text" name="No_Licence_RBQ"></p>
+                                        @error('No_Licence_RBQ')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
 
+                                        <p>Statut de la licence: <select name="Statut">
+                                            <option>Valide</option>
+                                            <option>Valide avec restriction</option>
+                                            <option>Non valide</option>
+                                        </select></p>
+                                        @error('Statut')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+
+                                        <p>Type de licence: <select name="TypeLicence">
+                                            <option>Entrepreneur</option>
+                                            <option>Contructeur-Propriétaire</option>
+                                        </select></p>
+                                        @error('TypeLicence')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+
+                                        <p>Categorie de licence: <select name="Categorie">
+                                            <option>Général</option>
+                                            <option>Spécialisé</option>
+                                        </select></p>
+                                        @error('Categorie')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+
+                                        <p>Travaux Permis: <select name="Travaux_Permis">
+                                            @foreach($categoriesRbqs as $cat)
+                                                <option>{{$cat->Code_Sous_Categorie}}</option>
+                                            @endforeach
+                                        </select></p>
+                                        @error('Travaux_Permis')
+                                            <p class="erreur">{{ $message }}</p>
+                                        @enderror
+                                        
+                                        <button>Ajouter</button>
+                                        
+                                    </form>
                                     </div>
                                 </div>
                             </div>
@@ -264,7 +304,7 @@
                                     Finances
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('finances.upload', ['id' => hash('sha1', $fournisseur->id)]) }}" method="POST">
+                                    <form action="{{ route('finances.upload') }}" method="POST">
                                     @csrf
                                     
                                     <input type="hidden" value="{{$fournisseur->id}}" name="idFournisseur">
@@ -309,7 +349,7 @@
                                         <div class="alert" style="color:green;">
                                             {{ session('messageFinances') }}
                                         </div>
-                                    @endif
+                                        @endif
                                     </form>
                                 </div>
                             </div>

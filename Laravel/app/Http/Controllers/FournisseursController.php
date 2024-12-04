@@ -348,9 +348,9 @@ class FournisseursController extends Controller
         $service = session('service');
         $licRbq = session('licRbq');
         $coord = session('coord');
+        $categoriesRbqs = Categorie_Rbq::all();
 
-
-        return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
+        return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs'));
     }
 
     public function editId($id){
@@ -359,22 +359,26 @@ class FournisseursController extends Controller
         $matchingId = $ids->first(function ($id2) use ($id) {
             return hash('sha1', $id2) === $id;  // Compare SHA1 hash of the ID
         });
+        
+        
+
 
         $id = $matchingId;
         $fournisseur = Fournisseur::where('id', $id)->first();
-        Log::info($fournisseur);
         $contactFourni = ContactFournisseur::where('No_Fournisseur', $id)->get();
         $service = Service::where('No_Fournisseur', $id)->get();
         $licRbq = Licence_Rbq::where('No_Fournisseur', $id)->get();
         $coord = Coordonnee::where('No_Fournisseur', $id)->first();
+        $categoriesRbqs = Categorie_Rbq::all();
 
+        
         if($fournisseur->NEQ){
             $neq = $fournisseur->NEQ;
 
-            return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
+            return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs'));
         }
         else{
-            return view('fournisseur.editProfile', compact('id', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord'));
+            return view('fournisseur.editProfile', compact('id', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs'));
         }
         
 
@@ -471,9 +475,9 @@ class FournisseursController extends Controller
                         $controlleur->sendFournisseurEmail($request->input('courriel'), 'Refus demande', $request->raisonRefus);
                     }
                 }
-        $fournisseur = Fournisseur::where('id', session('id'))->first();
-        $coord = Coordonnee::where('No_Fournisseur', session('id'))->first();
-        $contactFourni = ContactFournisseur::where('No_Fournisseur', session('id'))->get();
+        $fournisseur = Fournisseur::where('id', $currentId)->first();
+        $coord = Coordonnee::where('No_Fournisseur', $currentId)->first();
+        $contactFourni = ContactFournisseur::where('No_Fournisseur', $currentId)->get();
 
         session([
             'id' => $fournisseur->id,
@@ -486,7 +490,13 @@ class FournisseursController extends Controller
 
         $brochure = $this->getbrochureBySessionId();
 
-        return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('success', 'Connexion réussi');
+        if(session('Role') == 'Responsable' || session('Role') == 'Administrateur'){
+            Log::info('ORIGINAL ID 1 : ' . $currentId);
+            $hashedId = hash('sha1', $currentId);
+            return redirect()->route('fournisseur.profileUser', ['id' => $hashedId]);
+        } else {
+            return view('fournisseur.profile', compact('fournisseur', 'contactFourni', 'service', 'licRbq', 'coord','brochure'))->with('success', 'Connexion réussi');
+        }
 
     }
 
@@ -799,5 +809,4 @@ class FournisseursController extends Controller
 
         return redirect()->back()->with('messageFinances', 'Modification faite avec succès!');
     }
-
 }

@@ -10,7 +10,9 @@
             @csrf
             <div class="m-4 fixedTitle">
                 <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>    
-                <a href="{{ url()->previous() }}" class="mt-5 ms-5"><button type="button">Retour</button></a>           
+                
+                    <a @if(session('Role') == 'Commis')href="{{ route('fournisseurs.listcommis') }}" @else href="{{ route('fournisseurs.list') }}" @endif class="mt-5 ms-5"><button type="button">Retour</button></a>           
+                
             </div>
         </div>
 
@@ -136,8 +138,11 @@
                             Licence(s) RBQ
                         </div>
                         <div class="card-body">
-                            @if($licRbq->isNotEmpty())
-                                <p>{{$licRbq[0]->No_Licence_RBQ}} {{ $licRbq[0]->TypeLicence }} {{ $licRbq[0]->Statut }}</p>
+                            @if(isset($licRbq))
+                                @foreach($licRbq as $lic)
+                                    <p>{{ $lic->TypeLicence }} {{ $lic->Statut }}</p>
+                                @endforeach
+                            @endif
                             
                             <div class="card">
                                 <div class="card-header">
@@ -163,7 +168,6 @@
 
                                 </div>
                             </div>
-                            @endif
                         </div>
                     </div>
                     <div class="card cardInfo">
