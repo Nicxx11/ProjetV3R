@@ -189,7 +189,7 @@
                             <div class="card-header">
                                 Produits et services offerts
                             </div>
-                            <a class="m-3" href="{{ route('service.add') }}"><button type="button">Ajouter un service</button></a>
+                            <a class="m-3" href="/Service/Add/{{$fournisseur->id}}"><button type="button">Ajouter un service</button></a>
                             @if(session('messageDetails'))
                                 <p class="alert">
                                     {{ session('messageDetails') }}

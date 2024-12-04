@@ -42,7 +42,7 @@ Route::middleware([EitherFournisseurOrEmployeMiddleware::class])->group(function
     Route::post('/Finances/Update', [FournisseursController::class, 'updateFinances'])->name('finances.upload');
     Route::post('/RBQ/Add', [LicencesRBQController::class, 'addRBQ'])->name('rbq.add');
     Route::get('/RBQ/Delete/{id}', [LicencesRBQController::class, 'deleteRBQ'])->name('rbq.delete');
-    Route::get('/Service/Add', [ServicesController::class, 'addService'])->name('service.add');
+    Route::get('/Service/Add/{id}', [ServicesController::class, 'addService'])->name('service.add');
     Route::post('/Service/Store', [ServicesController::class, 'storeService'])->name('service.store');  
     Route::get('/Service/Delete/{id}', [ServicesController::class, 'deleteService'])->name('service.delete');
     Route::post('/Details/Update', [FournisseursController::class, 'updateDetails'])->name('details.update');

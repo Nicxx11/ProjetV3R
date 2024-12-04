@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\File;
 
 class ServicesController extends Controller
 {
-    public function addService(){
+    public function addService($id){
         $jsonFilePath = public_path('json/UNSPSC.json');
 
         if (File::exists($jsonFilePath)) {
@@ -24,7 +24,7 @@ class ServicesController extends Controller
             $data = json_decode($jsonFile, true);
     
             // Send data to the view
-            return view('fournisseur.ajouterService', compact('data'));
+            return view('fournisseur.ajouterService', compact('data', 'id'));
         } else {
             // Handle the case where the file does not exist
             return view('fournisseur.ajouterService')->withErrors(['msg' => 'File not found']);
@@ -78,7 +78,7 @@ class ServicesController extends Controller
             // Filter the data based on the search query (if provided)
             if ($search) {
                 $data = array_filter($data, function($item) use ($search) {
-                    return stripos($item['Nature du contrat'], $search) !== false || 
+                    return stripos($item['Code UNSPSC'], $search) !== false || 
                         stripos($item['Description du code UNSPSC'], $search) !== false;
                 });
             }
@@ -87,7 +87,7 @@ class ServicesController extends Controller
             $results = array_map(function($item) {
                 return [
                     'id' => $item['Code UNSPSC'],
-                    'text' => $item['Nature du contrat'] . ' - ' . $item['Description du code UNSPSC']
+                    'text' => $item['Code UNSPSC'] . ' - ' . $item['Description du code UNSPSC']
                 ];
             }, array_slice($data, 0, 20));  // Limit to 20 items for each AJAX request
 
@@ -95,6 +95,36 @@ class ServicesController extends Controller
         }
 
         return response()->json(['results' => []]);
+    }
+
+    public function storeService(Request $request)
+    {
+        // Load the JSON data
+        $jsonFilePath = public_path('json/UNSPSC.json');
+        if (!File::exists($jsonFilePath)) {
+            return redirect()->back()->withErrors('JSON data file not found.');
+        }
+
+        $jsonFile = File::get($jsonFilePath);
+        $jsonData = json_decode($jsonFile, true);
+
+        foreach ($request->services as $serviceCode) {
+            $serviceData = collect($jsonData)->firstWhere('Code UNSPSC', $serviceCode);
+
+            if ($serviceData) {
+                // Create a new record in the database for each service
+                Service::create([
+                    'Nature' => $serviceData['Nature du contrat'],
+                    'Code_Categorie' => $serviceData['Code de catégorie'],
+                    'Categorie' => $serviceData['Description du code UNSPSC'],
+                    'UNSPSC' => $serviceData['Code UNSPSC'],
+                    'Description' => $serviceData['Description détaillée du code UNSPSC'],
+                    'No_Fournisseur' => $request->input('idFournisseur') 
+                ]);
+            }
+        }
+
+        return redirect()->route('index.index')->with('success', 'Services successfully stored.');
     }
 
 }
