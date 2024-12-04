@@ -15,7 +15,7 @@ class EitherFournisseurOrEmployeMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!session('id') && (session('Role') == '' || session('Role') == null)){
+        if(!session('id') && (session('Role') == '' || session('Role') == null || session('Role') == 'Commis')){
             return redirect()->route('index.index');
         }
 

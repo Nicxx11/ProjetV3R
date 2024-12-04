@@ -6,6 +6,7 @@ use App\Models\Categorie_Rbq;
 use App\Models\ContactFournisseur;
 use App\Models\Coordonnee;
 use App\Models\Fournisseur;
+use App\Models\Licence_Rbq;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Log;
@@ -45,7 +46,6 @@ class ServicesController extends Controller
                 return redirect()->route('fournisseur.editProfileUser', ['id' => $hashedId])->with('messageService', 'Suppression du service réussie!');
             } else {
                 $fournisseur = Fournisseur::find($idFournisseur);
-                Log::info($fournisseur);
                 $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
                 $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
                 $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
@@ -124,6 +124,16 @@ class ServicesController extends Controller
             }
         }
 
+        $fournisseur = Fournisseur::where('id', $request->input('idFournisseur'))->first();
+        session(['id' , $request->input('idFournisseur')]);
+        session()->put('neq', $fournisseur->neq);
+        session(['fournisseur', $fournisseur]);
+        session(['contactFournis', ContactFournisseur::where('No_Fournisseur', $request->input('idFournisseur'))->get()]);
+        session(['service', Service::where('No_Fournisseur', $request->input('idFournisseur'))->get()]);
+        session(['coord', Coordonnee::where('No_Fournisseur', $request->input('idFournisseur'))->first()]);
+        session(['licRbq', Licence_Rbq::where('No_Fournisseur', $request->input('idFournisseur'))->get()]);
+
+        // if(session('Role') != '' && session('Rose') != null &&)
         return redirect()->route('index.index')->with('success', 'Services successfully stored.');
     }
 
