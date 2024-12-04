@@ -809,4 +809,51 @@ class FournisseursController extends Controller
 
         return redirect()->back()->with('messageFinances', 'Modification faite avec succès!');
     }
+
+    public function updateDetails(Request $request){
+        
+        $validatedData = $request->validate([
+            'Details' => 'string|max:500'
+        ],  [
+            'Details.max' => 'Les détails ne doivent pas dépasser les 500 caractères'
+        ]);
+
+        $fournisseur = Fournisseur::find($request->idFournisseur);
+
+        try{
+            $fournisseur->Details = $validatedData['Details'];
+            $fournisseur->save();
+            
+            if(session('Role') == 'Responsable' || session('Role') == 'Administrateur'){
+                $hashedId = hash('sha1', $fournisseur->id);
+                return redirect()->route('fournisseur.editProfileUser', ['id' => $hashedId])->with('messageDetails', 'Détails mis à jour avec succès!');
+            } else {
+                Log::info('IN');
+                $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
+                $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
+                $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
+                $licRbq = Licence_Rbq::where('No_Fournisseur', $fournisseur->id)->get();
+                $id = $fournisseur->id;
+                $new = $fournisseur->neq;
+                $categoriesRbqs = Categorie_Rbq::all();
+                $messageDetails = 'Détails mis à jour avec succès!';
+                  
+                if($fournisseur->NEQ){
+                    $neq = $fournisseur->NEQ;
+        
+                    return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs', 'messageDetails'));
+                }
+                else{
+                    return view('fournisseur.editProfile', compact('id', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs', 'messageDetails'));
+                }
+            }
+
+        } catch (Exception $e){
+            Log::info('Error while saving finances: ' . $e);
+            return redirect()->back()->with('messageDetails', 'Erreur lors de la mise à jour des détails.');
+        }
+
+        
+
+    }
 }

@@ -70,12 +70,15 @@ class LicencesRBQController extends Controller
             $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
             $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
             $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
-            $categoriesRbqs = Categorie_Rbq::all();
-            $id = $fournisseur->id;
-            $neq = $fournisseur->neq;
+            session(['id' , $fournisseur->id]);
+            session(['neq' , $fournisseur->neq]);
+            session(['fournisseur', $fournisseur]);
+            session(['contactFournis', $contactFourni]);
+            session(['service', $service]);
+            session(['coord', $coord]);
+            session(['messageRbq', 'Ajout de la licence réussie!']);
 
-            $licRbq = session('licRbq');
-            return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs'));
+            return redirect()->route('profile.modifier');
         }
     }
 
@@ -97,12 +100,14 @@ class LicencesRBQController extends Controller
                 $contactFourni = ContactFournisseur::where('No_Fournisseur', $fournisseur->id)->get();
                 $service = Service::where('No_Fournisseur', $fournisseur->id)->get();
                 $coord = Coordonnee::where('No_Fournisseur', $fournisseur->id)->first();
-                $categoriesRbqs = Categorie_Rbq::all();
-                $id = $fournisseur->id;
-                $neq = $fournisseur->neq;
-                $licRbq = session('licRbq');
+                session(['id' , $fournisseur->id]);
+                session(['neq' , $fournisseur->neq]);
+                session(['fournisseur', $fournisseur]);
+                session(['contactFournis', $contactFourni]);
+                session(['service', $service]);
+                session(['coord', $coord]);
                 
-                return view('fournisseur.editProfile', compact('id', 'neq', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs'))->with('messageRbq', 'Suppression de la licence réussie!');
+                return redirect()->route('profile.modifier');
             }
         }
         

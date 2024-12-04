@@ -9,7 +9,6 @@
         <div class="col-md-3 text-left filter_box">
             @csrf
             <div class="m-4 fixedTitle">
-                <h5>Bienvenue {{ $fournisseur->Entreprise }}</h5>    
                 
                     <a @if(session('Role') == 'Commis')href="{{ route('fournisseurs.listcommis') }}" @else href="{{ route('fournisseurs.list') }}" @endif class="mt-5 ms-5"><button type="button">Retour</button></a>           
                 

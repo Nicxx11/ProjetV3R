@@ -4,6 +4,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ForgottenPasswordController;
 use App\Http\Controllers\LicencesRBQController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Middleware\EitherFournisseurOrEmployeMiddleware;
@@ -41,6 +42,9 @@ Route::middleware([EitherFournisseurOrEmployeMiddleware::class])->group(function
     Route::post('/Finances/Update', [FournisseursController::class, 'updateFinances'])->name('finances.upload');
     Route::post('/RBQ/Add', [LicencesRBQController::class, 'addRBQ'])->name('rbq.add');
     Route::get('/RBQ/Delete/{id}', [LicencesRBQController::class, 'deleteRBQ'])->name('rbq.delete');
+    Route::post('/Service/Add', [ServicesController::class, 'addService'])->name('service.add');
+    Route::get('/Service/Delete/{id}', [ServicesController::class, 'deleteService'])->name('service.delete');
+    Route::post('/Details/Update', [FournisseursController::class, 'updateDetails'])->name('details.update');
 });
 
 Route::middleware([ResponsableMiddleware::class])->group(function() {

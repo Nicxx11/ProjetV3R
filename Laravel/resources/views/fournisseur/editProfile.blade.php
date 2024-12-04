@@ -189,6 +189,11 @@
                             <div class="card-header">
                                 Produits et services offerts
                             </div>
+                            @if(session('messageDetails'))
+                                <p class="alert">
+                                    {{ session('messageDetails') }}
+                                </p>
+                            @endif
                             <div class="card-body">
                                 <h3>Approvisionnements</h3>
 
@@ -196,16 +201,21 @@
                                     <h3>{{ $codeCategorie }} - {{ $services->first()->Categorie }}</h3>
 
                                     @foreach ($services as $ser)
-                                        <p>{{ $ser->UNSPSC }} - {{ $ser->Description }}</p>
+                                        <p>{{ $ser->UNSPSC }} - {{ $ser->Description }} <a href="{{ route('service.delete', ['id' => hash('sha1',$ser->id)]) }}"><button type="button">Supprimer</button></a></p>
                                     @endforeach
                                 @endforeach
                                 <div class="card mt-3">
                                     <div class="card-header">
                                         Details et spécifications
                                     </div>
+                                    <form action="{{ route('details.update') }}" method="POST">
+                                    @csrf
                                     <div class="card-body">
-                                        <p>Details: {{ $fournisseur->Details }}</p>
+                                        <input type="hidden" name="idFournisseur" value="{{$fournisseur->id}}">
+                                        <p>Details: <textarea type="text" name="Details">{{ $fournisseur->Details }}</textarea></p>
+                                        <button onclick="">Mettre à Jour les détails</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +231,7 @@
                                     @endforeach
                                 @endif
                                 @if(session('messageRBQ'))
-                                    <div class="alert" style="color:green;">
+                                    <div class="alert">
                                         {{ session('messageRBQ') }}
                                     </div>
                                 @endif
@@ -346,7 +356,7 @@
                                         @enderror
                                         <button>Soumettre</button>
                                         @if(session('messageFinances'))
-                                        <div class="alert" style="color:green;">
+                                        <div class="alert">
                                             {{ session('messageFinances') }}
                                         </div>
                                         @endif
