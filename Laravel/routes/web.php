@@ -26,6 +26,7 @@ Route::middleware([FournisseurMiddleware::class])->group(function() {
     Route::get('/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'edit'])->name('profile.modifier');
     Route::post('/Fournisseurs/Profile/Modifier', [FournisseursController::class, 'update'])->name('profile.edit');
     Route::get('/Fournisseurs/Profile/Delete/{id}', [FournisseursController::class, 'deleteFournisseur'])->name('profile.delete');
+
 });
 
 Route::middleware([EmployeMiddleware::class])->group(function() {
@@ -47,11 +48,11 @@ Route::middleware([EitherFournisseurOrEmployeMiddleware::class])->group(function
     Route::get('/Service/Delete/{id}', [ServicesController::class, 'deleteService'])->name('service.delete');
     Route::post('/Details/Update', [FournisseursController::class, 'updateDetails'])->name('details.update');
     Route::get('/fetch-services', [ServicesController::class, 'fetchServices'])->name('service.fetchServices');
+    Route::post('/upload', [FileUploadController::class, 'upload'])->name('file.upload');
 });
 
 Route::middleware([ResponsableMiddleware::class])->group(function() {
     Route::get('/Fournisseurs/Liste', [FournisseursController::class, 'index'])->name('fournisseurs.list');
-    Route::post('/upload', [FileUploadController::class, 'upload'])->name('file.upload');
 });
 
 Route::middleware([AdminMiddleware::class])->group(function() {

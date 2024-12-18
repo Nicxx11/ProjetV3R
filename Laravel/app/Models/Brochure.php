@@ -9,6 +9,8 @@ class Brochure extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'Nom','NomUnique', 'TypeFichier', 'Taille', 'DateCreation', 'No_Fournisseur', 'Contenu',
     ];
