@@ -463,7 +463,7 @@ class FournisseursController extends Controller
         $fournisseurs->save();
         $coordonnees->save();
 
-        $fournisseur = Fournisseur::where('id', session('id'))->first();
+        $fournisseur = Fournisseur::where('id', $request->input('idFournisseur'))->first();
                 if($fournisseur->Etat_Demande != $request->input('Etat_Demande')){
                     if($newEtat_Demande == "Acceptée"){
                         $controlleur = new MailController();

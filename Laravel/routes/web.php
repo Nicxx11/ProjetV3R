@@ -55,7 +55,10 @@ Route::middleware([ResponsableMiddleware::class])->group(function() {
 });
 
 Route::middleware([AdminMiddleware::class])->group(function() {
-    //
+    Route::get('/Admin/Utilisateurs', [UtilisateurController::class, 'listUtilisateurs'])->name('administrateur.utilisateurs');
+    Route::post('/Admin/Utilisateurs', [UtilisateurController::class,'updateUtilisateurs'])->name('utilisateurs.updateRoles');
+    Route::post('/Admin/Utilisateurs/Ajouter', [UtilisateurController::class,'store'])->name('utilisateurs.store');
+    Route::post('/Admin/Utilisateurs/Supprimer/{id}', [UtilisateurController::class,'destroy'])->name('utilisateurs.destroy');
 });
 
 Route::get('/',

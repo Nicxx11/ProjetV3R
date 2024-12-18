@@ -191,6 +191,7 @@
                     <a href="/Utilisateur/Logout"><button style="background-color:red; color:white; border-radius:5px;">Déconnexion</button></a>
                 </div>
                 <div class="col d-flex justify-content-end align-items-center">
+                    <a href="/Admin/Utilisateurs"><button style=" border-radius:5px;">Liste des employés</button></a>
                     <button style=" border-radius:5px;" id="openDetailsFournisseurs">Liste des fournisseurs sélectionnés</button>
                 </div>
             </div>
