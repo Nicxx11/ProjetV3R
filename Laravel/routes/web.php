@@ -4,6 +4,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\ForgottenPasswordController;
 use App\Http\Controllers\LicencesRBQController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ParametresSystemeController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UtilisateurController;
 use App\Http\Middleware\AdminMiddleware;
@@ -59,6 +60,7 @@ Route::middleware([AdminMiddleware::class])->group(function() {
     Route::post('/Admin/Utilisateurs', [UtilisateurController::class,'updateUtilisateurs'])->name('utilisateurs.updateRoles');
     Route::post('/Admin/Utilisateurs/Ajouter', [UtilisateurController::class,'store'])->name('utilisateurs.store');
     Route::get('/Admin/Utilisateurs/Supprimer/{id}', [UtilisateurController::class,'destroy'])->name('utilisateurs.destroy');
+    Route::get('/Admin/Gestion' [ParametresSystemeController::class, 'index'])->name('administrateur.parametres');
 });
 
 Route::get('/',
