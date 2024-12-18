@@ -10,11 +10,13 @@ class FileUploadController extends Controller
 {
     public function upload(Request $request)
     {
+        Log::info("Licorne");
         $request->validate([
-            'brochure' => 'required|file|mimes:jpg,png,pdf,docx|max:250', // La taille max est maintenant 250 KB
+            'brochure' => 'required|file|mimes:jpg,png,pdf,docx|max:250000', // La taille max est maintenant 250 KB
         ]);
 
             $brochure = $request->file('brochure');  // Remplacer 'file' par 'Brochure'
+            Log::info("Licorne2");
     
             // Générer un nom unique pour le fichier
             $uniqueFileName = session('id') . '-' . uniqid() . '.' . $brochure->getClientOriginalExtension();

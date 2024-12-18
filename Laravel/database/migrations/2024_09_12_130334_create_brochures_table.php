@@ -20,8 +20,9 @@ return new class extends Migration
             $table->date('DateCreation');  // Date de création
             $table->integer('No_Fournisseur');  // ID du fournisseur
             $table->foreign('No_Fournisseur')->references('id')->on('fournisseurs');
-            $table->binary('Contenu');  // Contenu du fichier sous forme binaire
+            $table->binary('Contenu'); // 16 Mo (taille maximale pour un longblob)
         });
+        DB::statement('ALTER TABLE brochures MODIFY Contenu LONGBLOB');
     }
 
     /**

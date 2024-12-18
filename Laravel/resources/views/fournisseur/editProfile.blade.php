@@ -302,6 +302,9 @@
                                 <div class="form-group">
                                     <label for="brochure">Choisir un fichier :</label>
                                     <input type="file" name="brochure" id="brochure" class="form-control">
+                                    @error('brochure')
+                                        <p class="erreur">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <button type="submit" class="btn btn-primary">Envoyer</button>
                             </form>
