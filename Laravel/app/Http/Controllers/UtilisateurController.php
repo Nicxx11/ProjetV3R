@@ -42,7 +42,7 @@ class UtilisateurController extends Controller
             }
         } else {
             Log::info('fail');
-            return view('employe.connexion');
+            return view('employe.connexion')->with('error', 'courriel ou mot de passe erroné');
         }
     }
 
@@ -101,8 +101,6 @@ class UtilisateurController extends Controller
             'MotDePasse.regex' => 'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un symbole.',
         ]);
 
-        $utilisateur['MotDePasse'] = hash('sha1', $utilisateur['MotDePasse']);
-
         $result = Utilisateur::create($utilisateur);
 
         if($result) {
@@ -119,7 +117,7 @@ class UtilisateurController extends Controller
         if(session('id') == $utilisateur->id) {
             $utilisateur->delete();
             session()->flush();
-            return view('/')->with('success', 'Utilisateur supprimé avec succès');
+            return redirect('/')->with('success', 'Utilisateur supprimé avec succès');
         } else {
             $utilisateur->delete();
             return redirect()->back()->with('success', 'Utilisateur supprimé avec succès');

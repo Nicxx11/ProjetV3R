@@ -10,6 +10,7 @@
 @elseif(session('error'))
     <div class="alert alert-danger">{{ session('error') }}</div>
 @endif
+<a href="{{ route('utilisateurs.showLogin') }}" class="mt-5 ms-5"><button type="button">Retour</button></a>
 
 <!-- Form to update user roles -->
 <form action="{{ route('utilisateurs.updateRoles') }}" method="POST">
@@ -32,11 +33,7 @@
                         </select>
                     </td>
                     <td>
-                        <!-- Delete Button Form -->
-                        <form action="{{ route('utilisateurs.destroy', $user->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</button>
-                        </form>
+                        <a href="{{ route('utilisateurs.destroy', $user->id )}}"><button type="button" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</button></a>
                     </td>
                 </tr>
             @endforeach
