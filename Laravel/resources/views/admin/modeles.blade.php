@@ -6,18 +6,15 @@
 
 <div class="container">
     <h2>Modifier un modèle de courriel</h2>
-    <!-- Success Message after Update -->
     @if(session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
-    <!-- Form for selecting and editing the model -->
     <form action="{{ old('modele_id', $selectedModele->id ?? null) ? route('modeles.update', ['id' => old('modele_id', $selectedModele->id)]) : '#' }}" method="POST">
         @csrf
 
-        <!-- Dropdown for selecting a model -->
         <div class="form-group">
             <label for="modeleSelect">Choisir un modèle</label>
             <select id="modeleSelect" name="modele_id" class="form-control" required>
@@ -30,7 +27,6 @@
             </select>
         </div>
 
-        <!-- Placeholder for the message input field -->
         <div id="messageModeleField">
             @if(isset($selectedModele))
                 <div class="form-group mt-3">
@@ -54,14 +50,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const modeleSelect = document.getElementById('modeleSelect');
-        const messageModeleField = document.getElementById('messageModeleField'); // Div to hold the message field
+        const messageModeleField = document.getElementById('messageModeleField'); 
 
         modeleSelect.addEventListener('change', function () {
             const selectedModeleId = modeleSelect.value;
 
             if (selectedModeleId) {
-                // If a model is selected, make the message field visible and populate it
-                fetch(`/modeles/${selectedModeleId}/message`)  // Example API endpoint to get the message
+                fetch(`/modeles/${selectedModeleId}/message`) 
                     .then(response => response.json())
                     .then(data => {
                         console.log('IN YAY')
@@ -76,7 +71,6 @@
                     })
                     .catch(error => console.error('Error fetching message:', error));
             } else {
-                // If no model is selected, hide the message field
                 messageModeleField.innerHTML = '';
             }
         });
