@@ -12,37 +12,35 @@ use Log;
 
 class ParametresSystemeController extends Controller
 {
-    public function index(){
-        $modeles = ModeleCourriel::all();
+    public function edit()
+    {
+        // Fetch the existing parameters
+        $parametres = parametres_systeme::first();
 
-        return view('admin.modeles', compact('modeles'));
-
+        // Pass parameters to the view
+        return view('admin.parametres', compact('parametres'));
     }
 
+    // Update the parameters in the database
     public function update(Request $request)
     {
-        $request->validate([
-            'message_modele' => 'required|string',
+        // Validate the input data
+        $validatedData = $request->validate([
+            'Approvisionnement' => 'required|email|max:64',
+            'DelaiRevision' => 'required|integer',
+            'TailleMaxBrochures' => 'required|integer',
+            'Finances' => 'required|email|max:64',
         ]);
 
-        $modele = ModeleCourriel::findOrFail($request->input('modele_id'));
-        $modele->MessageModele = $request->input('message_modele');
-        $modele->save();
+        // Update the parameters in the database
+        parametres_systeme::where('id', 1)->update([
+            'Approvisionnement' => $validatedData['Approvisionnement'],
+            'DelaiRevision' => $validatedData['DelaiRevision'],
+            'TailleMaxBrochures' => $validatedData['TailleMaxBrochures'],
+            'Finances' => $validatedData['Finances'],
+        ]);
 
-        return redirect()->back()->with('success', 'Modèle mis à jour avec succès!');
-    }
-
-    public function getModele($id){
-        $modele = ModeleCourriel::find($id);
-            
-        if ($modele) {
-            return response()->json([
-                'message' => $modele->MessageModele
-            ]);
-        }
-        
-        return response()->json([
-            'message' => ''
-        ], 404);
+        // Redirect back to the form with a success message
+        return redirect()->route('parametres_systemes.edit')->with('success', 'Paramètres mis à jour avec succès');
     }
 }

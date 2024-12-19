@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titre', 'Gestion des Paramètres Système')
+@section('titre', 'Gestion des Modèles de Courriel')
 
 @section('contenu')
 

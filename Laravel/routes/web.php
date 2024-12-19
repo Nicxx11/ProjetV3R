@@ -63,6 +63,8 @@ Route::middleware([AdminMiddleware::class])->group(function() {
     Route::get('/Admin/Utilisateurs/Supprimer/{id}', [UtilisateurController::class,'destroy'])->name('utilisateurs.destroy');
     Route::get('/Admin/Gestion/Modeles', [MailController::class, 'index'])->name('administrateur.modeles');
     Route::post('/Admin/Gestion/Modeles', [MailController::class, 'update'])->name('modeles.update');
+    Route::get('parametres-systemes/edit', [ParametresSystemeController::class, 'edit'])->name('parametres_systemes.edit');
+    Route::post('parametres-systemes/update', [ParametresSystemeController::class, 'update'])->name('parametres_systemes.update');
 
     Route::get('/modeles/{id}/message', [MailController::class, 'getModele']);
 });

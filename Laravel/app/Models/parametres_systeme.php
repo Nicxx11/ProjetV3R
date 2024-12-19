@@ -10,6 +10,7 @@ class parametres_systeme extends Model
     use HasFactory;
 
     protected $table = "parametres_systemes";
+    public $timestamps = false;
 
     protected $fillable = ['Approvisionnement', 'DelaiRevision', 'TailleMaxBrochures', 'Finances'];
 }
