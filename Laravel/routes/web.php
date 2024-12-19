@@ -61,7 +61,10 @@ Route::middleware([AdminMiddleware::class])->group(function() {
     Route::post('/Admin/Utilisateurs', [UtilisateurController::class,'updateUtilisateurs'])->name('utilisateurs.updateRoles');
     Route::post('/Admin/Utilisateurs/Ajouter', [UtilisateurController::class,'store'])->name('utilisateurs.store');
     Route::get('/Admin/Utilisateurs/Supprimer/{id}', [UtilisateurController::class,'destroy'])->name('utilisateurs.destroy');
-    Route::get('/Admin/Gestion' [ParametresSystemeController::class, 'index'])->name('administrateur.parametres');
+    Route::get('/Admin/Gestion/Modeles', [MailController::class, 'index'])->name('administrateur.modeles');
+    Route::post('/Admin/Gestion/Modeles', [MailController::class, 'update'])->name('modeles.update');
+
+    Route::get('/modeles/{id}/message', [MailController::class, 'getModele']);
 });
 
 Route::get('/',
