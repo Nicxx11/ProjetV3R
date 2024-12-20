@@ -207,8 +207,6 @@ class FournisseursController extends Controller
 
         // Enregistrement dans la base de données
         $fournisseur = Fournisseur::create($validatedFournisseur);
-        
-        
 
         $validatedRBQ['No_Fournisseur'] = $fournisseur->id;
         $validatedCoordonnees['No_Fournisseur'] = $fournisseur->id;
@@ -225,7 +223,6 @@ class FournisseursController extends Controller
         if($correctRBQ){
             Licence_Rbq::create($validatedRBQ);
         }
-
 
         Log::info('COORDONNEES');
         Log::info($validatedCoordonnees);
@@ -318,9 +315,6 @@ class FournisseursController extends Controller
                 return redirect()->route('index.index')->with('error', 'identifiant non valide');
             }
         }
-        
-        
-
 
     }
 
@@ -336,7 +330,6 @@ class FournisseursController extends Controller
 
         $fournisseur->MotDePasse = $hashedPassword;
         $fournisseur->save();
-       
     }
 
     public function edit()
@@ -359,9 +352,6 @@ class FournisseursController extends Controller
         $matchingId = $ids->first(function ($id2) use ($id) {
             return hash('sha1', $id2) === $id;  // Compare SHA1 hash of the ID
         });
-        
-        
-
 
         $id = $matchingId;
         $fournisseur = Fournisseur::where('id', $id)->first();
@@ -381,7 +371,6 @@ class FournisseursController extends Controller
             return view('fournisseur.editProfile', compact('id', 'fournisseur', 'contactFourni', 'service', 'licRbq', 'coord', 'categoriesRbqs'));
         }
         
-
     }
 
     public function update(Request $request)
@@ -668,24 +657,14 @@ class FournisseursController extends Controller
             return 'error3';
         }
     }
+    
     protected function getbrochureBySessionId()
     {
-        // Récupérer tous les fichiers dans le répertoire 'uploads'
-        $files = Storage::files('uploads');
-        
         // Récupérer l'ID de la session
         $sessionId = session('id');
-
-        $pattern = '/^' . preg_quote($sessionId, '/') . '-.*/';
-
-        // Filtrer les fichiers qui commencent par l'ID de la session
-        return array_filter($files, function ($file) use ($pattern) {
-            // Récupérer le nom du fichier sans le chemin
-            $fileName = basename($file);
-            
-            // Vérifier si le début du nom du fichier correspond à l'ID
-            return preg_match($pattern, $fileName);
-        });
+    
+        // Récupérer les brochures associées à cet ID
+        return \App\Models\Brochure::where('No_Fournisseur', $sessionId)->get();
     }
 
     protected function getbrochureId($id): array

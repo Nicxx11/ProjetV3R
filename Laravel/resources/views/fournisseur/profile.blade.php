@@ -181,18 +181,18 @@
                         @endif
 
                             <ul>
-                                @if ($brochure)
-                                @foreach ($brochure as $brochures)
-                                   <p>
-                                       <strong>{{ $brochure->Nom }}</strong> 
-                                       ({{ $brochure->TypeFichier }}) 
-                                       - {{ $brochure->Taille }} octets 
-                                       - Date de création: {{ $brochure->DateCreation->format('d/m/Y') }}
-                                       <a href="{{ Storage::url($brochure->Nom) }}" target="_blank">Télécharger</a>
-                                   </p>
-                                @endforeach
+                                @if ($brochure->isNotEmpty())
+                                    @foreach ($brochure as $item)
+                                        <p>
+                                            <strong>{{ $item->Nom }}</strong> 
+                                            ({{ $item->TypeFichier }}) 
+                                            - {{ $item->Taille }} octets 
+                                            - Date de création: {{ \Carbon\Carbon::parse($item->DateCreation)->format('d/m/Y') }}
+                                            <a href="{{ Storage::url($item->NomUnique) }}" target="_blank">Télécharger</a>
+                                        </p>
+                                    @endforeach
                                 @else 
-                                <p>Aucun fichier disponible</p>
+                                    <p>Aucun fichier disponible</p>
                                 @endif
                             </ul>                        
                         </div>
